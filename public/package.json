@@ -1,0 +1,21 @@
+{
+  "name": "tesis",
+  "version": "1.0.0",
+  "description": "Servidor Tesis ABB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Santiago y Daniel",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "bootstrap": "^4.6.0",
+    "bootstrap-social": "^5.1.1",
+    "express": "^4.17.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.6.0",
+    "mysql": "^2.18.1",
+    "popper.js": "^1.16.1"
+  }
+}
