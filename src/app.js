@@ -1,8 +1,13 @@
+const fs = require("fs");
+const https = require("https");
 const path = require("path");
 const express = require("express"); //llamar al express
 const app = express();
 
+const PORT = 443;
 const public = path.join(__dirname, "../public");
+const views = path.join(__dirname, "../templates/views");
+const partials = path.join(__dirname, "../templates/partials");
 
 // SetUp directory to serve
 app.use(express.static(public));
@@ -12,16 +17,31 @@ app.get("/", function (req, res) {
   res.sendFile("index.html", { root: public });
   flag_log = 0; // para que al darle salir no vuelva a entrar
 });
+
 app.get("/contact", function (req, res) {
   res.status(200);
   res.sendFile("contactus.html", { root: public });
   flag_log = 0; // para que al darle salir no vuelva a entrar
 });
+
 app.get("/login", function (req, res) {
   res.status(200);
   res.sendFile("login.html", { root: public });
   flag_log = 0; // para que al darle salir no vuelva a entrar
 });
-app.listen(3000, () => {
-  console.log("Servidor Iniciado");
-});
+
+https
+  .createServer(
+    {
+      key: fs.readFileSync(
+        "C:\\Users\\dafel\\Documents\\Tesis\\App\\CertificadosDigitales\\ClavePrivada.key"
+      ),
+      cert: fs.readFileSync(
+        "C:\\Users\\dafel\\Documents\\Tesis\\App\\CertificadosDigitales\\ClavePublica.pem"
+      ),
+    },
+    app
+  )
+  .listen(PORT, function () {
+    console.log("My HTTPS server listening on port " + PORT + "...");
+  });
