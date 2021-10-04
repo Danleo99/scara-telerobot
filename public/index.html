@@ -32,6 +32,15 @@
     />
   </head>
 
+  <style>
+
+    h1 { color: #a3c1e6;
+      font-size: 340%;
+     }
+
+  </style>
+
+
   <body>
     <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
       <div class="container">
@@ -44,7 +53,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand mr-auto" href="#">
-          <img src="img/logo.png" height="30" width="40" /> IRB 140</a
+          <img src="img/logo.png" height="30" width="auto" /> IRB 140</a
         >
         <a
           class="btn btn-dark mr-auto order-sm-last"
@@ -56,7 +65,7 @@
           <ul class="nav navbar-nav mr-auto">
             <li class="nav-item">
               <a class="nav-link" href="/contact">
-                <span class="fa fa-address-card"></span> Contact</a
+                <span class="fa fa-address-card"></span> Contacto</a
               >
             </li>
           </ul>
@@ -64,67 +73,97 @@
       </div>
     </nav>
 
+    <center> 
+
     <header class="jumbotron">
       <div class="container">
         <div class="row row-header">
+
+
           <div class="col-12 col-sm-6">
-            <h1>Control ABB IRB 140</h1>
-            <p>
-              Este software se encarga de hacer el control del robot IRB 140
-              ubicado en la Universidad EIA
-            </p>
-          </div>
-          <div class="col-12 col-sm align-self-center">
-            <img src="img/logo.png" alt="" class="img-fluid" />
-          </div>
+            <h1> <br> <br>CONTROL ABB IRB 140</h1>
+            <h6><p><br>Este software se encarga de hacer el control del robot IRB 140 ubicado en la Universidad EIA</p></h6>
+            
+        </div>
+
+        <div class="col-12 col-sm align-self-center">
+          <!--  <img src="img/abbanimado2.gif" alt="" class="img-fluid">  -->
+           
+            <img src="img/abbanimado2.gif" height="400" width="auto" /> 
+        </div>
+
+
         </div>
       </div>
     </header>
+ 
+  </center>
+
 
     <div class="container">
+        
+
       <div class="row row-content align-items-center">
-        <div class="col-12 text-center">
-          <h1>Equipo</h1>
-          <space></space>
-        </div>
-        <div class="col col-sm-6">
-          <div class="card" style="width: 20rem">
-            <img
-              class="card-img-top"
-              src="img/santiago.jpg"
-              height="350"
-              width="200"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Santiago Lopez</h5>
-              <p class="card-text">
-                Estudiante Ingenieria Mecatronica, Universidad EIA
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+          <div class="col-12 text-center">
+              <h3>Equipo</h3>
+              <hr>
+              <space></space>
           </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card card-fluid" style="width: 20rem">
-            <img
-              class="card-img-top"
-              src="./img/daniel"
-              height="350"
-              width="150"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Daniel Leon</h5>
-              <p class="card-text">
-                Estudiante Ingenieria Mecatronica, Universidad EIA
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      </div>
+          
+ 
+
+      <center>
+          <table class="default">
+
+              <tr>
+            
+                <td>
+                  <div class="col col-sm-6">
+                      <div class="card" style="width: 15rem;">
+                          <img class=" card-img-top" src="img/santiago.jpg" height="300" width="auto" alt="Card image cap">
+                          <div class="card-body">
+                              <h5 class="card-title">Santiago Lopez</h5>
+                              <p class="card-text">Estudiante Ingenieria Mecatronica, Universidad EIA</p>
+                              <form action="https://www.linkedin.com/in/andr%C3%A9s-santiago-l%C3%B3pez-echavarr%C3%ADa-6826821a1/">
+                                <input type="submit" value="Ver mas" />
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+          
+          
+                </td>
+            
+                <td>
+                                
+                  <div class="col-sm-6">
+                      <div class="card card-fluid" style="width: 15rem ;">
+                          <img class="card-img-top" src="./img/daniel" height="300" width="auto" alt="Card image cap">
+                          <div class="card-body">
+                              <h5 class="card-title">Daniel Leon</h5>
+                              <p class="card-text">Estudiante Ingenieria Mecatronica, Universidad EIA</p>
+
+                              <!--    <a href="#" class="btn btn-primary">Biografia</a>   "asi se hacia el boton antes"  -->   
+                              <form action="https://www.linkedin.com/in/daniel-leon-28b104167/">
+                                <input type="submit" value="Ver mas" />
+                              </form>
+
+                          </div>
+                      </div>
+                  </div>
+          
+          
+                </td>
+            
+              </tr>
+                                   
+            </table>
+
+      </center>
+
     </div>
+  </div>
+
 
     <footer class="footer">
       <div class="container">
@@ -141,10 +180,12 @@
             <address>
               Universidad EIA<br />
               Envigado, Antioquia<br />
-              <i class="fa fa-phone fa-lg"></i> +69 69 69<br />
+               <!-- <i class="fa fa-phone fa-lg"></i> +69 69 69<br />
               <i class="fa fa-fax fa-lg"></i> +555 555 555<br />
+              -->
               <i class="fa fa-envelope fa-lg"></i>
-              <a href="mailto:eia@food.net" class="text-light">eia@food.net</a>
+              
+              <a href="mailto:daniel.leon81@eia.edu.co" class="text-light">daniel.leon81@eia.edu.co - andres.lopez88@eia.edu.co</a>
             </address>
           </div>
           <div class="col-12 col-sm-4 align-self-center">
@@ -171,7 +212,7 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-auto">
-            <p>© Copyright 2018 Ristorante Con Fusion</p>
+            <!-- <p>© Copyright 2018 Ristorante Con Fusion</p> -->
           </div>
         </div>
       </div>
