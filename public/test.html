@@ -5,16 +5,77 @@
 <title>Pagina test</title>
 
 <style>
-    h1 { color: #441613; }
+    h1 { color: #a1d8ff; }
+    h2 { color: #ffffff; }
+    h3 { color: #ffffff ;  font-size: 10px;}
+
+    #full-screen-background-image {
+        z-index: -999;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+
   </style>
 
 <link rel="stylesheet" href="css/test.css"> <!-- agrego css, solo dice tipo de letra, no funciones, no se cierra -->
 
+
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    
+ 
+
+
 </head>
-<body onload="alert('Bienvenido')">  <!-- alerta al cargar pagina -->
+
+
+
+<body> 
+  
+
+    <!-- Barra de Arriba -->
+  <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand mr-auto" href="./index.html">
+            <img src="img/logo.png" height="30" width="40"> IRB 140</a>
+        <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="nav navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="./contactus.html">
+                        <span class="fa fa-address-card"></span> Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+ 
+
+
+  <img alt="full screen background image" src="img/mx3d.jpg" id="full-screen-background-image" /> 
 <center>
-  <img src="imagen/abb.png" alt="Robot ABB" width="200" >
-  <h1>Sistema de posicionamiento</h1>
+  
+
+  <h1>SISTEMA DE POSICIONAMIENTO ABB</h1>
 </center>
 
 
@@ -34,9 +95,10 @@
            
 
 <div class= "container">
+  
 
-  <center><p></p><input type="button" id="bactt" value="Actualizar todos"> </center>
-
+ 
+  
     <center>
         <h2>Control de coordenadas</h2>
 
@@ -93,6 +155,8 @@
             <input type="button" id="bact2" value="Actualizar Poscicion 2">
             <input type="button" id="bact3" value="Actualizar Poscicion 3">
           </tr>
+
+          <center><p></p><input type="button" id="bactt" value="Actualizar todos"> </center>
          
           
 
@@ -101,94 +165,6 @@
 
 
 
-
-  
-  <!-- Agregamos script javascript para condicionales funciones 
-    <center>
-    <h2>Control de sensores dos </h2>
-
-
-    
-  
-          <table class="egt">
-  
-              <tr>
-            
-                <th scope="row">Orden</th>
-                <th>ID_Sensor</th>
-                <th>Potencia</th>
-                <th>Temperatura</th>
-                <th>Tiempo</th>
-                <th>Tasa Fail</th>
-  
-  
-              </tr>
-            
-              <tr>
-                <th>1</th>
-                <td><p id = "2p1id"> -S2ID </p></td>
-                <td><p id = "2p1p"> -S1Pot </p></td>
-                <td><p id = "2p1temp"> -S1Temp</p></td>
-                <td><p id = "2p1tiem"> -S1Tiem</p></td>
-                <td><p id = "2p1tasa"> -S1Tasa</p></td>
-              </tr>
-            
-              <tr>
-                <th>2</th>
-                <td><p id = "2p2id"> -S2ID </p></td>
-                <td><p id = "2p2p"> -S2Pot </p></td>
-                <td><p id = "2p2temp"> -S2Temp</p></td>
-                <td><p id = "2p2tiem"> -S2Tiem</p></td>
-                <td><p id = "2p2tasa"> -S2Tasa</p></td>
-              </tr>
-            
-              <tr>
-                <th>3</th>
-                <td><p id = "2p3id"> -S2ID </p></td>
-                <td><p id = "2p3p"> -S3Pot </p></td>
-                <td><p id = "2p3temp"> -S3Temp</p></td>
-                <td><p id = "2p3tiem"> -S3Tiem</p></td>
-                <td><p id = "2p3tasa"> -S3Tasa</p></td>
-              </tr>
-  
-              <tr>
-                <th>4</th>
-                <td><p id = "2p4id"> -S2ID </p></td>
-                <td><p id = "2p4p"> -S4Pot </p></td>
-                <td><p id = "2p4temp"> -S4Temp</p></td>
-                <td><p id = "2p4tiem"> -S4Tiem</p></td>
-                <td><p id = "2p4tasa"> -S4Tasa</p></td>
-              </tr>
-  
-              <tr>
-                <th>5</th>
-                <td><p id = "2p5id"> -S2ID </p></td>
-                <td><p id = "2p5p"> -S5Pot </p></td>
-                <td><p id = "2p5temp"> -S5Temp</p></td>
-                <td><p id = "2p5tiem"> -S5Tiem</p></td>
-                <td><p id = "2p5tasa"> -S5Tasa</p></td>
-              </tr>
-            
-            </table>
-
-            <tr>
-              <p></p>
-              <input type="button" id="2bact1" value="Actualizar Fecha 1">
-              <input type="button" id="2bact2" value="Actualizar Fecha 2">
-              <input type="button" id="2bact3" value="Actualizar Fecha 3">
-              <input type="button" id="2bact4" value="Actualizar Fecha 4">
-              <input type="button" id="2bact5" value="Actualizar Fecha 4">
-     
-            </tr>
-  
-         
-           
-     </center>
-
-
-      -->
-
-  
     
 
 </div>
@@ -202,6 +178,9 @@
 <!-- Agregamos script jquery -->
 <script src="jquery/jquery.min.js"></script>
 <script src="jquery-easing/jquery.easing.min.js"></script>
+
+
+
 
 </body>
 </html>
