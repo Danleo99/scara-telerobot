@@ -22,6 +22,7 @@ app.get("/login", function (req, res) {
   res.sendFile("login.html", { root: public });
   flag_log = 0; // para que al darle salir no vuelva a entrar
 });
-app.listen(3000, () => {
-  console.log("Servidor Iniciado");
+
+app.listen(3000, '0.0.0.0', function() {
+  console.log('Listening to port:  ' + 3000);
 });
