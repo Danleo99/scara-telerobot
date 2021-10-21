@@ -38,9 +38,7 @@ https.createServer({
       ),
       cert: fs.readFileSync(
         `${keys}/PubKey.pem`
-      )},
-    app
-  )
+      )},app)
   .listen(PORT, () => {
     console.log("My HTTPS server listening on port " + PORT + "...");
   });
