@@ -6,6 +6,7 @@ const app = express();
 
 const PORT = 443;
 
+const keys  =  path.join(__dirname,"../certificates")
 const public = path.join(__dirname, "../public");
 const views = path.join(__dirname, "../templates/views");
 const partials = path.join(__dirname, "../templates/partials");
@@ -31,16 +32,13 @@ app.get("/login", (req, res) => {
   flag_log = 0; // para que al darle salir no vuelva a entrar
 });
 
-https
-  .createServer(
-    {
+https.createServer({
       key: fs.readFileSync(
-        "C:\\Users\\dafel\\Documents\\Tesis\\App\\CertificadosDigitales\\ClavePrivada.key"
+        `${keys}/PrivKey.key`
       ),
       cert: fs.readFileSync(
-        "C:\\Users\\dafel\\Documents\\Tesis\\App\\CertificadosDigitales\\ClavePublica.pem"
-      ),
-    },
+        `${keys}/PubKey.pem`
+      )},
     app
   )
   .listen(PORT, () => {
