@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:telerobot/constants/style.dart';
 import 'package:telerobot/helpers/responsive.dart';
 import 'package:telerobot/screens/desktop/desktop.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: darkTheme,
       title: 'Telerobot',
