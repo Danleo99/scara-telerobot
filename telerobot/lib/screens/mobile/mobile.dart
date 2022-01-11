@@ -4,18 +4,14 @@ import 'package:telerobot/constants/style.dart';
 import 'package:telerobot/screens/mobile/pages/history.dart';
 import 'package:telerobot/screens/mobile/pages/home.dart';
 import 'package:telerobot/screens/mobile/pages/settings.dart';
+import 'package:get/get.dart';
 
 List pages = const [HistoryPage(), HomePage(), SettingsPage()];
 
-class MobileScreen extends StatefulWidget {
-  const MobileScreen({Key? key}) : super(key: key);
+class MobileScreen extends StatelessWidget {
+  final _active = 1.obs;
+  MobileScreen({Key? key}) : super(key: key);
 
-  @override
-  State<MobileScreen> createState() => _MobileScreenState();
-}
-
-class _MobileScreenState extends State<MobileScreen> {
-  var _active = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +24,10 @@ class _MobileScreenState extends State<MobileScreen> {
           Icon(Icons.home),
           Icon(Icons.account_circle)
         ],
-        onTap: (index) => setState(() => _active = index),
+        onTap: (index) => _active.value = index,
         animationDuration: const Duration(milliseconds: 250),
       ),
-      body: pages[_active],
+      body: Obx(() => pages[_active.value]),
     );
   }
 }

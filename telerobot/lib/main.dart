@@ -16,10 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialRoute: '/',
       debugShowCheckedModeBanner: false,
-      theme: darkTheme,
+      themeMode: ThemeMode.dark,
+      theme: lightTheme,
+      darkTheme: darkTheme,
       title: 'Telerobot',
-      home: const ResponsiveWidget(
+      home: ResponsiveWidget(
         desktopScreen: DesktopApp(),
         mobileScreen: MobileScreen(),
       ),
