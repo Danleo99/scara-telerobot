@@ -1,9 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:telerobot/helpers/theme_controller.dart';
 import 'package:telerobot/screens/mobile/widgets/robot_card.dart';
 
 List _cards = [
+  const RobotCard(
+    robotImage: 'assets/images/scara.png',
+    brandName: 'Scara',
+  ),
   const RobotCard(
     robotImage: 'assets/images/abbMove.gif',
     brandName: 'ABB',
@@ -11,15 +17,12 @@ List _cards = [
   const RobotCard(
     robotImage: 'assets/images/abbMove.gif',
     brandName: 'Thinker',
-  ),
-  const RobotCard(
-    robotImage: 'assets/images/abbMove.gif',
-    brandName: 'Turtle',
   )
 ];
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+  final themeController = Get.put(ThemeController());
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +49,19 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              const Expanded(
+              Expanded(
                 flex: 1,
-                child: Icon(
-                  CupertinoIcons.heart,
+                child: IconButton(
+                  icon: const Icon(CupertinoIcons.heart),
+                  onPressed: () {
+                    if (Get.isDarkMode) {
+                      themeController.changeThemeMode(ThemeMode.light);
+                      themeController.saveTheme(false);
+                    } else {
+                      themeController.changeThemeMode(ThemeMode.dark);
+                      themeController.saveTheme(true);
+                    }
+                  },
                 ),
               ),
             ],

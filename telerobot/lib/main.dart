@@ -5,7 +5,7 @@ import 'package:telerobot/helpers/responsive.dart';
 import 'package:telerobot/screens/desktop/desktop.dart';
 import 'package:telerobot/screens/mobile/mobile.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       darkTheme: darkTheme,
       title: 'Telerobot',
       home: ResponsiveWidget(
-        desktopScreen: DesktopApp(),
+        desktopScreen: const DesktopApp(),
         mobileScreen: MobileScreen(),
       ),
     );

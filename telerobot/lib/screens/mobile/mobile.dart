@@ -6,7 +6,7 @@ import 'package:telerobot/screens/mobile/pages/home.dart';
 import 'package:telerobot/screens/mobile/pages/settings.dart';
 import 'package:get/get.dart';
 
-List pages = const [HistoryPage(), HomePage(), SettingsPage()];
+List pages = [HistoryPage(), HomePage(), SettingsPage()];
 
 class MobileScreen extends StatelessWidget {
   final _active = 1.obs;
