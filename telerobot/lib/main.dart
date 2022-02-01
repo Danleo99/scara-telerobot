@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:telerobot/constants/style.dart';
-import 'package:telerobot/helpers/responsive.dart';
-import 'package:telerobot/screens/desktop/desktop.dart';
-import 'package:telerobot/screens/mobile/mobile.dart';
+import 'package:telerobot/onboarding.dart';
+import 'package:telerobot/screens/desktop/pages/contact.dart';
+import 'package:telerobot/screens/desktop/pages/desktop.dart';
 
-void main() async {
-  runApp(const MyApp());
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
+  final box = GetStorage();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -22,10 +24,17 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       title: 'Telerobot',
-      home: ResponsiveWidget(
-        desktopScreen: const DesktopApp(),
-        mobileScreen: MobileScreen(),
-      ),
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () {
+            return GetPlatform.isWeb ? Onboarding() : Onboarding();
+          },
+        ),
+        GetPage(name: '/login', page: () => Onboarding()),
+        GetPage(name: '/contactus', page: () => const ContactUs()),
+        //GetPage(name: '/index', page: () => const Home())
+      ],
     );
   }
 }
