@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:telerobot/helpers/responsive.dart';
-import 'package:telerobot/screens/desktop/home.dart';
+import 'package:telerobot/screens/desktop/pages/home.dart';
 import 'package:telerobot/screens/mobile/mobile.dart';
 
 class DesktopApp extends StatelessWidget {

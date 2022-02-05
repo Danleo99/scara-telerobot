@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:telerobot/constants/style.dart';
-import 'package:telerobot/onboarding.dart';
+import 'package:telerobot/screens/login.dart';
+import 'package:telerobot/screens/onboarding.dart';
 import 'package:telerobot/screens/desktop/pages/contact.dart';
-import 'package:telerobot/screens/desktop/pages/desktop.dart';
+import 'package:telerobot/screens/desktop/desktop.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
             return GetPlatform.isWeb ? Onboarding() : Onboarding();
           },
         ),
-        GetPage(name: '/login', page: () => Onboarding()),
+        GetPage(name: '/login', page: () => LogIn()),
         GetPage(name: '/contactus', page: () => const ContactUs()),
         //GetPage(name: '/index', page: () => const Home())
       ],

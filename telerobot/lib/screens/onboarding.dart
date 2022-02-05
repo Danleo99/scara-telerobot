@@ -1,8 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'helpers/auth_controller.dart';
+import '../helpers/auth_controller.dart';
 
 class Onboarding extends StatelessWidget {
   Onboarding({Key? key}) : super(key: key);
@@ -13,13 +11,21 @@ class Onboarding extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
+            width: double.infinity,
+            height: 230,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.blue[200],
+              image: const DecorationImage(
                 image: AssetImage('images/scara.png'),
               ),
             ),
+          ),
+          const SizedBox(
+            height: 50,
           ),
           const CircularProgressIndicator(),
         ],
