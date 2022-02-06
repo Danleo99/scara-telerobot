@@ -4,8 +4,8 @@
   "description": "Tesis ABB IRB 140",
   "main": "index.js",
   "scripts": {
-    "start": "node server/src/server.js",
-    "dev": "nodemon server/src/test.js"
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/test.js"
   },
   "repository": {
     "type": "git",
@@ -19,12 +19,7 @@
   },
   "homepage": "https://github.com/Danleo99/Tesis#readme",
   "dependencies": {
-    "bootstrap": "^4.6.0",
-    "bootstrap-social": "^5.1.1",
-    "express": "^4.17.1",
-    "font-awesome": "^4.7.0",
-    "jquery": "^3.6.0",
-    "popper.js": "^1.16.1"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.14"

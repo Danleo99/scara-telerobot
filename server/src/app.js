@@ -6,10 +6,8 @@ const app = express();
 
 const PORT = 443;
 
-const keys  =  path.join(__dirname,"../certificates")
+const keys = path.join(__dirname, "../certificates")
 const public = path.join(__dirname, "../public");
-const views = path.join(__dirname, "../templates/views");
-const partials = path.join(__dirname, "../templates/partials");
 
 // SetUp directory to serve
 app.use(express.static(public));
@@ -33,12 +31,13 @@ app.get("/login", (req, res) => {
 });
 
 https.createServer({
-      key: fs.readFileSync(
-        `${keys}/PrivKey.key`
-      ),
-      cert: fs.readFileSync(
-        `${keys}/PubKey.pem`
-      )},app)
+  key: fs.readFileSync(
+    `${keys}/PrivKey.key`
+  ),
+  cert: fs.readFileSync(
+    `${keys}/PubKey.pem`
+  )
+}, app)
   .listen(PORT, () => {
     console.log("My HTTPS server listening on port " + PORT + "...");
   });
