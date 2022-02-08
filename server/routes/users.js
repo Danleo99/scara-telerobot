@@ -2,7 +2,7 @@ const express = require('express')
 const database = require('../db/database')
 const router = new express.Router()
 
-router.get('/users', (req, res) => {
+router.get('/allusers', (req, res) => {
     database.query('select * from users', (e, rows, fields) => {
         if (!e) {
             res.json(rows)
