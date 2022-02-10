@@ -1,13 +1,13 @@
 const mysql = require('mysql2')
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'Tesis2022!',
     database: 'telerobot'
 });
 
-connection.connect(function (e) {
+connection.getConnection((e) => {
     if (e) {
         console.log(e);
         return;

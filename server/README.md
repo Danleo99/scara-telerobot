@@ -1,4 +1,4 @@
-# Servidor que sirve a la app
+# MySQL API que sirve a la app
 
 ## Database
 Programacion SQL para base de datos, esta se ve aplicada en db/tables.sql :
