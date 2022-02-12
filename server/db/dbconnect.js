@@ -1,12 +1,12 @@
 const mysql = require('mysql2')
-
+// DB connection
 const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'Tesis2022!',
     database: 'telerobot'
 });
-
+// DB error check and verification 
 pool.getConnection((err, connection) => {
     if (err) {
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
@@ -24,7 +24,7 @@ pool.getConnection((err, connection) => {
         console.log('Database connected');
     }
 });
-
+// Make connection accept async functions
 const promisePool = pool.promise();
 
 module.exports = promisePool;
