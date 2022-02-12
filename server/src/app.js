@@ -2,7 +2,7 @@ const express = require("express"); //llamar al express
 const app = express();
 const userRoutes = require('./routes/users')
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 
 app.use(express.json());
 app.use('/user', userRoutes);

@@ -4,6 +4,10 @@ const userRoutes = require('./routes/users')
 
 const port = process.env.PORT || 3000;
 
+const requestListener = function (req, res) {
+  res.end("Your IP Addresss is: " + req.socket.localAddress);
+};
+
 app.use(express.json());
 app.use('/user', userRoutes);
 
