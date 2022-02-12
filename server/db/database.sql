@@ -1,6 +1,3 @@
-CREATE DATABASE IF NOT EXISTS telerobot;
-USE telerobot;
-
 CREATE TABLE users(
  `id`       int NOT NULL AUTO_INCREMENT,
  `Nombre`   varchar(20) ,
