@@ -50,7 +50,6 @@ router.patch('/update', auth, async (req, res) => {
 // Delete a routine
 router.delete('/delete', auth, async (req, res) => {
     const { id } = req.body
-    console.log(req.user.id)
     const query = 'DELETE FROM routines WHERE id = ? AND user_id = ?';
     try {
         const [rows, fields] = await database.query(query, [id, req.user.id]);
