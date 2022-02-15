@@ -63,7 +63,7 @@ router.patch('/update', auth, async (req, res) => {
         return res.status(400).send({ error: 'Invalid Updates' })
     }
     try {
-        const user = req.user // Updates de user
+        const user = req.user // Updates the user
         updates.forEach(async (update) => {
             if (update == 'password') {
                 const [token, hashPassword] = await secureUser(req.body.email, req.body.password);
