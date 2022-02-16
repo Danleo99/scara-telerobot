@@ -17,16 +17,16 @@ Future<void> loadUser() async {
   final _box = GetStorage();
   String _token = _box.read('apiToken') ?? '';
 
-  final url = Uri.parse('http://127.0.0.1:8000/login');
+  //final url = Uri.parse('http://localhost:3000/user/login');
   Map<String, String> headers = {
     'contextType': 'application/json',
     'signalToken': _token
   };
 
-  var res = await http.get(url, headers: headers);
-  var statusCode = res.statusCode;
-  debugPrint(res.statusCode.toString());
-  statusCode = 400;
+  //var res = await http.get(url, headers: headers);
+  //var statusCode = res.statusCode;
+  //debugPrint(res.statusCode.toString());
+  final statusCode = 400;
 
   if (statusCode != 200) {
     _box.remove('apiToken');

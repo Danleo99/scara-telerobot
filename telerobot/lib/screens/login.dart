@@ -7,12 +7,10 @@ class LogIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: ElevatedButton(
-        child: Icon(Icons.arrow_back),
-        onPressed: () => Get.toNamed('/'),
-      ),
-      body: Container(
-        child: Text('Log In Screen'),
+      body: Center(
+        child: Container(
+          child: Text('Log In Screen'),
+        ),
       ),
     );
   }

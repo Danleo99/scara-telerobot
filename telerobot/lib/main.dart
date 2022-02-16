@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/',
           page: () {
-            return GetPlatform.isWeb ? Onboarding() : Onboarding();
+            return GetPlatform.isWeb ? const DesktopApp() : Onboarding();
           },
         ),
         GetPage(name: '/login', page: () => LogIn()),

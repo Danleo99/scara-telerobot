@@ -9,7 +9,7 @@ class DesktopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
-      desktopScreen: const Home(),
+      desktopScreen: Home(),
       mobileScreen: MobileScreen(),
     );
   }
