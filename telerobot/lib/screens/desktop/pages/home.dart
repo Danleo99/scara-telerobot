@@ -1,55 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:telerobot/helpers/responsive.dart';
+import 'package:telerobot/screens/desktop/pages/widgets/navbar.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
+    var theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        title: Container(
-          height: kToolbarHeight,
-          child: InkWell(
-            child: Image.asset('assets/logos/telerobotColorDark.png'),
-            onTap: () => {Get.toNamed('/')},
-          ),
-        ),
-        iconTheme: IconThemeData(size: 100),
-        backgroundColor: Color(0xAA202A44),
-        actions: <Widget>[
-          InkWell(
-            child: const Text('Contacto'),
-            onTap: () => {},
-            onHover: (value) => {},
-          ),
-          const SizedBox(width: 12),
-          InkWell(
-            child: const Text('Log In'),
-            onTap: () => {Get.toNamed('/login')},
-            onHover: (value) => {},
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height / 2,
-            width: double.infinity,
-            decoration: BoxDecoration(color: Colors.amber),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                    'Sistema de teleoperacion para robots de la Universidad EIA'),
-                SizedBox(width: 50),
-                Image.asset('assets/logos/telerobotColorDark.png',
-                    width: MediaQuery.of(context).size.height / 2),
-              ],
+      appBar: const TeleNavbar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: screenSize.height / 2,
+              width: double.infinity,
+              decoration: BoxDecoration(color: theme.primaryColor),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/logos/telerobotColorDark.png',
+                          width: screenSize.height / 2),
+                      const Text(
+                        "Sistema de teleoperacion para robots de la Universidad EIA",
+                        style: TextStyle(fontSize: 25),
+                      ),
+                    ],
+                  ),
+                  if (ResponsiveWidget.isDesktop(context))
+                    Image.asset('assets/images/abbMove.gif',
+                        width: screenSize.height / 1.5),
+                ],
+              ),
             ),
-          )
-        ],
+            Container(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              height: screenSize.height / 2,
+              width: double.infinity,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text('dato1'),
+                  Text('dato2'),
+                  Text('dato3'),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

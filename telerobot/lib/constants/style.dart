@@ -10,9 +10,8 @@ ThemeData lightTheme = ThemeData(
 
 ThemeData darkTheme = ThemeData(
   colorScheme: const ColorScheme.dark(),
-  // backgroundColor: Colors.black87,
   primaryColor: const Color(0xFF001b2e),
-  scaffoldBackgroundColor: Colors.black87,
+  scaffoldBackgroundColor: Colors.grey[900],
   textTheme: GoogleFonts.oswaldTextTheme(),
   // iconTheme: const IconThemeData(color: Colors.white),
 );
