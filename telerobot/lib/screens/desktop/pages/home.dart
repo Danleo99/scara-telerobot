@@ -9,6 +9,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var theme = Theme.of(context);
+
     return Scaffold(
       appBar: const TeleNavbar(),
       body: SingleChildScrollView(
@@ -42,12 +43,58 @@ class Home extends StatelessWidget {
               color: Theme.of(context).scaffoldBackgroundColor,
               height: screenSize.height / 2,
               width: double.infinity,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              child: Column(
                 children: [
-                  Text('dato1'),
-                  Text('dato2'),
-                  Text('dato3'),
+                  const SizedBox(height: 50),
+                  const Text(
+                    'Descubre lo que puedes hacer con Telerobot!',
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 50),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          Image.asset('assets/logos/clock.gif',
+                              width: ResponsiveWidget.isDesktop(context)
+                                  ? 150
+                                  : 100),
+                          const Text(
+                            'Comunicacion de tiempo real',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Image.asset('assets/logos/rocket.gif',
+                              width: ResponsiveWidget.isDesktop(context)
+                                  ? 150
+                                  : 100),
+                          const Text(
+                            'Comunicacion de tiempo real',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Image.asset('assets/logos/world.gif',
+                              width: ResponsiveWidget.isDesktop(context)
+                                  ? 150
+                                  : 100),
+                          const Text(
+                            'Comunicacion de tiempo real',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
             )
