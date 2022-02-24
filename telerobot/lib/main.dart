@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:telerobot/constants/style.dart';
+import 'package:telerobot/helpers/responsive.dart';
 import 'package:telerobot/screens/login.dart';
 import 'package:telerobot/screens/onboarding.dart';
-import 'package:telerobot/screens/desktop/pages/contact.dart';
-import 'package:telerobot/screens/desktop/desktop.dart';
+import 'package:telerobot/screens/public/contact.dart';
+import 'screens/public/home.dart';
+import 'screens/mobile/mobile.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,13 +29,27 @@ class MyApp extends StatelessWidget {
       title: 'Telerobot',
       getPages: [
         GetPage(
-          name: '/',
-          page: () {
-            return GetPlatform.isWeb ? const DesktopApp() : Onboarding();
-          },
+            name: '/',
+            page: () => GetPlatform.isWeb
+                ? ResponsiveWidget(
+                    desktopScreen: const Home(),
+                    mobileScreen: MobileScreen(),
+                  )
+                : Onboarding(),
+            transition: Transition.leftToRight),
+        GetPage(
+          name: '/login',
+          page: () => const LogIn(),
+          transition: Transition.rightToLeft,
         ),
-        GetPage(name: '/login', page: () => LogIn()),
-        GetPage(name: '/contactus', page: () => const ContactUs()),
+        GetPage(
+          name: '/contactus',
+          page: () => ResponsiveWidget(
+            desktopScreen: const ContactUs(),
+            mobileScreen: MobileScreen(),
+          ),
+          transition: Transition.rightToLeft,
+        ),
         //GetPage(name: '/index', page: () => const Home())
       ],
     );

@@ -9,18 +9,18 @@ class TeleNavbar extends StatelessWidget implements PreferredSizeWidget {
     var screenSize = MediaQuery.of(context).size;
 
     return Container(
-      color: const Color.fromARGB(255, 3, 21, 52),
+      color: const Color.fromARGB(255, 0, 14, 27),
       padding: const EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(width: screenSize.width / 25),
-          TextButton(
+          InkWell(
             child: Image.asset(
               'assets/logos/HorzBlue.png',
               color: Colors.white,
             ),
-            onPressed: () => {Get.toNamed('/')},
+            onTap: () => Get.toNamed('/'),
           ),
           Expanded(
             child: Row(
@@ -34,7 +34,7 @@ class TeleNavbar extends StatelessWidget implements PreferredSizeWidget {
                       fontSize: 20,
                     ),
                   ),
-                  onTap: () => {},
+                  onTap: () => Get.toNamed('/contactus'),
                 ),
                 const SizedBox(width: 60),
                 ElevatedButton(
@@ -45,7 +45,7 @@ class TeleNavbar extends StatelessWidget implements PreferredSizeWidget {
                         fontSize: 20,
                       )),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.amber,
+                    primary: Colors.amber[50],
                     fixedSize: const Size(100, kToolbarHeight * 0.7),
                     shadowColor: Colors.grey,
                     shape: RoundedRectangleBorder(
