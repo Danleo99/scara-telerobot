@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:telerobot/constants/style.dart';
 import 'package:telerobot/helpers/responsive.dart';
-import 'package:telerobot/screens/login.dart';
 import 'package:telerobot/screens/onboarding.dart';
 import 'package:telerobot/screens/public/contact.dart';
 import 'screens/public/home.dart';
@@ -39,7 +38,7 @@ class MyApp extends StatelessWidget {
             transition: Transition.leftToRight),
         GetPage(
           name: '/login',
-          page: () => const LogIn(),
+          page: () => Onboarding(),
           transition: Transition.rightToLeft,
         ),
         GetPage(
