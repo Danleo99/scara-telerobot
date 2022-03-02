@@ -1,0 +1,87 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:telerobot/helpers/dash_controller.dart';
+
+class SideBar extends StatelessWidget {
+  SideBar({
+    Key? key,
+  }) : super(key: key);
+  final controller = Get.put(DashboardContoller());
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Image.asset(
+              '/logos/telerobotSmWhite.png',
+              width: 120,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: ElevatedButton.icon(
+              onPressed: () => controller.active.value = 0,
+              icon: const Icon(Icons.precision_manufacturing_sharp),
+              label: const Text('Robots', style: TextStyle(fontSize: 20)),
+              style: ElevatedButton.styleFrom(
+                shape: const StadiumBorder(),
+                primary: Colors.blueGrey,
+                fixedSize: Size(size.width, 40),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: ElevatedButton.icon(
+              onPressed: () => controller.active.value = 1,
+              icon: const Icon(Icons.apps_sharp),
+              label: const Text('Programador', style: TextStyle(fontSize: 20)),
+              style: ElevatedButton.styleFrom(
+                  shape: const StadiumBorder(),
+                  primary: Colors.blueGrey,
+                  fixedSize: Size(size.width, 40)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: ElevatedButton.icon(
+              onPressed: () => controller.active.value = 2,
+              icon: const Icon(Icons.bolt_sharp),
+              label: const Text('Rutinas', style: TextStyle(fontSize: 20)),
+              style: ElevatedButton.styleFrom(
+                shape: const StadiumBorder(),
+                primary: Colors.blueGrey,
+                fixedSize: Size(size.width, 40),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: ElevatedButton.icon(
+                    onPressed: () => Get.offAllNamed('/'),
+                    icon: const Icon(Icons.logout_outlined),
+                    label: const Text('Logout', style: TextStyle(fontSize: 20)),
+                    style: ElevatedButton.styleFrom(
+                      shape: const StadiumBorder(),
+                      primary: Colors.blueGrey,
+                      fixedSize: Size(size.width, 40),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 50),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

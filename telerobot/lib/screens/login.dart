@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:telerobot/helpers/login_controller.dart';
 import 'package:telerobot/helpers/responsive.dart';
 
 class LogIn extends StatelessWidget {
-  const LogIn({Key? key}) : super(key: key);
+  LogIn({Key? key}) : super(key: key);
+  final controller = Get.put(LogInController());
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var theme = Theme.of(context);
     var isDark = context.isDarkMode;
-    final box = GetStorage();
+
     return Scaffold(
       body: Center(
         child: Container(
@@ -66,7 +67,7 @@ class LogIn extends StatelessWidget {
                       width: double.infinity,
                       child: TextField(
                         keyboardType: TextInputType.emailAddress,
-                        onChanged: (value) => {},
+                        onChanged: (value) => controller.email.value = value,
                         decoration: const InputDecoration(
                             border: InputBorder.none,
                             icon: Icon(Icons.person),
@@ -85,7 +86,7 @@ class LogIn extends StatelessWidget {
                       width: double.infinity,
                       child: TextField(
                         obscureText: true,
-                        onChanged: (value) {},
+                        onChanged: (value) => controller.password.value = value,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           icon: Icon(Icons.lock),
@@ -102,12 +103,10 @@ class LogIn extends StatelessWidget {
                       height: screenSize.height * 0.02,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => controller.login(),
                       child: const Text('LOGIN'),
                       style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
+                          shape: const StadiumBorder(),
                           fixedSize: Size(screenSize.width * 0.25, 50),
                           primary: Colors.blueAccent),
                     )

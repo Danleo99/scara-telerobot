@@ -44,11 +44,17 @@ class ContactUs extends StatelessWidget {
                     ),
                     const PhotoCard(
                       title: 'Nuestro director',
-                      photo: 'assets/images/santiago.jpg',
+                      photo: 'assets/images/puerta.jpg',
                       name: 'Alejandro Puerta',
                       link:
-                          'https://www.linkedin.com/in/alejandro-puerta-echandía-151b6ab5/',
+                          'https://www.linkedin.com/in/alejandro-puerta-echand%C3%ADa-151b6ab5/',
                     ),
+                    const PhotoCard(
+                      photo: 'assets/images/tejada.jpg',
+                      name: 'Juan Camilo Tejada',
+                      link:
+                          'https://www.linkedin.com/in/juan-camilo-tejada-orjuela-282686206/',
+                    )
                   ],
                 ),
               ),

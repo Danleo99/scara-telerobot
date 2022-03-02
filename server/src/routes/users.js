@@ -32,7 +32,8 @@ router.post('/signup', async (req, res) => {
 
 // Log in an existing User
 router.get('/login', async (req, res) => {
-    const { email, password } = req.header
+    const email = req.header('email')
+    const password = req.header('password')
     const query = 'SELECT * FROM users WHERE email LIKE ?';
     try {
         const [rows, fields] = await database.query(query, [email]);

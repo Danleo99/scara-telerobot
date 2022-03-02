@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../helpers/auth_controller.dart';
+import 'package:telerobot/helpers/auth_controller.dart';
 
 class Onboarding extends StatelessWidget {
   Onboarding({Key? key}) : super(key: key);
