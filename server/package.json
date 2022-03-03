@@ -4,8 +4,8 @@
   "description": "Tesis ABB IRB 140",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/test.js"
+    "start": "node src/index.js",
+    "socket": "nodemon src/socket.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "socket.io": "^4.4.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.14"

@@ -62,8 +62,8 @@ class ContactUs extends StatelessWidget {
                 height: screenSize.height / 3,
                 width: double.infinity,
                 child: Row(
-                  children: [
-                    const Text('Contactanos'),
+                  children: const [
+                    Text('Contactanos'),
                   ],
                 ),
               )

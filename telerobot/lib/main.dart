@@ -31,11 +31,11 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: '/',
             page: () => GetPlatform.isWeb
-                // ? DashBoard()
-                ? ResponsiveWidget(
-                    desktopScreen: const Home(),
-                    mobileScreen: MobileScreen(),
-                  )
+                ? DashBoard()
+                // ? ResponsiveWidget(
+                //     desktopScreen: const Home(),
+                //     mobileScreen: MobileScreen(),
+                //   )
                 : Onboarding(),
             transition: Transition.leftToRight),
         GetPage(
