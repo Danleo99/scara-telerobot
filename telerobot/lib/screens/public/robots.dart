@@ -1,42 +1,122 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:telerobot/helpers/dash_controller.dart';
 
 class Robots extends StatelessWidget {
-  const Robots({
-    Key? key,
-  }) : super(key: key);
+  const Robots({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(DashboardContoller());
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            // width: double.infinity,
-            child: TextField(
-              onChanged: (value) => controller.message.value = value,
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                icon: Icon(Icons.lock),
-                hintText: 'message',
+    final size = MediaQuery.of(context).size;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.fromLTRB(30, 0, 0, 10),
+          child: Text(
+            'Robots',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 50,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Stack(
+                children: [
+                  Card(
+                    color: Colors.red,
+                    child: SizedBox(
+                      height: 150,
+                      width: 300,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Programar'),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Supervisar'),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Image.asset('images/scara.png'),
+                ],
+                alignment: AlignmentDirectional.bottomStart,
               ),
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              color: Colors.white70,
-            ),
+              Stack(
+                children: [
+                  Card(
+                    color: Colors.red,
+                    child: SizedBox(
+                      height: 150,
+                      width: 300,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Programar'),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Supervisar'),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Image.asset('images/abbMove.gif'),
+                ],
+                alignment: AlignmentDirectional.bottomStart,
+              ),
+              Stack(
+                children: [
+                  Card(
+                    color: Colors.red,
+                    child: SizedBox(
+                      height: 150,
+                      width: 300,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Programar'),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Supervisar'),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Image.asset('images/scara.png'),
+                ],
+                alignment: AlignmentDirectional.bottomStart,
+              ),
+              Card(
+                child: const Text('Coming soon'),
+              ),
+            ],
           ),
-          ElevatedButton(
-            onPressed: () => controller.sendMessage(),
-            child: const Text('LOGIN'),
-            style: ElevatedButton.styleFrom(
-                shape: const StadiumBorder(), primary: Colors.blueAccent),
+        ),
+        Expanded(
+          flex: 2,
+          child: Card(
+            color: Colors.blue,
+            child: SizedBox(width: size.width),
           ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:get/get.dart' hide Response;
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:telerobot/constants/data_store.dart';
 import 'package:telerobot/screens/login.dart';
 import 'package:telerobot/screens/public/dashboard.dart';
 
@@ -16,7 +17,13 @@ class OnboardingController extends GetxController {
 
 Future<void> loadUser() async {
   final box = GetStorage();
-  String _token = box.read("apiToken") ?? "";
+  final userData = box.read('user');
+  String _token = '';
+
+  if (userData != null) {
+    final _user = User.fromJson(userData);
+    _token = _user.token;
+  }
 
   final url = Uri.parse("http://localhost:3000/user");
   Map<String, String> headers = {"accessToken": _token};
@@ -25,14 +32,12 @@ Future<void> loadUser() async {
     var res = await http.get(url, headers: headers);
     var statusCode = res.statusCode;
     if (statusCode != 202) {
-      box.remove("apiToken");
+      box.remove('user');
       Get.offAll(() => LogIn());
     } else {
       Get.offAll(() => DashBoard());
     }
   } catch (e) {
-    // ignore: avoid_print
-    print(e);
     Get.offAllNamed('/');
   }
 }

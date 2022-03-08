@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 import 'package:telerobot/helpers/dash_controller.dart';
 
 class SideBar extends StatelessWidget {
-  SideBar({
-    Key? key,
-  }) : super(key: key);
+  SideBar({Key? key}) : super(key: key);
   final controller = Get.put(DashboardContoller());
 
   @override
@@ -50,8 +48,8 @@ class SideBar extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: ElevatedButton.icon(
               onPressed: () => controller.active.value = 2,
-              icon: const Icon(Icons.bolt_sharp),
-              label: const Text('Rutinas', style: TextStyle(fontSize: 20)),
+              icon: const Icon(Icons.camera_indoor_sharp),
+              label: const Text('Supervisar', style: TextStyle(fontSize: 20)),
               style: ElevatedButton.styleFrom(
                 shape: const StadiumBorder(),
                 primary: Colors.blueGrey,
@@ -66,7 +64,7 @@ class SideBar extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(12),
                   child: ElevatedButton.icon(
-                    onPressed: () => Get.offAllNamed('/'),
+                    onPressed: () => controller.logout(),
                     icon: const Icon(Icons.logout_outlined),
                     label: const Text('Logout', style: TextStyle(fontSize: 20)),
                     style: ElevatedButton.styleFrom(

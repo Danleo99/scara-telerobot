@@ -18,13 +18,12 @@ class LogInController extends GetxController {
     try {
       var res = await http.get(url, headers: headers);
       if (res.statusCode == 202) {
-        final user = jsonDecode(res.body);
-
-        print(user);
-        box.write('user', user);
+        final userData = jsonDecode(res.body);
+        box.write('user', userData);
         Get.to(() => DashBoard());
       } else {}
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
   }

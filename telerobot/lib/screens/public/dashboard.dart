@@ -3,10 +3,11 @@ import 'package:get/get.dart';
 import 'package:telerobot/helpers/dash_controller.dart';
 import 'package:telerobot/screens/public/Robots.dart';
 import 'package:telerobot/screens/public/programador.dart';
+import 'package:telerobot/screens/public/widgets/dashbar.dart';
 import 'package:telerobot/screens/public/widgets/sidebar.dart';
 import 'package:telerobot/screens/rutinas.dart';
 
-List<Widget> pages = [const Robots(), const Programador(), const Rutinas()];
+List<Widget> pages = [const Robots(), Programador(), const Rutinas()];
 
 class DashBoard extends StatelessWidget {
   DashBoard({Key? key}) : super(key: key);
@@ -22,7 +23,10 @@ class DashBoard extends StatelessWidget {
         ),
         Expanded(
           flex: 5,
-          child: Obx(() => pages[controller.active.value]),
+          child: Scaffold(
+            appBar: DashNavbar(),
+            body: Obx(() => pages[controller.active.value]),
+          ),
         ),
       ],
     );
