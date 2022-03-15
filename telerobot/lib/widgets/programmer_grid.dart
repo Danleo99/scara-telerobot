@@ -1,78 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../helpers/dash_controller.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ProgramingWidget extends StatelessWidget {
-  const ProgramingWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Row(
-      children: [
-        RotatedBox(
-          quarterTurns: -1,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              Text(
-                '0',
-                style: TextStyle(color: Colors.white),
-              ),
-              SizedBox(
-                width: 250,
-              ),
-              Text(
-                "Eje Y",
-                style: TextStyle(color: Colors.white),
-              ),
-              SizedBox(
-                width: 250,
-              ),
-              Text(
-                '450',
-                style: TextStyle(color: Colors.white),
-              )
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: ProgrammingGrid(
-            size: size,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class ProgrammingGrid extends StatelessWidget {
-  final Size size;
-  ProgrammingGrid({Key? key, required this.size}) : super(key: key);
+  ProgramingWidget({Key? key}) : super(key: key);
   final DashboardContoller ctrl = Get.find();
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Container(
-      width: size.width / 3,
+      margin: const EdgeInsets.all(10),
       height: size.height,
-      color: Colors.black,
-      child: GridView.builder(
-        itemCount: 900,
-        itemBuilder: (context, index) => GestureDetector(
-          onTap: () => ctrl.updatePoint(index),
-          child: Obx(
-            () => Container(
-              color: ctrl.point[index] ? Colors.blue : Colors.white,
-            ),
-          ),
+      color: const Color(0xff222222),
+      child: SfCartesianChart(
+        primaryYAxis: NumericAxis(
+          minimum: 0,
+          maximum: 450,
+          interval: 25,
         ),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisSpacing: 1,
-          mainAxisSpacing: 1,
-          crossAxisCount: 30,
+        primaryXAxis: NumericAxis(
+          minimum: -225,
+          maximum: 225,
+          interval: 25,
         ),
+        backgroundColor: Colors.transparent,
+        onChartTouchInteractionDown: (args) => print(
+            args.position.dx.toString() + ',' + args.position.dy.toString()),
       ),
     );
   }

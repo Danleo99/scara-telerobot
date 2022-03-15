@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:telerobot/widgets/programmer_grid.dart';
@@ -9,66 +11,92 @@ class Programador extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    var size = MediaQuery.of(context).size;
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(30, 0, 0, 10),
-          child: Text(
-            'Programador',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
+        Expanded(
+          flex: 2,
+          child: Center(child: ProgramingWidget()),
+        ),
+        Expanded(
+          flex: 1,
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            height: size.height,
+            margin: const EdgeInsets.fromLTRB(0, 0, 25, 10),
+            decoration: BoxDecoration(
+              border: Border.all(width: 1, color: Colors.white),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const Text(
+                  'Funciones',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 45,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Expanded(
+                  child: Obx(
+                    () => ListView.builder(
+                      itemCount: ctrl.points.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(
+                            ctrl.points[index],
+                            style: const TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.home),
+                    label: const Text('Home'),
+                    style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        fixedSize: Size(size.width, 40),
+                        primary: Colors.amber),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ElevatedButton.icon(
+                    onPressed: () => print(ctrl.points),
+                    icon: const Icon(Icons.save),
+                    label: const Text('Guardar Puntos'),
+                    style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        fixedSize: Size(size.width, 40),
+                        primary: Colors.amber),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ElevatedButton.icon(
+                    onPressed: () => ctrl.runControl('HolaMundo'),
+                    icon: const Icon(Icons.send),
+                    label: const Text('Enviar'),
+                    style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        fixedSize: Size(size.width, 40),
+                        primary: Colors.amber),
+                  ),
+                )
+              ],
             ),
           ),
-        ),
-        Row(
-          children: [
-            Expanded(
-              flex: 2,
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 30),
-                height: 600,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                ),
-                child: Center(child: ProgramingWidget()),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                height: 600,
-                margin: const EdgeInsets.only(right: 25),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.amber,
-                ),
-                child: Column(children: [
-                  Text('Funciones'),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: Icon(Icons.home),
-                    label: Text('Home'),
-                  ),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: Icon(Icons.new_releases_sharp),
-                    label: Text('Guardar Puntos'),
-                  ),
-                  ElevatedButton.icon(
-                    onPressed: () => ctrl.runControl('HolaMundo'),
-                    icon: Icon(Icons.new_releases_sharp),
-                    label: Text('Enviar'),
-                  )
-                ]),
-              ),
-            )
-          ],
-        ),
+        )
       ],
     );
   }
