@@ -3,11 +3,13 @@ const app = express();
 const userRoutes = require('./routes/users')
 const routinesRouter = require('./routes/routines')
 const cors = require("cors");
+var path = require('path');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'public_html')));
 app.use('/user', userRoutes);
 app.use('/routines', routinesRouter);
 
