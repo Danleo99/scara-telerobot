@@ -14,6 +14,5 @@ app.use('/user', userRoutes);
 app.use('/routines', routinesRouter);
 
 app.listen(port, '0.0.0.0', () => {
-  console.log(path.join(__dirname, '../public_html'))
   console.log('Listening to port: ' + port);
 });

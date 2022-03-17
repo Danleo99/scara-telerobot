@@ -7,7 +7,7 @@ import 'package:telerobot/screens/public/dashboard.dart';
 class LogInController extends GetxController {
   var email = ''.obs;
   var password = ''.obs;
-  var url = Uri.parse('http://localhost:3000/user/login');
+  var url = Uri.parse('http://localhost:80/user/login');
   final box = GetStorage();
 
   void login() async {

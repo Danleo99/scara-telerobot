@@ -25,7 +25,7 @@ Future<void> loadUser() async {
     _token = _user.token;
   }
 
-  final url = Uri.parse("http://localhost:3000/user");
+  final url = Uri.parse("http://localhost:80/user");
   Map<String, String> headers = {"accessToken": _token};
 
   try {
