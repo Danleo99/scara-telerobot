@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\dafel\Documents\Tesis\Tesis\telerobot\build\windows\CMakeFiles\b892e4ea7f1ef02544b3798373617618\flutter_windows.dll.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\dafel\Documents\Tesis\Tesis\telerobot\build\windows\CMakeFiles\f24f306d1ce056b7b2d0ee5ef5dc5a58\flutter_assemble.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\dafel\Documents\Tesis\Tesis\telerobot\windows\flutter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\dafel\Documents\Tesis\Tesis\telerobot\build\windows\flutter\CMakeFiles\flutter_assemble" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{66921BBB-5B8B-32E1-BB6D-F9830A75454F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -4,7 +4,7 @@ class Robots extends StatelessWidget {
   const Robots({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    //final size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -16,7 +16,7 @@ class Robots extends StatelessWidget {
               RobotCard(robotImage: Image.asset('images/scara.png')),
               RobotCard(robotImage: Image.asset('images/abbMove.gif')),
               RobotCard(robotImage: Image.asset('images/scara.png')),
-              Card(child: Text('Coming soon')),
+              const Card(child: Text('Coming soon')),
             ],
           ),
         ),

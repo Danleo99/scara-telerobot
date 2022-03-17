@@ -5,7 +5,7 @@ import 'package:telerobot/constants/style.dart';
 import 'package:telerobot/helpers/responsive.dart';
 import 'package:telerobot/screens/onboarding.dart';
 import 'package:telerobot/screens/public/contact.dart';
-import 'package:telerobot/screens/public/dashboard.dart';
+//import 'package:telerobot/screens/public/dashboard.dart';
 import 'screens/public/home.dart';
 import 'screens/mobile/mobile.dart';
 
@@ -30,11 +30,12 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
             name: '/',
-            page: () => GetPlatform.isMobile ? Onboarding() : DashBoard(),
-            // : ResponsiveWidget(
-            //     desktopScreen: const Home(),
-            //     mobileScreen: MobileScreen(),
-            //   ),
+            page: () => GetPlatform.isMobile
+                ? Onboarding() //: DashBoard(),
+                : ResponsiveWidget(
+                    desktopScreen: const Home(),
+                    mobileScreen: MobileScreen(),
+                  ),
             transition: Transition.leftToRight),
         GetPage(
           name: '/login',

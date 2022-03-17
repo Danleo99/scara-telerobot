@@ -53,7 +53,7 @@ class DashNavbar extends StatelessWidget implements PreferredSizeWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundImage: AssetImage('images/daniel.jpg'),
                   radius: 20,
                 ),

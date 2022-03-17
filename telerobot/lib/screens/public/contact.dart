@@ -58,7 +58,7 @@ class ContactUs extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 height: screenSize.height / 3,
                 width: double.infinity,
                 child: Row(

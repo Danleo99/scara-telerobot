@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:telerobot/widgets/programmer_grid.dart';
@@ -15,7 +13,7 @@ class Programador extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
+        const Expanded(
           flex: 2,
           child: Center(child: ProgramingWidget()),
         ),
@@ -41,19 +39,27 @@ class Programador extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Obx(
-                    () => ListView.builder(
-                      itemCount: ctrl.points.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(
-                            ctrl.points[index],
-                            style: const TextStyle(
-                              color: Colors.white,
+                  child: Container(
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.white),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Obx(
+                      () => ListView.builder(
+                        itemCount: ctrl.points.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(
+                              ctrl.points[index],
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
@@ -72,7 +78,7 @@ class Programador extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ElevatedButton.icon(
-                    onPressed: () => print(ctrl.points),
+                    onPressed: () {},
                     icon: const Icon(Icons.save),
                     label: const Text('Guardar Puntos'),
                     style: ElevatedButton.styleFrom(

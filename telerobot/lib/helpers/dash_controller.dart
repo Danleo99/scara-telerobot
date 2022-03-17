@@ -1,12 +1,15 @@
+import 'dart:math';
+
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:socket_io_client/socket_io_client.dart' as socket;
 import 'package:telerobot/constants/data_store.dart';
 
 class ChartData {
-  ChartData(this.x, this.y);
+  ChartData(this.x, this.y, this.selected);
   final int x;
   final int y;
+  bool selected;
 }
 
 class DashboardContoller extends GetxController {
@@ -19,16 +22,12 @@ class DashboardContoller extends GetxController {
   // Lista de puntos seleccionados
   List points = [].obs;
   // Lista de posiciones x,y
-  List generatePoints() {
-    List points = [];
-    for (var i = 245; i == 450; i + 5) {
-      for (var j = 0; j == 450; j + 5) {
-        print(i);
-        points.add(ChartData(i, j));
-      }
-    }
-    return points;
-  }
+  List<ChartData> cSpace = [
+    for (var r = 245; r <= 450; r += 10)
+      for (var th = 0; th <= 180; th += 2)
+        ChartData((r * cos(th * (pi / 180))).round(),
+            (r * sin(th * (pi / 180))).round(), false)
+  ];
 
   socket.Socket client = socket.io(
     'http://localhost:5000',
@@ -39,9 +38,8 @@ class DashboardContoller extends GetxController {
 
   @override
   void onInit() {
-    generatePoints();
-    //connectSocket();
-    //getUser();
+    connectSocket();
+    getUser();
     super.onInit();
   }
 
@@ -70,5 +68,17 @@ class DashboardContoller extends GetxController {
     name.value = _user.name + ' ' + _user.lastname;
   }
 
-  void updatePoint(index) {}
+  void updatePoint(args) {
+    final punto = cSpace[int.parse(args.pointIndex.toString())];
+    final onList = points.indexWhere((element) =>
+        element ==
+        'Punto (' + (punto.x).toString() + ',' + (punto.y).toString() + ')');
+    if (onList == -1) {
+      points.add(
+          'Punto (' + (punto.x).toString() + ',' + (punto.y).toString() + ')');
+    } else {
+      points.removeAt(onList);
+    }
+    punto.selected = !punto.selected;
+  }
 }
