@@ -1,5 +1,6 @@
 import 'dart:math';
-
+import 'package:flip_card/flip_card_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:socket_io_client/socket_io_client.dart' as socket;
@@ -28,6 +29,13 @@ class DashboardContoller extends GetxController {
         ChartData((r * cos(th * (pi / 180))).round(),
             (r * sin(th * (pi / 180))).round(), false)
   ];
+  // Frame a mostrar
+  var frameActual = ''.obs;
+  final cardControllers = [
+    FlipCardController(),
+    FlipCardController(),
+    FlipCardController()
+  ];
 
   socket.Socket client = socket.io(
     'http://localhost:5000',
@@ -38,9 +46,14 @@ class DashboardContoller extends GetxController {
 
   @override
   void onInit() {
-    connectSocket();
+    //connectSocket();
     getUser();
+    //getVideo();
     super.onInit();
+  }
+
+  void getVideo() {
+    client.on('video', (frame) => {frameActual.value = frame});
   }
 
   void connectSocket() {
@@ -48,8 +61,8 @@ class DashboardContoller extends GetxController {
     client.onConnect((_) => {print('Connected to server')});
   }
 
-  void runControl(action) {
-    client.emit('/python', action);
+  void runControl() {
+    client.emit('python', ['COM6', 'configurar_codo']);
   }
 
   void logout() {

@@ -1,7 +1,13 @@
+import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flip_card/flip_card.dart';
+import 'package:get/get.dart';
+import '../../helpers/dash_controller.dart';
 
 class Robots extends StatelessWidget {
-  const Robots({Key? key}) : super(key: key);
+  Robots({Key? key}) : super(key: key);
+  final DashboardContoller ctrl = Get.find();
+
   @override
   Widget build(BuildContext context) {
     //final size = MediaQuery.of(context).size;
@@ -13,9 +19,18 @@ class Robots extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              RobotCard(robotImage: Image.asset('images/scara.png')),
-              RobotCard(robotImage: Image.asset('images/abbMove.gif')),
-              RobotCard(robotImage: Image.asset('images/scara.png')),
+              RobotCard(
+                robotImage: 'images/scara.png',
+                controller: ctrl.cardControllers[0],
+              ),
+              RobotCard(
+                robotImage: 'images/abbMove.gif',
+                controller: ctrl.cardControllers[1],
+              ),
+              RobotCard(
+                robotImage: 'images/baxter.png',
+                controller: ctrl.cardControllers[2],
+              ),
               const Card(child: Text('Coming soon')),
             ],
           ),
@@ -36,36 +51,62 @@ class Robots extends StatelessWidget {
 }
 
 class RobotCard extends StatelessWidget {
-  final Image robotImage;
-  const RobotCard({Key? key, required this.robotImage}) : super(key: key);
+  const RobotCard(
+      {Key? key, required this.robotImage, required this.controller})
+      : super(key: key);
+  final String robotImage;
+  final FlipCardController controller;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Card(
-          color: Colors.red,
-          child: SizedBox(
-            height: 150,
-            width: 300,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Programar'),
+    final size = MediaQuery.of(context).size;
+    return GestureDetector(
+      onVerticalDragEnd: (d) => controller.toggleCard(),
+      onTap: () => controller.toggleCard(),
+      child: FlipCard(
+        fill: Fill.fillBack,
+        controller: controller,
+        direction: FlipDirection.HORIZONTAL,
+        front: Container(
+          width: 200,
+          height: 300,
+          child: Column(
+            children: [
+              SizedBox(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(robotImage),
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Supervisar'),
-                )
-              ],
-            ),
+                height: size.height / 4,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: const [
+                  Icon(Icons.keyboard_backspace),
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
+                      'Mas informacion',
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+            borderRadius: BorderRadius.circular(15),
           ),
         ),
-        robotImage,
-      ],
-      alignment: AlignmentDirectional.bottomStart,
+        back: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [Text('back'), Text('data')],
+          ),
+        ),
+      ),
     );
   }
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id= "image">
+    Hola Mundo
+    <button onclick="startVideo()">Iniciar Video</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js" integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const socket = io.connect('http://localhost:5000')
+        socket.on('video',(image)=>{
+            const frame = document.getElementById('image');
+            frame.src = `data:image/jpg;base64,${btoa(image)}`;
+        })
+    </script>
+</body>
+</html>

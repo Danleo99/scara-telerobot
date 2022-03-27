@@ -90,7 +90,7 @@ class Programador extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ElevatedButton.icon(
-                    onPressed: () => ctrl.runControl('HolaMundo'),
+                    onPressed: () => ctrl.runControl(),
                     icon: const Icon(Icons.send),
                     label: const Text('Enviar'),
                     style: ElevatedButton.styleFrom(

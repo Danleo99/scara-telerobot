@@ -45,6 +45,7 @@ dependencies:
   socket_io_client: ^2.0.0-beta.2
   rect_getter: ^1.1.0
   syncfusion_flutter_charts: ^19.4.55
+  flip_card: ^0.6.0
 
 dev_dependencies:
   flutter_test:
