@@ -1,2 +1,4 @@
 node_modules
 desktop.ini
+scara_socket/__pycache__
+scara_socket/venv
