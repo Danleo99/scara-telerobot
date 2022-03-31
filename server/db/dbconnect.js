@@ -6,7 +6,7 @@ const pool = mysql.createPool({
     database: 'telerobot',
     //user: 'admin_tesis',
     //database: 'admin_telerobot',
-    password: 'Tesis2022!'
+    password: 'Tesis2022'
 });
 // DB error check and verification 
 pool.getConnection((err, connection) => {
