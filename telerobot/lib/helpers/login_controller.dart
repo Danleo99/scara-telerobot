@@ -12,8 +12,8 @@ class LogInController extends GetxController {
 
   void login() async {
     Map<String, String> headers = {
-      'email': email.toString(),
-      'password': password.toString(),
+      'email': email.value.toString(),
+      'password': password.value.toString(),
     };
     try {
       var res = await http.get(url, headers: headers);
@@ -21,7 +21,9 @@ class LogInController extends GetxController {
         final userData = jsonDecode(res.body);
         box.write('user', userData);
         Get.to(() => DashBoard());
-      } else {}
+      } else {
+        print('Username or password not valid');
+      }
     } catch (e) {
       // ignore: avoid_print
       print(e);

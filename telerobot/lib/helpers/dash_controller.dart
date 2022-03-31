@@ -45,8 +45,8 @@ class DashboardContoller extends GetxController {
 
   @override
   void onInit() {
-    //connectSocket();
-    getUser();
+    connectSocket();
+    //getUser();
     //getVideo();
     super.onInit();
   }
@@ -60,8 +60,14 @@ class DashboardContoller extends GetxController {
     client.onConnect((_) => {print('Connected to server')});
   }
 
-  void runControl() {
-    client.emit('python', ['COM6', 'configurar_codo']);
+  void home() {
+    client.emitWithAck('home', 'run', ack: (ack) {
+      print(ack);
+    });
+  }
+
+  void reset() {
+    client.emit('reset', 'run');
   }
 
   void logout() {

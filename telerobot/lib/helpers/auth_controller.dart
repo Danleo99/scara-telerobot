@@ -18,26 +18,26 @@ class OnboardingController extends GetxController {
 Future<void> loadUser() async {
   final box = GetStorage();
   final userData = box.read('user');
-  String _token = '';
-
   if (userData != null) {
     final _user = User.fromJson(userData);
-    _token = _user.token;
-  }
+    String _token = _user.token;
 
-  final url = Uri.parse("http://localhost:80/user");
-  Map<String, String> headers = {"accessToken": _token};
+    final url = Uri.parse("http://localhost:80/user");
+    Map<String, String> headers = {"accessToken": _token};
 
-  try {
-    var res = await http.get(url, headers: headers);
-    var statusCode = res.statusCode;
-    if (statusCode != 202) {
-      box.remove('user');
-      Get.offAll(() => LogIn());
-    } else {
-      Get.offAll(() => DashBoard());
+    try {
+      var res = await http.get(url, headers: headers);
+      var statusCode = res.statusCode;
+      if (statusCode != 202) {
+        box.remove('user');
+        Get.offAll(() => LogIn());
+      } else {
+        Get.offAll(() => DashBoard());
+      }
+    } catch (e) {
+      Get.offAllNamed('/');
     }
-  } catch (e) {
-    Get.offAllNamed('/');
+  } else {
+    Get.offAll(() => LogIn());
   }
 }

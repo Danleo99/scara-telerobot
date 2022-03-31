@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../helpers/dash_controller.dart';
+import '../../helpers/dash_controller.dart';
 
 class Supervisor extends StatelessWidget {
   Supervisor({Key? key}) : super(key: key);
@@ -45,12 +45,23 @@ class Supervisor extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.home),
-                  label: const Text('Home'),
-                  style: ElevatedButton.styleFrom(
-                      shape: const StadiumBorder(), primary: Colors.amber),
+                child: Row(
+                  children: [
+                    ElevatedButton.icon(
+                      onPressed: () => ctrl.home(),
+                      icon: const Icon(Icons.home),
+                      label: const Text('Home'),
+                      style: ElevatedButton.styleFrom(
+                          shape: const StadiumBorder(), primary: Colors.amber),
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: () => ctrl.reset(),
+                      icon: const Icon(Icons.home),
+                      label: const Text('Reset'),
+                      style: ElevatedButton.styleFrom(
+                          shape: const StadiumBorder(), primary: Colors.amber),
+                    ),
+                  ],
                 ),
               ),
               Padding(

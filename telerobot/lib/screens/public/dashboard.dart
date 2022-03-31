@@ -5,7 +5,7 @@ import 'package:telerobot/screens/public/Robots.dart';
 import 'package:telerobot/screens/public/programador.dart';
 import 'package:telerobot/screens/public/widgets/dashbar.dart';
 import 'package:telerobot/screens/public/widgets/sidebar.dart';
-import 'package:telerobot/screens/supervisor.dart';
+import 'package:telerobot/screens/public/supervisor.dart';
 
 List<Widget> pages = [Robots(), Programador(), Supervisor()];
 

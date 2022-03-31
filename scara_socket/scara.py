@@ -15,9 +15,17 @@ hq = 0
 
 # Open the port for communication
 def abrir_puerto(COM):#listo
-    puerto.port = f'${COM}'
+    puerto.port = COM
     puerto.open()
     return f'Puerto ${COM} abierto'
+
+# Send to the PIC a bit
+def enviar_byte(d):#listo
+    try:
+        puerto.write(str(d).encode())
+    except:
+        print("insert", "El puerto serial no está abierto")    
+
 # Read the data from the port, we use this in a separate thread to know how is the robot at every moment
 def leer():
     while True:
@@ -28,208 +36,64 @@ def leer():
                 leido = puerto.read().decode()
             except:
                 break
-# 
-def hombro_quieto():
-    global hq
-    global leido
-    enviar_byte('T')
-    enviar_byte('P')
-    enviar_byte('1')
-    enviar_byte('F')
-    if leido == '3':
-        hq = 1
-        leido = ''
-    else:
-        hq = 0
-    print('hq')
-    print(hq)
-        
-def codo_quieto():
-    global cq
-    global leido
-    enviar_byte('T')
-    enviar_byte('P')
-    enviar_byte('2')
-    enviar_byte('F')
-    if leido == '4':
-        cq = 1
-        leido = ''
-    else:
-        cq = 0
-    print('cq')
-    print(cq)
 
-def mover_xy(x,y):#listo
-    if(x == 0):
-        mover_xy_codo_abajo(x,y)
-    else:
-        if(x>0):
-            mover_xy_codo_abajo(x,y)
-        if(x<0):
-            mover_xy_codo_arriba(x,y)
-def mover_xy_codo_abajo(x,y):
-    L1 = 200
-    L2 = 250
-    global aux
-    global leido
-    if y == 0:
-        if x>0:
-            beta = math.atan(math.inf)
-        else:
-            beta = -math.atan(math.inf)
-    else:
-        beta = math.atan(x/y)
-    q2 = math.acos(((x*x)+(y*y)-(L1*L1)-(L2*L2))/(2*L1*L2))
-    alfa = math.asin((L2*math.sin(q2))/(math.hypot(x,y)))
-    q1 = beta-alfa
-    Q2 = round(math.degrees(q2),1)
-    Q1 = round(math.degrees(q1),1)
-    hombro_abs(Q1)
-    time.sleep(0.015)
-    codo_abs(Q2)
-    time.sleep(0.015)
-    if((abs(Q1) >= 89.7) and (abs(Q1) < 90.1)):
-        while(leido != '1'):
-            pass
-    if(leido == '1'):
-        time.sleep(0.1)
-        reset_hombro()
-        time.sleep(0.5)
-        configurar_hombro()
-        time.sleep(0.5)
-        leido = ''
-        aux = 1
-def mover_xy_codo_arriba(x,y):
-    L1 = 200
-    L2 = 250
-    global aux
-    global leido
-    if y == 0:
-        if x>0:
-            beta = math.atan(math.inf)
-        else:
-            beta = -math.atan(math.inf)
-    else:
-        beta = math.atan(x/y)
-    q2 = math.acos(((x*x)+(y*y)-(L1*L1)-(L2*L2))/(2*L1*L2))
-    alfa = math.asin((L2*math.sin(q2))/(math.hypot(x,y)))
-    q1 = alfa+beta
-    Q2 = -round(math.degrees(q2),1)
-    Q1 = round(math.degrees(q1),1)
-    hombro_abs(Q1)
-    time.sleep(0.015)
-    codo_abs(Q2)
-    time.sleep(0.015)
-    if((abs(Q1) >= 89.7) and (abs(Q1) < 90.1)):
-        while(leido != '1'):
-            pass
-    if(leido == '1'):
-        time.sleep(0.1)
-        reset_hombro()
-        time.sleep(0.5)
-        configurar_hombro()
-        time.sleep(0.5)
-        leido = ''
-        aux = 1
-    print('q1')
-    print(Q1)
-    print('q2')
-    print(Q2)
-def girar(ang):
-    print(str(ang)+' grados')
-# def evaluar():
-#     global linea
-#     inputValue=text1.get(str(linea)+".0","end-1c")
-#     eval(inputValue)
-#     text1.insert("insert", "\n")
-#     linea = linea + 1
-# def abrir():
-#     fichero = filedialog.askopenfilename(title="Abrir",filetype=(("Archivos de texto","*.txt"),("Archivos texto","*.txt")))
-#     archivo = open(fichero)
-#     for linea in archivo:
-#         eval(linea)
-#     archivo.close()
-def cerrar_puerto():#listo
-    puerto.close()
-def enviar_byte(d):#listo
-    global linea
-    try:
-        puerto.write(str(d).encode())
-    except:
-        print("insert", "El puerto serial no está abierto")       
+# Set the first degree of freedom as ready to work
 def configurar_hombro():#listo_trama
     enviar_byte('C')
     enviar_byte('1')
     enviar_byte('F')
+
+# Set the second degree of freedom as ready to work
 def configurar_codo():#listo_trama
     enviar_byte('C')
     enviar_byte('2')
     enviar_byte('F')
-def usr_hombro(usr):#listo_trama
-    cadena = ''
-    usr2 = abs(usr)
-    long = len(str(usr2))-1
-    if usr < 0:
-        cadena = 'S1'+str(long)+'N'+str(usr2)+'F'
-    if usr > 0:
-        cadena = 'S1'+str(long)+'P'+str(usr2)+'F'
-    for i in range(0,len(cadena)):
-        enviar_byte(cadena[i])
+
+# Reset the fisrt degree of freedom from a block position
+def reset_hombro():#listo_trama
+    enviar_byte('R')
+    enviar_byte('1')
+    enviar_byte('F')
+
+# Reset the second degree of freedom from a block position
+def reset_codo():#listo_trama
+    enviar_byte('R')
+    enviar_byte('2')
+    enviar_byte('F')
+
+#Sets the max speed of the first degree of freedom
 def vel_max_hombro(usr):#listo_trama
     cadena = ''
     long = len(str(usr))-1
     cadena = 'V1'+str(long)+str(usr)+'F'
     for i in range(0,len(cadena)):
         enviar_byte(cadena[i])
+
+#Sets the max acceleration of the first degree of freedom
 def acc_max_hombro(usr):#listo_trama
     cadena = ''
     long = len(str(usr))-1
     cadena = 'A1'+str(long)+str(usr)+'F'
     for i in range(0,len(cadena)):
         enviar_byte(cadena[i])
+
+#Sets the max speed of the second degree of freedom
 def vel_max_codo(usr):#listo_trama
     cadena = ''
     long = len(str(usr))-1
     cadena = 'V2'+str(long)+str(usr)+'F'
     for i in range(0,len(cadena)):
         enviar_byte(cadena[i])
+
+#Sets the max acceleration of the second degree of freedom
 def acc_max_codo(usr):#listo_trama
     cadena = ''
     long = len(str(usr))-1
     cadena = 'A2'+str(long)+str(usr)+'F'
     for i in range(0,len(cadena)):
         enviar_byte(cadena[i])
-def usr_codo(usrc):#listo_trama
-    cadenac = ''
-    usrc2 = abs(usrc)
-    longc = len(str(usrc2))-1
-    if usrc < 0:
-        cadenac = 'S2'+str(longc)+'N'+str(usrc2)+'F'
-    if usrc > 0:
-        cadenac = 'S2'+str(longc)+'P'+str(usrc2)+'F'
-    for i in range(0,len(cadenac)):
-        enviar_byte(cadenac[i])
-def reset_hombro():#listo_trama
-    enviar_byte('R')
-    enviar_byte('1')
-    enviar_byte('F')
-def reset_codo():#listo_trama
-    enviar_byte('R')
-    enviar_byte('2')
-    enviar_byte('F')
-def rotar_hombro(ang):
-    user_u = (16384*ang)/(360)
-    user_u2 = round(user_u*80)
-    print(user_u2)
-    usr_hombro(user_u2)
-def rotar_codo(angc):
-    user_uc = (16384*angc)/(360)
-    user_uc2 = round(user_uc*100)
-    usr_codo(user_uc2)
-def app():
-    while True:
-        global leido
-        global linea
+
+# Robot finds the home position
 def home():#listo
     global theta_h
     global theta_c
@@ -267,6 +131,162 @@ def home():#listo
     rotar_hombro(90)
     time.sleep(2)
     leido = ''
+
+# Function to detect if the robot needs position up or down the specifyc point
+def mover_xy(x,y):#listo
+    if(x == 0):
+        mover_xy_codo_abajo(x,y)
+    else:
+        if(x>0):
+            mover_xy_codo_abajo(x,y)
+        if(x<0):
+            mover_xy_codo_arriba(x,y)
+
+# Function to move the robot to x,y from a down position
+def mover_xy_codo_abajo(x,y):
+    L1 = 200
+    L2 = 250
+    global aux
+    global leido
+    if y == 0:
+        if x>0:
+            beta = math.atan(math.inf)
+        else:
+            beta = -math.atan(math.inf)
+    else:
+        beta = math.atan(x/y)
+    q2 = math.acos(((x*x)+(y*y)-(L1*L1)-(L2*L2))/(2*L1*L2))
+    alfa = math.asin((L2*math.sin(q2))/(math.hypot(x,y)))
+    q1 = beta-alfa
+    Q2 = round(math.degrees(q2),1)
+    Q1 = round(math.degrees(q1),1)
+    hombro_abs(Q1)
+    time.sleep(0.015)
+    codo_abs(Q2)
+    time.sleep(0.015)
+    if((abs(Q1) >= 89.7) and (abs(Q1) < 90.1)):
+        while(leido != '1'):
+            pass
+    if(leido == '1'):
+        time.sleep(0.1)
+        reset_hombro()
+        time.sleep(0.5)
+        configurar_hombro()
+        time.sleep(0.5)
+        leido = ''
+        aux = 1
+
+# Function to move the robot to x,y from a top position
+def mover_xy_codo_arriba(x,y):
+    L1 = 200
+    L2 = 250
+    global aux
+    global leido
+    if y == 0:
+        if x>0:
+            beta = math.atan(math.inf)
+        else:
+            beta = -math.atan(math.inf)
+    else:
+        beta = math.atan(x/y)
+    q2 = math.acos(((x*x)+(y*y)-(L1*L1)-(L2*L2))/(2*L1*L2))
+    alfa = math.asin((L2*math.sin(q2))/(math.hypot(x,y)))
+    q1 = alfa+beta
+    Q2 = -round(math.degrees(q2),1)
+    Q1 = round(math.degrees(q1),1)
+    hombro_abs(Q1)
+    time.sleep(0.015)
+    codo_abs(Q2)
+    time.sleep(0.015)
+    if((abs(Q1) >= 89.7) and (abs(Q1) < 90.1)):
+        while(leido != '1'):
+            pass
+    if(leido == '1'):
+        time.sleep(0.1)
+        reset_hombro()
+        time.sleep(0.5)
+        configurar_hombro()
+        time.sleep(0.5)
+        leido = ''
+        aux = 1
+    print('q1')
+    print(Q1)
+    print('q2')
+    print(Q2)
+
+def hombro_quieto():
+    global hq
+    global leido
+    enviar_byte('T')
+    enviar_byte('P')
+    enviar_byte('1')
+    enviar_byte('F')
+    if leido == '3':
+        hq = 1
+        leido = ''
+    else:
+        hq = 0
+    print('hq')
+    print(hq)
+        
+def codo_quieto():
+    global cq
+    global leido
+    enviar_byte('T')
+    enviar_byte('P')
+    enviar_byte('2')
+    enviar_byte('F')
+    if leido == '4':
+        cq = 1
+        leido = ''
+    else:
+        cq = 0
+    print('cq')
+    print(cq)
+
+# def abrir():
+#     fichero = filedialog.askopenfilename(title="Abrir",filetype=(("Archivos de texto","*.txt"),("Archivos texto","*.txt")))
+#     archivo = open(fichero)
+#     for linea in archivo:
+#         eval(linea)
+#     archivo.close()
+def cerrar_puerto():#listo
+    puerto.close()
+
+def usr_hombro(usr):#listo_trama
+    cadena = ''
+    usr2 = abs(usr)
+    long = len(str(usr2))-1
+    if usr < 0:
+        cadena = 'S1'+str(long)+'N'+str(usr2)+'F'
+    if usr > 0:
+        cadena = 'S1'+str(long)+'P'+str(usr2)+'F'
+    for i in range(0,len(cadena)):
+        enviar_byte(cadena[i])
+
+def usr_codo(usrc):#listo_trama
+    cadenac = ''
+    usrc2 = abs(usrc)
+    longc = len(str(usrc2))-1
+    if usrc < 0:
+        cadenac = 'S2'+str(longc)+'N'+str(usrc2)+'F'
+    if usrc > 0:
+        cadenac = 'S2'+str(longc)+'P'+str(usrc2)+'F'
+    for i in range(0,len(cadenac)):
+        enviar_byte(cadenac[i])
+def rotar_hombro(ang):
+    user_u = (16384*ang)/(360)
+    user_u2 = round(user_u*80)
+    print(user_u2)
+    usr_hombro(user_u2)
+def rotar_codo(angc):
+    user_uc = (16384*angc)/(360)
+    user_uc2 = round(user_uc*100)
+    usr_codo(user_uc2)
+def app():
+    while True:
+        global leido
+        global linea
 def hombro_abs(th):#listo
     global theta_h
     global mover_h
