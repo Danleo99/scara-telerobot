@@ -35,17 +35,106 @@ class Supervisor extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(children: [
-              const Text(
-                'Control grados de libertad',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 45,
-                  fontWeight: FontWeight.bold,
+              const Padding(
+                padding: EdgeInsets.all(20.0),
+                child: Text(
+                  '''Control grados de libertad''',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Primer grado de libertad',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              Obx(
+                () => Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Slider(
+                        min: -90.0,
+                        max: 90.0,
+                        value: ctrl.fisrtDegree.value,
+                        onChanged: (value) {
+                          ctrl.fisrtDegree.value = value;
+                        },
+                        label: ctrl.fisrtDegree.value.round().toString(),
+                        onChangeEnd: (value) {
+                          ctrl.degreeChange();
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 50,
+                      child: Text(
+                        '${ctrl.fisrtDegree.value.round()}',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Segundo grado de libertad',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              Obx(
+                () => Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Slider(
+                        min: -115.0,
+                        max: 115.0,
+                        value: ctrl.secondDegree.value,
+                        onChanged: (value) {
+                          ctrl.secondDegree.value = value;
+                        },
+                        label: ctrl.secondDegree.value.round().toString(),
+                        onChangeEnd: (value) {
+                          ctrl.degreeChange();
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 50,
+                      child: Text(
+                        '${ctrl.secondDegree.value.round()}',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton.icon(
                       onPressed: () => ctrl.home(),
@@ -64,26 +153,6 @@ class Supervisor extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.save),
-                  label: const Text('Guardar Puntos'),
-                  style: ElevatedButton.styleFrom(
-                      shape: const StadiumBorder(), primary: Colors.amber),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.send),
-                  label: const Text('Enviar'),
-                  style: ElevatedButton.styleFrom(
-                      shape: const StadiumBorder(), primary: Colors.amber),
-                ),
-              )
             ]),
           ),
         )

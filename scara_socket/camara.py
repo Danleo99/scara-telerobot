@@ -137,10 +137,3 @@ def threadBoth(source=0):
         frame = putIterationsPerSec(frame, cps.countsPerSec())
         video_shower.frame = frame
         cps.increment()
-
-def hiloLeer():
-    Thread(target = scara.leer, daemon = True).start()
-
-if __name__ == "__main__":
-    hiloLeer()
-    threadBoth()

@@ -30,12 +30,11 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
             name: '/',
-            page: () => GetPlatform.isMobile
-                ? Onboarding() //: DashBoard(),
-                : ResponsiveWidget(
-                    desktopScreen: const Home(),
-                    mobileScreen: MobileScreen(),
-                  ),
+            page: () => GetPlatform.isMobile ? Onboarding() : DashBoard(),
+            // : ResponsiveWidget(
+            //     desktopScreen: const Home(),
+            //     mobileScreen: MobileScreen(),
+            //   ),
             transition: Transition.leftToRight),
         GetPage(
           name: '/login',

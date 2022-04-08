@@ -28,6 +28,9 @@ class DashboardContoller extends GetxController {
         ChartData((r * cos(th * (pi / 180))).round(),
             (r * sin(th * (pi / 180))).round(), false)
   ];
+  // Sliders
+  RxDouble fisrtDegree = 0.0.obs;
+  RxDouble secondDegree = 0.0.obs;
   // Frame a mostrar
   var frameActual = ''.obs;
   final cardControllers = [
@@ -46,13 +49,27 @@ class DashboardContoller extends GetxController {
   @override
   void onInit() {
     connectSocket();
-    //getUser();
+    // getUser();
     //getVideo();
     super.onInit();
   }
 
+  @override
+  void onClose() {
+    client.disconnect();
+    super.onClose();
+  }
+
   void getVideo() {
     client.on('video', (frame) => {frameActual.value = frame});
+  }
+
+  void degreeChange() {
+    Map degrees = {
+      "first": fisrtDegree.value.round(),
+      "second": secondDegree.value.round()
+    };
+    client.emit('firtDegreeChange', degrees);
   }
 
   void connectSocket() {

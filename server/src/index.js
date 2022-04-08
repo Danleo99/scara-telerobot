@@ -4,12 +4,11 @@ const cors = require("cors");
 // Modules
 const express = require("express"); //llamar al express
 const app = express();
-const server = require('http').Server(app);
+const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 //My routes
 const userRoutes = require('./routes/users')
 const routinesRouter = require('./routes/routines')
-
 
 const port = process.env.PORT || 80;
 
@@ -22,9 +21,17 @@ app.use('/routines', routinesRouter);
 io.on('connection', (client) => {
   console.log('Connected to:', client.id);
 
+  client.on('home', ()=>{
+    client.broadcast.emit('test', 'Send from UI')
+  })
+
   client.on('disconnect', () => {
     console.log('Has disconnected: ' + client.id);
   });
+
+  client.on('firtDegreeChange',(change)=>{
+    client.broadcast.emit('moveAbs', change)
+  })
 });
 
 server.listen(port, '0.0.0.0', () => {
