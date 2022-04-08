@@ -37,7 +37,7 @@ class DashboardContoller extends GetxController {
   ];
 
   socket.Socket client = socket.io(
-    'http://localhost:5000',
+    'http://localhost:80',
     <String, dynamic>{
       'transports': ['websocket']
     },
