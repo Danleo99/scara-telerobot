@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'dart:math';
 import 'package:flip_card/flip_card_controller.dart';
+import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:sdp_transform/sdp_transform.dart';
 import 'package:socket_io_client/socket_io_client.dart' as socket;
 import 'package:telerobot/constants/data_store.dart';
 
@@ -31,6 +34,9 @@ class DashboardContoller extends GetxController {
   // Sliders
   RxDouble fisrtDegree = 0.0.obs;
   RxDouble secondDegree = 0.0.obs;
+
+  RTCPeerConnection? peerConnection;
+  bool _offer = false;
   // Frame a mostrar
   var frameActual = ''.obs;
   final cardControllers = [
@@ -48,9 +54,8 @@ class DashboardContoller extends GetxController {
 
   @override
   void onInit() {
-    connectSocket();
+    listenerSocket();
     // getUser();
-    //getVideo();
     super.onInit();
   }
 
@@ -60,8 +65,17 @@ class DashboardContoller extends GetxController {
     super.onClose();
   }
 
-  void getVideo() {
-    client.on('video', (frame) => {frameActual.value = frame});
+  void listenerSocket() {
+    // ignore: avoid_print
+    client.onConnect((_) => {print('Connected to server')});
+
+    client.on('startVideo', (session) {
+      setRemoteDescription(session);
+    });
+
+    client.on('candidate', (can) {
+      setCandidate(can);
+    });
   }
 
   void degreeChange() {
@@ -72,19 +86,65 @@ class DashboardContoller extends GetxController {
     client.emit('firtDegreeChange', degrees);
   }
 
-  void connectSocket() {
-    // ignore: avoid_print
-    client.onConnect((_) => {print('Connected to server')});
-  }
-
   void home() {
-    client.emitWithAck('home', 'run', ack: (ack) {
-      print(ack);
-    });
+    client.emitWithAck('home', 'run', ack: (ack) {});
   }
 
   void reset() {
     client.emit('reset', 'run');
+  }
+
+  void sendSessionInfo(session) {
+    client.emit('startVideo', session);
+  }
+
+  void sendCandidate(candidate) {
+    client.emit('candidate', candidate);
+  }
+
+  void createOffer() async {
+    RTCSessionDescription description =
+        await peerConnection!.createOffer({'offerToReceiveVideo': 1});
+    var session = parse(description.sdp.toString());
+    var offer = jsonEncode(session);
+    _offer = true;
+
+    await peerConnection!.setLocalDescription(description);
+    client.emit('startVideo', offer);
+  }
+
+  void createAnswer() async {
+    RTCSessionDescription description =
+        await peerConnection!.createAnswer({'offerToReceiveVideo': 1});
+    var session = parse(description.sdp.toString());
+    var answer = json.encode(session);
+
+    peerConnection!.setLocalDescription(description);
+
+    client.emit('startVideo', answer);
+  }
+
+  void setRemoteDescription(sessionDesc) async {
+    var jsonString = sessionDesc;
+    dynamic session = await jsonDecode('$jsonString');
+
+    String sdp = write(session, null);
+
+    RTCSessionDescription description =
+        RTCSessionDescription(sdp, _offer ? 'answer' : 'offer');
+
+    await peerConnection!.setRemoteDescription(description);
+  }
+
+  void setCandidate(candidates) async {
+    String jsonString = candidates;
+    dynamic session = await jsonDecode(jsonString);
+    // ignore: avoid_print
+    print(session['candidate']);
+    dynamic candidate = RTCIceCandidate(
+        session['candidate'], session['sdpMid'], session['sdpMLineIndex']);
+
+    await peerConnection!.addCandidate(candidate);
   }
 
   void logout() {

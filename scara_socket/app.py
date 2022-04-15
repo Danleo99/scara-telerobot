@@ -1,14 +1,9 @@
-import signal
 import socketio
 import cv2 as cv
-import threading, socket, time
-import uvicorn
+import threading, time
 ## My Files
 import scara
 import camara
-
-PORT = 3000
-HOST = socket.gethostbyname(socket.gethostname())
 
 activateVideo = False
 frameSend = None

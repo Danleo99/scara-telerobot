@@ -22,6 +22,7 @@ class LogInController extends GetxController {
         box.write('user', userData);
         Get.to(() => DashBoard());
       } else {
+        // ignore: avoid_print
         print('Username or password not valid');
       }
     } catch (e) {

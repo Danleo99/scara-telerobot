@@ -49,7 +49,6 @@ class SideBar extends StatelessWidget {
             child: ElevatedButton.icon(
               onPressed: () => {
                 controller.active.value = 2,
-                controller.connectSocket(),
               },
               icon: const Icon(Icons.camera_indoor_sharp),
               label: const Text('Supervisar', style: TextStyle(fontSize: 20)),

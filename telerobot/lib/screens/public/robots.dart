@@ -103,7 +103,7 @@ class RobotCard extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [Text('back'), Text('data')],
+            children: const [Text('back'), Text('data')],
           ),
         ),
       ),

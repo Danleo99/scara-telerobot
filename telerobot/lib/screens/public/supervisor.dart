@@ -1,7 +1,6 @@
-import 'dart:convert';
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:telerobot/screens/public/widgets/video_widget.dart';
 import '../../helpers/dash_controller.dart';
 
 class Supervisor extends StatelessWidget {
@@ -14,16 +13,13 @@ class Supervisor extends StatelessWidget {
       children: [
         Expanded(
           flex: 2,
-          child: Obx(
-            () => Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Colors.white),
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                      image: MemoryImage(base64Decode(ctrl.frameActual.value)),
-                      fit: BoxFit.fill)),
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            decoration: BoxDecoration(
+              border: Border.all(width: 1, color: Colors.white),
+              borderRadius: BorderRadius.circular(20),
             ),
+            child: const VideoView(),
           ),
         ),
         Expanded(

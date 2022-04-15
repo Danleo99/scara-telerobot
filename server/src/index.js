@@ -32,6 +32,14 @@ io.on('connection', (client) => {
   client.on('firtDegreeChange',(change)=>{
     client.broadcast.emit('moveAbs', change)
   })
+
+  client.on('startVideo', (session)=>{
+    client.broadcast.emit('startVideo', session)
+  })
+
+  client.on('candidate', (data)=>{
+    client.broadcast.emit('candidate', data)
+  })
 });
 
 server.listen(port, '0.0.0.0', () => {

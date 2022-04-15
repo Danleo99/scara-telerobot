@@ -46,11 +46,11 @@ class _ProgramingWidgetState extends State<ProgramingWidget> {
           interval: 25,
         ),
         primaryXAxis: NumericAxis(
-          title: AxisTitle(text: 'Eje X'),
-          minimum: -450,
-          maximum: 450,
-          interval: 30,
-        ),
+            title: AxisTitle(text: 'Eje X'),
+            minimum: -450,
+            maximum: 450,
+            interval: 30,
+            isInversed: true),
         backgroundColor: Colors.transparent,
         onMarkerRender: (args) {
           if (ctrl.cSpace[int.parse(args.pointIndex.toString())].selected ==
