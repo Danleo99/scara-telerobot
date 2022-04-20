@@ -25,7 +25,7 @@ class Programador extends StatelessWidget {
             margin: const EdgeInsets.fromLTRB(0, 0, 25, 10),
             decoration: BoxDecoration(
               border: Border.all(width: 1, color: Colors.white),
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -44,7 +44,7 @@ class Programador extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                     decoration: BoxDecoration(
                       border: Border.all(width: 1, color: Colors.white),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: Obx(
                       () => ListView.builder(

@@ -41,13 +41,14 @@ dependencies:
   http: ^0.13.4
   get_storage: ^2.0.3
   url_launcher: ^6.0.20
-  font_awesome_flutter: ^9.2.0
+  font_awesome_flutter: ^10.1.0
   socket_io_client: ^2.0.0-beta.2
   rect_getter: ^1.1.0
-  syncfusion_flutter_charts: ^19.4.55
+  syncfusion_flutter_charts: ^20.1.50
   flip_card: ^0.6.0
   flutter_webrtc: ^0.8.5
   sdp_transform: ^0.3.2
+  ext_video_player: ^0.1.2
 
 dev_dependencies:
   flutter_test:

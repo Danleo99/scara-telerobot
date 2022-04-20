@@ -8,8 +8,20 @@ import 'package:telerobot/screens/public/contact.dart';
 import 'package:telerobot/screens/public/dashboard.dart';
 import 'screens/public/home.dart';
 import 'screens/mobile/mobile.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
+import 'dart:ui' as ui;
 
 void main() {
+  ui.platformViewRegistry.registerViewFactory('iframe', (int viewId) {
+    final frame = html.IFrameElement();
+    frame.src = 'https://player.twitch.tv/?channel=thegrefg&&parent=localhost';
+    frame.style.border = 'none';
+    frame.allowFullscreen = true;
+    frame.height = '300';
+    frame.width = '500';
+    return frame;
+  });
   runApp(MyApp());
 }
 

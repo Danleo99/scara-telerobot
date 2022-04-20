@@ -11,12 +11,39 @@ class Robots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final size = MediaQuery.of(context).size;
-    return Column(
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
+          flex: 2,
+          child: Column(
+            children: [
+              Expanded(
+                flex: 2,
+                child: Container(
+                  margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.white),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.white),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
           flex: 1,
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               RobotCard(
@@ -30,21 +57,10 @@ class Robots extends StatelessWidget {
               RobotCard(
                 robotImage: 'images/baxter.png',
                 controller: ctrl.cardControllers[2],
-              ),
-              const Card(child: Text('Coming soon')),
+              )
             ],
           ),
         ),
-        Expanded(
-          flex: 2,
-          child: Container(
-            margin: const EdgeInsets.all(15),
-            decoration: BoxDecoration(
-              border: Border.all(width: 1, color: Colors.white),
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-        )
       ],
     );
   }
@@ -68,19 +84,20 @@ class RobotCard extends StatelessWidget {
         controller: controller,
         direction: FlipDirection.HORIZONTAL,
         front: Container(
-          width: 200,
-          height: 300,
+          width: size.width,
+          height: size.height / 3.35,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SizedBox(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Image.asset(robotImage),
                 ),
-                height: size.height / 4,
+                height: size.height / 4.5,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Icon(Icons.keyboard_backspace),
                   Padding(
@@ -89,21 +106,28 @@ class RobotCard extends StatelessWidget {
                       'Mas informacion',
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                  )
+                  ),
+                  Icon(Icons.info_outline)
                 ],
               ),
             ],
           ),
           decoration: BoxDecoration(
             border: Border.all(width: 1, color: Colors.white),
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
         back: Padding(
           padding: const EdgeInsets.all(10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [Text('back'), Text('data')],
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [Text('back'), Text('data')],
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(width: 1, color: Colors.white),
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
         ),
       ),

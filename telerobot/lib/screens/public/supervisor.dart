@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:telerobot/screens/public/widgets/video_widget.dart';
+import 'package:telerobot/widgets/video_feedback.dart';
 import '../../helpers/dash_controller.dart';
 
 class Supervisor extends StatelessWidget {
@@ -19,7 +20,8 @@ class Supervisor extends StatelessWidget {
               border: Border.all(width: 1, color: Colors.white),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: const VideoView(),
+            // child: const VideoView(),
+            child: const VideoFeedback(),
           ),
         ),
         Expanded(
