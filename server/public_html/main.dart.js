@@ -25063,7 +25063,7 @@ A.bt(f.h(j,"Nombre"))
 A.bt(f.h(j,"Apellido"))
 A.bt(f.h(j,"email"))
 i=A.bt(f.h(j,"token"))
-n=A.ic("http://localhost:3000/user",0,null)
+n=A.ic("http://18.230.53.24/user",0,null)
 f=t.N
 m=A.O(["accessToken",i],f,f)
 q=6
@@ -25101,7 +25101,7 @@ a6p:function a6p(){},
 aow:function aow(){},
 aox:function aox(){},
 aoy:function aoy(){},
-atX(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a="http://localhost:3000",a0="query",a1=A.awa(0),a2=A.IC(),a3=A.a9w(""),a4=t.z,a5=new A.AI($,!0,!1,new A.eO(A.b([],t.d2),t.Yu),A.y(t.HE,t.d_),t.jV)
+atX(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a="http://18.230.53.24",a0="query",a1=A.awa(0),a2=A.IC(),a3=A.a9w(""),a4=t.z,a5=new A.AI($,!0,!1,new A.eO(A.b([],t.d2),t.Yu),A.y(t.HE,t.d_),t.jV)
 a5.eD$=A.ew([],!0,a4)
 s=A.b([],t.HF)
 for(r=245;r<=450;r+=10)for(q=0;q<=180;q+=2){p=q*0.017453292519943295
@@ -25115,7 +25115,7 @@ j=A.ic(a,0,null)
 i=j.gdw()+"://"+j.ghu(j)+":"+j.glF(j)
 h=j.gee(j)
 g=$.anJ.aD(0,i)&&$.anJ.h(0,i).d.aD(0,h)
-if(J.e(k.h(0,"forceNew"),!0)||J.e(k.h(0,"force new connection"),!0)||!1===k.h(0,"multiplex")||g){$.aBD().b9(B.n,"ignoring socket cache for http://localhost:3000",null,null)
+if(J.e(k.h(0,"forceNew"),!0)||J.e(k.h(0,"force new connection"),!0)||!1===k.h(0,"multiplex")||g){$.aBD().b9(B.n,"ignoring socket cache for http://18.230.53.24",null,null)
 f=A.av5(k,a)}else{f=$.anJ.h(0,i)
 if(f==null){f=A.av5(k,a)
 $.anJ.q(0,i,f)}}if(j.giN(j).length!==0&&k.h(0,a0)==null)k.q(0,a0,j.giN(j))
@@ -25199,7 +25199,7 @@ a6_:function a6_(){},
 a60:function a60(){},
 a61:function a61(){},
 av2(){var s=$.aP(),r=t.Wo
-r=new A.yL(A.a9w(""),A.a9w(""),A.ic("http://localhost:3000/user/login",0,null),A.IC(),A.b([],t.EH),A.bV(t.X,t.xW),new A.iT(r),new A.iT(r),!1,!1)
+r=new A.yL(A.a9w(""),A.a9w(""),A.ic("http://18.230.53.24/user/login",0,null),A.IC(),A.b([],t.EH),A.bV(t.X,t.xW),new A.iT(r),new A.iT(r),!1,!1)
 r.pe()
 return new A.rV(A.IZ(s,r,t.tT),null)},
 rV:function rV(a,b){this.c=a
