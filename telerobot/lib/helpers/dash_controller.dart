@@ -46,7 +46,7 @@ class DashboardContoller extends GetxController {
   ];
 
   socket.Socket client = socket.io(
-    'http://18.230.53.24',
+    'http://telerobots.tech',
     <String, dynamic>{
       'transports': ['websocket']
     },
