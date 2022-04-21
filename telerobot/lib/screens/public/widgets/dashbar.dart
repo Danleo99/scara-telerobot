@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:telerobot/widgets/notifications.dart';
 import '../../../helpers/dash_controller.dart';
 
 List<String> pages = ['Robots', 'Programador', 'Supervisor'];
@@ -29,10 +30,7 @@ class DashNavbar extends StatelessWidget implements PreferredSizeWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.notifications),
-                ),
+                const NotificationIcon(),
                 const SizedBox(
                   width: 20,
                 ),

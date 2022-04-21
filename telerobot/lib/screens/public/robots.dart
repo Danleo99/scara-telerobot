@@ -21,6 +21,7 @@ class Robots extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: Container(
+                  width: double.infinity,
                   margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
                   decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.white),
@@ -31,10 +32,45 @@ class Robots extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Container(
+                  width: double.infinity,
                   margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
                   decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.white),
                     borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text(
+                          'Estado de Conexion',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(
+                            Icons.laptop_sharp,
+                            size: 50,
+                          ),
+                          Icon(
+                            Icons.cloud,
+                            size: 50,
+                          ),
+                          Icon(
+                            Icons.precision_manufacturing,
+                            size: 50,
+                            color: Colors.red,
+                          )
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),

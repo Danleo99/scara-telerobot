@@ -15,7 +15,8 @@ import 'dart:ui' as ui;
 void main() {
   ui.platformViewRegistry.registerViewFactory('iframe', (int viewId) {
     final frame = html.IFrameElement();
-    frame.src = 'https://player.twitch.tv/?channel=thegrefg&&parent=localhost';
+    frame.src =
+        'https://player.twitch.tv/?channel=santiagolopeze21&parent=www.telerobot.com';
     frame.style.border = 'none';
     frame.allowFullscreen = true;
     frame.height = '300';
@@ -42,11 +43,13 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
             name: '/',
-            page: () => GetPlatform.isMobile ? Onboarding() : DashBoard(),
-            // : ResponsiveWidget(
-            //     desktopScreen: const Home(),
-            //     mobileScreen: MobileScreen(),
-            //   ),
+            page: () => GetPlatform.isMobile
+                ? Onboarding()
+                // : DashBoard(),
+                : ResponsiveWidget(
+                    desktopScreen: const Home(),
+                    mobileScreen: MobileScreen(),
+                  ),
             transition: Transition.leftToRight),
         GetPage(
           name: '/login',
