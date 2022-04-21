@@ -86475,7 +86475,7 @@ $S:150}
 A.BL.prototype={}
 A.aoB.prototype={
 $1(a){var s,r=document.createElement("iframe")
-r.src="https://player.twitch.tv/?channel=santiagolopeze21&parent=www.telerobot.com"
+r.src="https://player.twitch.tv/?channel=santiagolopeze21&parent=www.telerobot.tech"
 s=r.style
 s.border="none"
 r.allowFullscreen=!0

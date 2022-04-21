@@ -16,7 +16,7 @@ void main() {
   ui.platformViewRegistry.registerViewFactory('iframe', (int viewId) {
     final frame = html.IFrameElement();
     frame.src =
-        'https://player.twitch.tv/?channel=santiagolopeze21&parent=www.telerobot.com';
+        'https://player.twitch.tv/?channel=santiagolopeze21&parent=www.telerobot.tech';
     frame.style.border = 'none';
     frame.allowFullscreen = true;
     frame.height = '300';
