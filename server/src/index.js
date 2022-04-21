@@ -10,7 +10,7 @@ const io = require('socket.io')(server);
 const userRoutes = require('./routes/users')
 const routinesRouter = require('./routes/routines')
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
