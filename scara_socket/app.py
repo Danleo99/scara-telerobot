@@ -20,7 +20,7 @@ def connect_error(e):
     print("The connection failed!")
 
 @sio.event
-async def home(data):
+def home(data):
     print('Homming')
     scara.reset_codo()
     time.sleep(2)
@@ -34,7 +34,7 @@ async def home(data):
     return 'Starting the robot in Home Position'
 
 @sio.event
-async def reset(data):
+def reset(data):
     print("Reset robot")
     scara.reset_codo()
     time.sleep(2)
@@ -64,14 +64,17 @@ def startVideo(sid, data):
 @sio.event
 def moveAbs(data):
     print(data['first'])
+    scara.hombro_abs(data['first'])
+    # time.sleep(2)
     print(data['second'])
+    scara.codo_abs(data['second'])
 
     
 if __name__ == "__main__":
     try:
-        #scara.abrir_puerto('COM6')
+        scara.abrir_puerto('COM5')
         hiloLeer = threading.Thread(target = scara.leer, daemon = True).start()
-        sio.connect('http://192.168.0.10:80')
+        sio.connect('http://18.230.53.24:80')
         #camara.threadBoth()
     except KeyboardInterrupt:
         print('Closing connection with Server')

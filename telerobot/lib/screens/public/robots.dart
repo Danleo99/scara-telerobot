@@ -2,6 +2,7 @@ import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:get/get.dart';
+import 'package:telerobot/screens/public/widgets/information.dart';
 import '../../helpers/dash_controller.dart';
 
 class Robots extends StatelessWidget {
@@ -21,13 +22,13 @@ class Robots extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: Container(
-                  width: double.infinity,
-                  margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.white),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
+                    width: double.infinity,
+                    margin: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.white),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const SoftwareInformation()),
               ),
               Expanded(
                 flex: 1,
@@ -54,7 +55,7 @@ class Robots extends StatelessWidget {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
+                        children: const [
                           Icon(
                             Icons.laptop_sharp,
                             size: 50,

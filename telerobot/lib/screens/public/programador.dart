@@ -66,7 +66,7 @@ class Programador extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () => ctrl.home(),
                     icon: const Icon(Icons.home),
                     label: const Text('Home'),
                     style: ElevatedButton.styleFrom(

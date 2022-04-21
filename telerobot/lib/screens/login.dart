@@ -52,7 +52,7 @@ class LogIn extends StatelessWidget {
                     ),
                     if (ResponsiveWidget.isMobile(context))
                       Image.asset(
-                        '/logos/telerobotSmWhite.png',
+                        '/telerobotSmWhite.png',
                         height: 120,
                       ),
                     SizedBox(
@@ -120,7 +120,7 @@ class LogIn extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        '/logos/telerobotSmWhite.png',
+                        '/telerobotSmWhite.png',
                         width: screenSize.width * 0.2,
                       ),
                     ],

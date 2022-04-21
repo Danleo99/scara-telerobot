@@ -22,7 +22,11 @@ io.on('connection', (client) => {
   console.log('Connected to:', client.id);
 
   client.on('home', ()=>{
-    client.broadcast.emit('test', 'Send from UI')
+    client.broadcast.emit('home')
+  })
+
+  client.on('reset', ()=>{
+    client.broadcast.emit('reset')
   })
 
   client.on('disconnect', () => {

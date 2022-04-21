@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:telerobot/constants/data_store.dart';
 import 'package:telerobot/screens/login.dart';
 import 'package:telerobot/screens/public/dashboard.dart';
+import '../screens/mobile/mobile.dart';
 
 class OnboardingController extends GetxController {
   @override
@@ -22,7 +23,9 @@ Future<void> loadUser() async {
     final _user = User.fromJson(userData);
     String _token = _user.token;
 
-    final url = Uri.parse("http://telerobots.tech/user");
+    print(_token);
+
+    final url = Uri.parse("http://18.230.53.24/user");
     Map<String, String> headers = {"accessToken": _token};
 
     try {
@@ -32,7 +35,7 @@ Future<void> loadUser() async {
         box.remove('user');
         Get.offAll(() => LogIn());
       } else {
-        Get.offAll(() => DashBoard());
+        Get.offAll(() => GetPlatform.isMobile ? MobileScreen() : DashBoard());
       }
     } catch (e) {
       Get.offAllNamed('/');
