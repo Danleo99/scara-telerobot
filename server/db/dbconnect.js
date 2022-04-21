@@ -2,10 +2,10 @@ const mysql = require('mysql2')
 // DB connection
 const pool = mysql.createPool({
     host: 'localhost',
-    // user: 'root',
-    // database: 'telerobot',
-    user: 'admin_tesis',
-    database: 'admin_telerobot',
+    user: 'root',
+    database: 'telerobot',
+    // user: 'admin_tesis',
+    // database: 'admin_telerobot',
     password: 'Tesis2022!'
 });
 // DB error check and verification 
