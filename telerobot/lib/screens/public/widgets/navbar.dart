@@ -17,7 +17,7 @@ class TeleNavbar extends StatelessWidget implements PreferredSizeWidget {
           SizedBox(width: screenSize.width / 25),
           InkWell(
             child: Image.asset(
-              'assets/logos/HorzBlue.png',
+              'images/HorzBlue.png',
               color: Colors.white,
             ),
             onTap: () => Get.toNamed('/'),

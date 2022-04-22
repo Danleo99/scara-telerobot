@@ -22,11 +22,11 @@ io.on('connection', (client) => {
   console.log('Connected to:', client.id);
 
   client.on('home', ()=>{
-    client.broadcast.emit('home')
+    client.broadcast.emit('home', 'run')
   })
 
   client.on('reset', ()=>{
-    client.broadcast.emit('reset')
+    client.broadcast.emit('reset', 'run')
   })
 
   client.on('disconnect', () => {

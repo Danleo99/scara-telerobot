@@ -129,27 +129,30 @@ class Supervisor extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton.icon(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: ElevatedButton.icon(
                       onPressed: () => ctrl.home(),
                       icon: const Icon(Icons.home),
                       label: const Text('Home'),
                       style: ElevatedButton.styleFrom(
                           shape: const StadiumBorder(), primary: Colors.amber),
                     ),
-                    ElevatedButton.icon(
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: ElevatedButton.icon(
                       onPressed: () => ctrl.reset(),
                       icon: const Icon(Icons.home),
                       label: const Text('Reset'),
                       style: ElevatedButton.styleFrom(
                           shape: const StadiumBorder(), primary: Colors.amber),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ]),
           ),

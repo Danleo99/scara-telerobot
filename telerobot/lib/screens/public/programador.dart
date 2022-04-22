@@ -66,18 +66,6 @@ class Programador extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ElevatedButton.icon(
-                    onPressed: () => ctrl.home(),
-                    icon: const Icon(Icons.home),
-                    label: const Text('Home'),
-                    style: ElevatedButton.styleFrom(
-                        shape: const StadiumBorder(),
-                        fixedSize: Size(size.width, 40),
-                        primary: Colors.amber),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: ElevatedButton.icon(
                     onPressed: () {},
                     icon: const Icon(Icons.save),
                     label: const Text('Guardar Puntos'),
@@ -92,7 +80,7 @@ class Programador extends StatelessWidget {
                   child: ElevatedButton.icon(
                     onPressed: () {},
                     icon: const Icon(Icons.send),
-                    label: const Text('Enviar'),
+                    label: const Text('Ejecutar'),
                     style: ElevatedButton.styleFrom(
                         shape: const StadiumBorder(),
                         fixedSize: Size(size.width, 40),

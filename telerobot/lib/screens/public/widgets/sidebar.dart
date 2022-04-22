@@ -16,7 +16,7 @@ class SideBar extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20),
               child: Image.asset(
-                '/logos/telerobotSmWhite.png',
+                'images/telerobotSmWhite.png',
                 width: 120,
               ),
             ),

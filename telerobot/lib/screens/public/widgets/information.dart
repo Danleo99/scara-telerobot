@@ -98,18 +98,6 @@ class SoftwareInformation extends StatelessWidget {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(20.0),
-                child: Center(
-                    child: Text(
-                  'Por favor llamar a Isaac 3015297970 si deseeas ser tu propio jefe y generar +2k al mes',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )),
-              )
             ],
           ),
         ),

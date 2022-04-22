@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/logos/telerobotColorDark.png',
+                      Image.asset('images/telerobotColorDark.png',
                           width: screenSize.height / 2),
                       const Text(
                         "Sistema de teleoperacion para robots de la Universidad EIA",
@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
                     ],
                   ),
                   if (ResponsiveWidget.isDesktop(context))
-                    Image.asset('assets/images/abbMove.gif',
+                    Image.asset('images/abbMove.gif',
                         width: screenSize.height / 1.5),
                 ],
               ),
@@ -63,7 +63,7 @@ class Home extends StatelessWidget {
                       Column(
                         children: [
                           Image.asset(
-                            'assets/logos/clock.gif',
+                            'images/clock.gif',
                             width:
                                 ResponsiveWidget.isDesktop(context) ? 150 : 100,
                             color: const Color.fromARGB(255, 119, 140, 160),
@@ -81,7 +81,7 @@ class Home extends StatelessWidget {
                       Column(
                         children: [
                           Image.asset(
-                            'assets/logos/rocket.gif',
+                            'images/rocket.gif',
                             width:
                                 ResponsiveWidget.isDesktop(context) ? 150 : 100,
                             color: const Color.fromARGB(255, 119, 140, 160),
@@ -99,7 +99,7 @@ class Home extends StatelessWidget {
                       Column(
                         children: [
                           Image.asset(
-                            'assets/logos/world.gif',
+                            'images/world.gif',
                             width:
                                 ResponsiveWidget.isDesktop(context) ? 150 : 100,
                             color: const Color.fromARGB(255, 119, 140, 160),
