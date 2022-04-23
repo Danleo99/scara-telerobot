@@ -24,7 +24,7 @@ Future<void> loadUser() async {
     final _user = User.fromJson(userData);
     String _token = _user.token;
 
-    final url = Uri.parse("http://18.230.53.24:50000/user");
+    final url = Uri.parse("http://18.230.53.24:80/user");
     Map<String, String> headers = {"accessToken": _token};
 
     try {

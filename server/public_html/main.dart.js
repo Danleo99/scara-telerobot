@@ -24931,7 +24931,7 @@ _.d=d},
 E8:function E8(){},
 aqP:function aqP(a,b){this.b=a
 this.e=b},
-apA(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a="http://18.230.53.24:50000",a0="query",a1=A.avN(0),a2=A.Is(),a3=A.a9o(""),a4=t.z,a5=new A.Az($,!0,!1,new A.eN(A.b([],t.d2),t.Yu),A.z(t.HE,t.d_),t.jV)
+apA(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a="http://18.230.53.24:80",a0="query",a1=A.avN(0),a2=A.Is(),a3=A.a9o(""),a4=t.z,a5=new A.Az($,!0,!1,new A.eN(A.b([],t.d2),t.Yu),A.z(t.HE,t.d_),t.jV)
 a5.ez$=A.eu([],!0,a4)
 s=A.b([],t.HF)
 for(r=245;r<=450;r+=10)for(q=0;q<=180;q+=2){p=q*0.017453292519943295
@@ -24945,7 +24945,7 @@ j=A.ia(a,0,null)
 i=j.gds()+"://"+j.gho(j)+":"+j.glE(j)
 h=j.gea(j)
 g=$.anq.aD(0,i)&&$.anq.h(0,i).d.aD(0,h)
-if(J.e(k.h(0,"forceNew"),!0)||J.e(k.h(0,"force new connection"),!0)||!1===k.h(0,"multiplex")||g){$.aBe().b9(B.n,"ignoring socket cache for http://18.230.53.24:50000",null,null)
+if(J.e(k.h(0,"forceNew"),!0)||J.e(k.h(0,"force new connection"),!0)||!1===k.h(0,"multiplex")||g){$.aBe().b9(B.n,"ignoring socket cache for http://18.230.53.24:80",null,null)
 f=A.auL(k,a)}else{f=$.anq.h(0,i)
 if(f==null){f=A.auL(k,a)
 $.anq.t(0,i,f)}}if(j.giJ(j).length!==0&&k.h(0,a0)==null)k.t(0,a0,j.giJ(j))
@@ -25017,7 +25017,7 @@ A.bu(f.h(j,"Nombre"))
 A.bu(f.h(j,"Apellido"))
 A.bu(f.h(j,"email"))
 i=A.bu(f.h(j,"token"))
-n=A.ia("http://18.230.53.24:50000/user",0,null)
+n=A.ia("http://18.230.53.24:80/user",0,null)
 f=t.N
 m=A.P(["accessToken",i],f,f)
 q=6
@@ -25085,7 +25085,7 @@ a5U:function a5U(){},
 a5V:function a5V(){},
 a5W:function a5W(){},
 auI(){var s=$.aL(),r=t.Wo
-r=new A.yE(A.a9o(""),A.a9o(""),A.ia("http://18.230.53.24:50000/user/login",0,null),A.Is(),A.b([],t.EH),A.bV(t.X,t.xW),new A.iO(r),new A.iO(r),!1,!1)
+r=new A.yE(A.a9o(""),A.a9o(""),A.ia("http://18.230.53.24:80/user/login",0,null),A.Is(),A.b([],t.EH),A.bV(t.X,t.xW),new A.iO(r),new A.iO(r),!1,!1)
 r.p9()
 return new A.rQ(A.ya(s,r,t.tT),null)},
 rQ:function rQ(a,b){this.c=a
@@ -86141,7 +86141,7 @@ $S:162}
 A.BC.prototype={}
 A.aoi.prototype={
 $1(a){var s,r=document.createElement("iframe")
-r.src="https://player.twitch.tv/?channel=santiagolopeze21&parent=www.telerobots.tech"
+r.src="https://player.twitch.tv/?channel=santiagolopeze21&parent=18.230.53.24"
 s=r.style
 s.border="none"
 r.allowFullscreen=!0
