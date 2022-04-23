@@ -6,7 +6,6 @@ import 'package:telerobot/helpers/responsive.dart';
 import 'package:telerobot/screens/onboarding.dart';
 import 'package:telerobot/screens/public/contact.dart';
 import 'screens/public/home.dart';
-import 'screens/mobile/mobile.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 import 'dart:ui' as ui;
@@ -15,7 +14,7 @@ void main() {
   ui.platformViewRegistry.registerViewFactory('iframe', (int viewId) {
     final frame = html.IFrameElement();
     frame.src =
-        'https://player.twitch.tv/?channel=santiagolopeze21&parent=localhost';
+        'https://player.twitch.tv/?channel=santiagolopeze21&parent=www.telerobots.tech';
     frame.style.border = 'none';
     frame.allowFullscreen = true;
     frame.height = '300';
@@ -46,9 +45,7 @@ class MyApp extends StatelessWidget {
                 ? Onboarding()
                 // : DashBoard(),
                 : ResponsiveWidget(
-                    desktopScreen: const Home(),
-                    mobileScreen: MobileScreen(),
-                  ),
+                    desktopScreen: const Home(), mobileScreen: Onboarding()),
             transition: Transition.leftToRight),
         GetPage(
           name: '/login',
@@ -58,10 +55,7 @@ class MyApp extends StatelessWidget {
         GetPage(
           middlewares: [GetMiddleware()],
           name: '/contactus',
-          page: () => ResponsiveWidget(
-            desktopScreen: const ContactUs(),
-            mobileScreen: MobileScreen(),
-          ),
+          page: () => const ContactUs(),
           transition: Transition.rightToLeft,
         ),
         //GetPage(name: '/index', page: () => const Home())

@@ -5,10 +5,12 @@ import 'package:telerobot/screens/mobile/pages/history.dart';
 import 'package:telerobot/screens/mobile/pages/home.dart';
 import 'package:telerobot/screens/mobile/pages/settings.dart';
 import 'package:get/get.dart';
+import '../../helpers/dash_controller.dart';
 
-List pages = [const HistoryPage(), HomePage(), const SettingsPage()];
+List pages = [HistoryPage(), HomePage(), const SettingsPage()];
 
 class MobileScreen extends StatelessWidget {
+  final controller = Get.put(DashboardContoller());
   final _active = 1.obs;
   MobileScreen({Key? key}) : super(key: key);
 

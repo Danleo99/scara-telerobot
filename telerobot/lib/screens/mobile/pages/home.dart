@@ -3,29 +3,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:telerobot/helpers/theme_controller.dart';
-import 'package:telerobot/screens/mobile/widgets/robot_card.dart';
+import 'package:telerobot/widgets/robot_card.dart';
 
-List _cards = [
-  const RobotCard(
-    robotImage: 'assets/images/scara.png',
-    brandName: 'Scara',
-  ),
-  const RobotCard(
-    robotImage: 'assets/images/abbMove.gif',
-    brandName: 'ABB',
-  ),
-  const RobotCard(
-    robotImage: 'assets/images/abbMove.gif',
-    brandName: 'Thinker',
-  )
-];
+import '../../../helpers/dash_controller.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final themeController = Get.put(ThemeController());
+  final DashboardContoller ctrl = Get.find();
 
   @override
   Widget build(BuildContext context) {
+    List _cards = [
+      RobotCard(
+        robotImage: 'images/scara.png',
+        controller: ctrl.cardControllers[0],
+      )
+    ];
     return SafeArea(
       child: Column(
         children: [
@@ -35,7 +29,7 @@ class HomePage extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Image.asset(
-                  'assets/logos/telerobotSmWhite.png',
+                  'images/telerobotSmWhite.png',
                   height: 75,
                 ),
               ),
@@ -44,7 +38,7 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   'Robots',
                   style: TextStyle(
-                    fontSize: 70,
+                    fontSize: 60,
                     color: Colors.white,
                   ),
                 ),

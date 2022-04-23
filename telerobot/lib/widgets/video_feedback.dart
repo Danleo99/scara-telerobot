@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: avoid_web_libraries_in_flutter
 
 class VideoFeedback extends StatelessWidget {
   const VideoFeedback({Key? key}) : super(key: key);

@@ -7,7 +7,7 @@ import 'package:telerobot/screens/public/widgets/dashbar.dart';
 import 'package:telerobot/screens/public/widgets/sidebar.dart';
 import 'package:telerobot/screens/public/supervisor.dart';
 
-List<Widget> pages = [Robots(), Programador(), Supervisor()];
+List<Widget> pages = [Robots(), Programador(), const Supervisor()];
 
 class DashBoard extends StatelessWidget {
   DashBoard({Key? key}) : super(key: key);

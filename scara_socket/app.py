@@ -9,7 +9,7 @@ activateVideo = False
 frameSend = None
 # video_getter = camara.VideoGet()
             
-sio = socketio.Client(ssl_verify=False)
+sio = socketio.Client(ssl_verify = False)
 
 @sio.event
 def connect():
@@ -74,7 +74,7 @@ if __name__ == "__main__":
     try:
         scara.abrir_puerto('COM5')
         hiloLeer = threading.Thread(target = scara.leer, daemon = True).start()
-        sio.connect('http://18.230.53.24:80')
+        sio.connect('http://18.230.53.24:50000')
         #camara.threadBoth()
     except KeyboardInterrupt:
         print('Closing connection with Server')
