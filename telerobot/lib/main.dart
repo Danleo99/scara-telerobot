@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:telerobot/constants/style.dart';
 import 'package:telerobot/helpers/responsive.dart';
+import 'package:telerobot/screens/login.dart';
 import 'package:telerobot/screens/onboarding.dart';
 import 'package:telerobot/screens/public/contact.dart';
 import 'screens/public/home.dart';
@@ -14,7 +15,7 @@ void main() {
   ui.platformViewRegistry.registerViewFactory('iframe', (int viewId) {
     final frame = html.IFrameElement();
     frame.src =
-        'https://player.twitch.tv/?channel=santiagolopeze21&parent=18.230.53.24';
+        'https://www.youtube.com/embed/live_stream?channel=UCrThNggx9vzEQ8iukWW5ikw';
     frame.style.border = 'none';
     frame.allowFullscreen = true;
     frame.height = '300';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
                 ? Onboarding()
                 // : DashBoard(),
                 : ResponsiveWidget(
-                    desktopScreen: const Home(), mobileScreen: Onboarding()),
+                    desktopScreen: const Home(), mobileScreen: LogIn()),
             transition: Transition.leftToRight),
         GetPage(
           name: '/login',
