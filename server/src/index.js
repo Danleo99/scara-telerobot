@@ -18,31 +18,41 @@ app.use(express.static(path.join(__dirname, '../public_html')));
 app.use('/user', userRoutes);
 app.use('/routines', routinesRouter);
 
-io.on('connection', (client) => {
-  console.log('Connected to:', client.id);
+io.on('connection', (socket) => {
+  console.log('Connected to:', socket.id);
 
-  client.on('home', ()=>{
-    client.broadcast.emit('home', 'run')
+  socket.on('home', ()=>{
+    socket.broadcast.emit('home', 'run')
   })
 
-  client.on('reset', ()=>{
-    client.broadcast.emit('reset', 'run')
+  socket.on('reset', ()=>{
+    socket.broadcast.emit('reset', 'run')
   })
 
-  client.on('disconnect', () => {
-    console.log('Has disconnected: ' + client.id);
+  socket.on('disconnect', () => {
+    console.log('Has disconnected: ' + socket.id);
   });
 
-  client.on('firtDegreeChange',(change)=>{
-    client.broadcast.emit('moveAbs', change)
+  socket.on('degreeChange',(change)=>{
+    socket.broadcast.emit('moveAbs', change)
+    socket.broadcast.emit('sliderChange', change)
   })
 
-  client.on('startVideo', (session)=>{
-    client.broadcast.emit('startVideo', session)
+  socket.on('startVideo', (session)=>{
+    socket.broadcast.emit('startVideo', session)
   })
 
-  client.on('candidate', (data)=>{
-    client.broadcast.emit('candidate', data)
+  socket.on('candidate', (data)=>{
+    socket.broadcast.emit('candidate', data)
+  })
+
+  socket.on('runRutine', (data)=>{
+    routine = JSON.parse(data)
+    routine.forEach((element,index) => {
+      routine[index] = 'scara.mover_xy'+element
+    });
+    routine.push('scara.mover_xy(0,450)')
+    socket.broadcast.emit('routine', JSON.stringify(routine))
   })
 });
 

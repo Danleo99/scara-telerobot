@@ -126,9 +126,9 @@ def home():#listo
     time.sleep(0.5)
     configurar_hombro()
     time.sleep(2)
-    rotar_codo(-112)
+    rotar_codo(-122)
     time.sleep(2)
-    rotar_hombro(90)
+    rotar_hombro(92)
     time.sleep(2)
     leido = ''
 

@@ -48,11 +48,11 @@ class Programador extends StatelessWidget {
                     ),
                     child: Obx(
                       () => ListView.builder(
-                        itemCount: ctrl.points.length,
+                        itemCount: ctrl.selected.length,
                         itemBuilder: (context, index) {
                           return ListTile(
                             title: Text(
-                              ctrl.points[index],
+                              ctrl.selected[index],
                               style: const TextStyle(
                                 color: Colors.white,
                               ),
@@ -78,7 +78,7 @@ class Programador extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () => ctrl.sendRoutine(),
                     icon: const Icon(Icons.send),
                     label: const Text('Ejecutar'),
                     style: ElevatedButton.styleFrom(

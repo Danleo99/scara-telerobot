@@ -3,3 +3,4 @@ uvicorn[standard] == 0.17.6
 opencv-contrib-python == 4.5.5.64
 pyserial == 3.5
 "python-socketio[client]"
+aiortc == 1.3.2

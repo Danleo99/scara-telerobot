@@ -23,7 +23,8 @@ class DashboardContoller extends GetxController {
   // Variable del nombre del usuario
   var name = ''.obs;
   // Lista de puntos seleccionados
-  List points = [].obs;
+  List selected = [].obs;
+  List pointsToSend = [];
   // Lista de posiciones x,y
   List<ChartData> cSpace = [
     for (var r = 245; r <= 450; r += 10)
@@ -76,6 +77,8 @@ class DashboardContoller extends GetxController {
     client.on('candidate', (can) {
       setCandidate(can);
     });
+
+    client.on('sliderChange', (positions) {});
   }
 
   void degreeChange() {
@@ -83,7 +86,7 @@ class DashboardContoller extends GetxController {
       "first": fisrtDegree.value.round(),
       "second": secondDegree.value.round()
     };
-    client.emit('firtDegreeChange', degrees);
+    client.emit('degreeChange', degrees);
   }
 
   void home() {
@@ -92,10 +95,6 @@ class DashboardContoller extends GetxController {
 
   void reset() {
     client.emit('reset', 'run');
-  }
-
-  void sendSessionInfo(session) {
-    client.emit('startVideo', session);
   }
 
   void sendCandidate(candidate) {
@@ -147,6 +146,10 @@ class DashboardContoller extends GetxController {
     await peerConnection!.addCandidate(candidate);
   }
 
+  void sendRoutine() {
+    client.emit('runRutine', json.encode(pointsToSend));
+  }
+
   void logout() {
     try {
       box.remove('user');
@@ -165,14 +168,16 @@ class DashboardContoller extends GetxController {
 
   void updatePoint(args) {
     final punto = cSpace[int.parse(args.pointIndex.toString())];
-    final onList = points.indexWhere((element) =>
+    final onList = selected.indexWhere((element) =>
         element ==
         'Punto (' + (punto.x).toString() + ',' + (punto.y).toString() + ')');
     if (onList == -1) {
-      points.add(
+      selected.add(
           'Punto (' + (punto.x).toString() + ',' + (punto.y).toString() + ')');
+      pointsToSend.add('(${(punto.x).toString()},${(punto.y).toString()})');
     } else {
-      points.removeAt(onList);
+      selected.removeAt(onList);
+      pointsToSend.removeAt(onList);
     }
     punto.selected = !punto.selected;
   }

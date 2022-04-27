@@ -1,9 +1,12 @@
 import socketio
 import cv2 as cv
 import threading, time
+import asyncio
+import json
 ## My Files
 import scara
 import camara
+from aiortc import MediaStreamTrack, RTCPeerConnection, RTCSessionDescription
 
 activateVideo = False
 frameSend = None
@@ -63,13 +66,31 @@ def startVideo(sid, data):
 
 @sio.event
 def moveAbs(data):
-    print(data['first'])
     scara.hombro_abs(data['first'])
-    # time.sleep(2)
-    print(data['second'])
     scara.codo_abs(data['second'])
 
+@sio.event
+def processOfferWebRTC(data):
+    params = json.loads(data)
+    # remoteOffer = RTCSessionDescription(sdp = params['sdp'], type = params['type'])
+    pc = RTCPeerConnection()
+    # answer = await pc.createOffer()
     
+    print(params['sdp'])
+
+@sio.event
+def routine(data):
+    routine = json.loads(data)
+    scara.home()
+    time.sleep(15)
+    scara.vel_max_codo(1000)
+    time.sleep(0.015)
+    scara.vel_max_hombro(1000)
+    time.sleep(0.015)
+    for point in routine:
+        eval(point)
+        time.sleep(3)
+
 if __name__ == "__main__":
     try:
         scara.abrir_puerto('COM5')

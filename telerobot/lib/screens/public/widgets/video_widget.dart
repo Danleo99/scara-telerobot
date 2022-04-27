@@ -32,7 +32,7 @@ class _VideoViewState extends State<VideoView> {
     final Map<String, dynamic> offerSdpConstrains = {
       'mandatory': {
         'OfferToReceiveAudio': true,
-        'OfferToReceiveVideo': true,
+        'OfferToReceiveVideo': false,
       },
       'optional': [],
     };

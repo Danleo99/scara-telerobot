@@ -26,14 +26,14 @@ const RESOURCES = {
 "assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "613e4cc1af0eb5148b8ce409ad35446d",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "dd3c4233029270506ecc994d67785a37",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
-"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "2e621d10fa1f5a56b25b425057f878a7",
-"/": "2e621d10fa1f5a56b25b425057f878a7",
-"main.dart.js": "fbd37777fea0ad66be1d8b0637ce27e2",
-"manifest.json": "5aef724c83268895e3a2f4254c2abf34",
+"icons/android-chrome-192x192.png": "d20f84cc6bd9fe307697f4ce4b3c71c9",
+"icons/android-chrome-512x512.png": "e5921a5d95899a3cc9b514b2d1253ea2",
+"icons/apple-touch-icon.png": "b225f1b180da0d392e08f790f6bd6bb1",
+"index.html": "d6bce3a2a4a3b96093012e1501e5f3b0",
+"/": "d6bce3a2a4a3b96093012e1501e5f3b0",
+"logo.png": "d20f84cc6bd9fe307697f4ce4b3c71c9",
+"main.dart.js": "19c6b7ee27158b038c6a82473b3d7225",
+"manifest.json": "c01280760a57b82465a4fa803725c1cc",
 "version.json": "f5af27600276f39cd89f2a01cccdba8e"
 };
 
