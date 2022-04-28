@@ -15,7 +15,7 @@ void main() {
   ui.platformViewRegistry.registerViewFactory('iframe', (int viewId) {
     final frame = html.IFrameElement();
     frame.src =
-        'https://www.youtube.com/embed/live_stream?channel=UCrThNggx9vzEQ8iukWW5ikw';
+        'https://www.youtube.com/embed/live_stream?channel=UCsjmIfPcJH7GhWXmGX_y0Gw';
     frame.style.border = 'none';
     frame.allowFullscreen = true;
     frame.height = '300';

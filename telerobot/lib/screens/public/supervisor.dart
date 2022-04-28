@@ -14,15 +14,13 @@ class Supervisor extends StatelessWidget {
         Expanded(
           flex: 2,
           child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              decoration: BoxDecoration(
-                border: Border.all(width: 1, color: Colors.white),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: GetPlatform.isMobile
-                  ? Container()
-                  : const VideoView() //const VideoFeedback(),
-              ),
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            decoration: BoxDecoration(
+              border: Border.all(width: 1, color: Colors.white),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: GetPlatform.isMobile ? Container() : const VideoFeedback(),
+          ),
         ),
         Expanded(flex: 1, child: DegreeControl())
       ],

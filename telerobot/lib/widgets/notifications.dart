@@ -22,7 +22,7 @@ class _NotificationIconState extends State<NotificationIcon> {
                   builder: (_) {
                     return AlertDialog(
                       title: const Text("Error"),
-                      content: Text('Prueba de la notificacion'),
+                      content: const Text('Prueba de la notificacion'),
                       contentPadding: const EdgeInsets.all(20),
                       actions: [
                         TextButton(

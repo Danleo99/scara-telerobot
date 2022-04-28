@@ -78,7 +78,10 @@ class DashboardContoller extends GetxController {
       setCandidate(can);
     });
 
-    client.on('sliderChange', (positions) {});
+    client.on('sliderChange', (positions) async {
+      fisrtDegree.value = positions['first'];
+      secondDegree.value = positions['second'];
+    });
   }
 
   void degreeChange() {
@@ -90,6 +93,8 @@ class DashboardContoller extends GetxController {
   }
 
   void home() {
+    fisrtDegree.value = 0;
+    secondDegree.value = 0;
     client.emitWithAck('home', 'run', ack: (ack) {});
   }
 
