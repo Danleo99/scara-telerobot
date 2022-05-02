@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../helpers/dash_controller.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import '../../controllers/dash_controller.dart';
 
 class ProgramingWidget extends StatefulWidget {
   const ProgramingWidget({Key? key}) : super(key: key);

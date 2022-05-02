@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:telerobot/helpers/responsive.dart';
 import 'package:telerobot/screens/public/widgets/navbar.dart';
+import '../../controllers/responsive.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);

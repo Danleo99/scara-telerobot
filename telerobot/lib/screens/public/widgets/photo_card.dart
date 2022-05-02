@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:telerobot/helpers/responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../../controllers/responsive.dart';
 
 class PhotoCard extends StatelessWidget {
   final String photo;
@@ -18,7 +19,7 @@ class PhotoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _width = ResponsiveWidget.isTablet(context) ? 200 : 250;
+    double _width = ResponsiveWidget.isTablet(context) ? 350 : 250;
 
     return Column(
       children: [

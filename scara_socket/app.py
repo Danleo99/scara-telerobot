@@ -93,7 +93,7 @@ def routine(data):
 
 if __name__ == "__main__":
     try:
-        scara.abrir_puerto('COM5')
+        # scara.abrir_puerto('COM5')
         hiloLeer = threading.Thread(target = scara.leer, daemon = True).start()
         sio.connect('http://localhost:80')
         #camara.threadBoth()

@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
-import 'package:telerobot/helpers/responsive.dart';
+import 'package:telerobot/controllers/responsive.dart';
 import 'package:telerobot/screens/mobile/mobile.dart';
 import 'package:telerobot/screens/public/dashboard.dart';
 
 class LogInController extends GetxController {
   var email = ''.obs;
   var password = ''.obs;
-  var url = Uri.parse('http://18.230.53.24:80/user/login');
+  var url = Uri.parse('http://localhost:80/user/login');
   final box = GetStorage();
 
   void login() async {

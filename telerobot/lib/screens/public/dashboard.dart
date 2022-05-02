@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:telerobot/helpers/dash_controller.dart';
 import 'package:telerobot/screens/public/Robots.dart';
 import 'package:telerobot/screens/public/programador.dart';
 import 'package:telerobot/screens/public/widgets/dashbar.dart';
 import 'package:telerobot/screens/public/widgets/sidebar.dart';
 import 'package:telerobot/screens/public/supervisor.dart';
+
+import '../../controllers/dash_controller.dart';
 
 List<Widget> pages = [Robots(), Programador(), const Supervisor()];
 

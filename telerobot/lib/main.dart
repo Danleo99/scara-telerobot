@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:telerobot/constants/style.dart';
-import 'package:telerobot/helpers/responsive.dart';
+import 'package:telerobot/controllers/responsive.dart';
 import 'package:telerobot/screens/login.dart';
 import 'package:telerobot/screens/onboarding.dart';
 import 'package:telerobot/screens/public/contact.dart';
+import 'package:telerobot/screens/public/dashboard.dart';
 import 'screens/public/home.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
@@ -56,10 +57,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           middlewares: [GetMiddleware()],
           name: '/contactus',
-          page: () => const ContactUs(),
+          page: () => ResponsiveWidget(
+              desktopScreen: const ContactUs(), mobileScreen: LogIn()),
           transition: Transition.rightToLeft,
         ),
-        //GetPage(name: '/index', page: () => const Home())
       ],
     );
   }

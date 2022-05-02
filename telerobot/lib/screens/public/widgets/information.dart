@@ -86,7 +86,7 @@ class SoftwareInformation extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.only(right: 40),
                       child: Text(
-                        'Si se desea hacer un control supervisado se ingrasar a la seccion de supervisar donde se tiene una retroalimentacion del robot pot video y se pueden controlar los grados de libertad individualmente',
+                        'Si se desea hacer un control supervisado se ingresa a la seccion de supervisar donde se tiene una retroalimentacion del robot por video y se pueden controlar los grados de libertad individualmente',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telerobot/controllers/responsive.dart';
 import 'package:telerobot/screens/public/widgets/navbar.dart';
 import 'package:telerobot/screens/public/widgets/photo_card.dart';
 
@@ -37,24 +38,27 @@ class ContactUs extends StatelessWidget {
                       link:
                           'https://www.linkedin.com/in/daniel-leon-28b104167/',
                     ),
-                    Container(
-                      color: Colors.grey,
-                      width: 1,
-                      height: 300,
-                    ),
-                    const PhotoCard(
-                      title: 'Nuestro director',
-                      photo: 'images/puerta.jpg',
-                      name: 'Alejandro Puerta',
-                      link:
-                          'https://www.linkedin.com/in/alejandro-puerta-echand%C3%ADa-151b6ab5/',
-                    ),
-                    const PhotoCard(
-                      photo: 'images/tejada.jpg',
-                      name: 'Juan Camilo Tejada',
-                      link:
-                          'https://www.linkedin.com/in/juan-camilo-tejada-orjuela-282686206/',
-                    )
+                    if (ResponsiveWidget.isDesktop(context))
+                      Container(
+                        color: Colors.grey,
+                        width: 1,
+                        height: 300,
+                      ),
+                    if (ResponsiveWidget.isDesktop(context))
+                      const PhotoCard(
+                        title: 'Nuestro director',
+                        photo: 'images/puerta.jpg',
+                        name: 'Alejandro Puerta',
+                        link:
+                            'https://www.linkedin.com/in/alejandro-puerta-echand%C3%ADa-151b6ab5/',
+                      ),
+                    if (ResponsiveWidget.isDesktop(context))
+                      const PhotoCard(
+                        photo: 'images/tejada.jpg',
+                        name: 'Juan Camilo Tejada',
+                        link:
+                            'https://www.linkedin.com/in/juan-camilo-tejada-orjuela-282686206/',
+                      )
                   ],
                 ),
               ),

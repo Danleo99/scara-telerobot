@@ -2,7 +2,7 @@ import 'package:get/get.dart' hide Response;
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:telerobot/constants/data_store.dart';
-import 'package:telerobot/helpers/responsive.dart';
+import 'package:telerobot/controllers/responsive.dart';
 import 'package:telerobot/screens/login.dart';
 import 'package:telerobot/screens/public/dashboard.dart';
 import '../screens/mobile/mobile.dart';
@@ -24,7 +24,7 @@ Future<void> loadUser() async {
     final _user = User.fromJson(userData);
     String _token = _user.token;
 
-    final url = Uri.parse("http://18.230.53.24:80/user");
+    final url = Uri.parse("http://localhost:80/user");
     Map<String, String> headers = {"accessToken": _token};
 
     try {

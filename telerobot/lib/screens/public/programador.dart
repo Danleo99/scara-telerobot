@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:telerobot/widgets/programmer_grid.dart';
-import '../../helpers/dash_controller.dart';
+import '../../controllers/dash_controller.dart';
+import '../widgets/programmer_grid.dart';
 
 class Programador extends StatelessWidget {
   Programador({Key? key}) : super(key: key);

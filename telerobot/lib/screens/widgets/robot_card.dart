@@ -1,13 +1,21 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:telerobot/controllers/responsive.dart';
 
 class RobotCard extends StatelessWidget {
-  const RobotCard(
-      {Key? key, required this.robotImage, required this.controller})
-      : super(key: key);
+  const RobotCard({
+    Key? key,
+    required this.robotImage,
+    required this.controller,
+    required this.information,
+    required this.logo,
+  }) : super(key: key);
   final String robotImage;
   final FlipCardController controller;
+  final String information;
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +29,7 @@ class RobotCard extends StatelessWidget {
         direction: FlipDirection.HORIZONTAL,
         front: Container(
           width: size.width,
-          height: size.height / 3.35,
+          height: GetPlatform.isMobile ? size.height / 2 : size.height / 3.35,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -58,7 +66,24 @@ class RobotCard extends StatelessWidget {
           child: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [Text('back'), Text('data')],
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Image.asset(
+                    logo,
+                    height: ResponsiveWidget.isMobile(context)
+                        ? size.height / 10
+                        : size.height / 15,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Text(
+                    information,
+                    style: const TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                )
+              ],
             ),
             decoration: BoxDecoration(
               border: Border.all(width: 1, color: Colors.white),

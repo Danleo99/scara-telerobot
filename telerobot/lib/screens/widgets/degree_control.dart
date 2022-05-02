@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../helpers/dash_controller.dart';
+import '../../controllers/dash_controller.dart';
 
 class DegreeControl extends StatelessWidget {
   DegreeControl({Key? key}) : super(key: key);

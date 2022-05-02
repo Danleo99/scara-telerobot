@@ -5,7 +5,7 @@ import 'package:telerobot/screens/mobile/pages/history.dart';
 import 'package:telerobot/screens/mobile/pages/home.dart';
 import 'package:telerobot/screens/mobile/pages/settings.dart';
 import 'package:get/get.dart';
-import '../../helpers/dash_controller.dart';
+import '../../controllers/dash_controller.dart';
 
 List pages = [HistoryPage(), HomePage(), const SettingsPage()];
 

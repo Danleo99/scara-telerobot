@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:telerobot/helpers/dash_controller.dart';
+import '../../../controllers/dash_controller.dart';
 
 class SideBar extends StatelessWidget {
   SideBar({Key? key}) : super(key: key);

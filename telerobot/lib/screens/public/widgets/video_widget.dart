@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:get/get.dart' hide navigator;
-import 'package:telerobot/helpers/dash_controller.dart';
+
+import '../../../controllers/dash_controller.dart';
 
 class VideoView extends StatefulWidget {
   const VideoView({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:telerobot/widgets/notifications.dart';
-import '../../../helpers/dash_controller.dart';
+import '../../../controllers/dash_controller.dart';
+import '../../widgets/notifications.dart';
 
 List<String> pages = ['Robots', 'Programador', 'Supervisor'];
 

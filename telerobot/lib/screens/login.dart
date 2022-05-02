@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:telerobot/helpers/login_controller.dart';
-import 'package:telerobot/helpers/responsive.dart';
+import '../controllers/login_controller.dart';
+import '../controllers/responsive.dart';
 
 class LogIn extends StatelessWidget {
   LogIn({Key? key}) : super(key: key);

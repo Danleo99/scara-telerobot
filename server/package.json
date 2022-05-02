@@ -25,7 +25,6 @@
     "ip": "^1.1.5",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
-    "opencv4nodejs-prebuilt": "^5.3.4",
     "socket.io": "^4.4.1"
   },
   "devDependencies": {
