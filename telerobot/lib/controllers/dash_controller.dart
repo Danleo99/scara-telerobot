@@ -25,6 +25,7 @@ class DashboardContoller extends GetxController {
   // Lista de puntos seleccionados
   List selected = [].obs;
   List pointsToSend = [];
+  List selectedByDegree = [].obs;
   // Lista de posiciones x,y
   List<ChartData> cSpace = [
     for (var r = 245; r <= 450; r += 10)
@@ -169,6 +170,26 @@ class DashboardContoller extends GetxController {
     final userData = box.read('user');
     final _user = User.fromJson(userData);
     name.value = _user.name + ' ' + _user.lastname;
+  }
+
+  void TCD_scara() {
+    // ignore: non_constant_identifier_names
+    int L1 = 200;
+    // ignore: non_constant_identifier_names
+    int L2 = 250;
+    final x = (L1 * cos((fisrtDegree.value * (pi / 180))) +
+            L2 * cos((secondDegree.value + fisrtDegree.value) * (pi / 180)))
+        .round();
+    final y = (L1 * sin(fisrtDegree.value * (pi / 180)) +
+            L2 * sin((secondDegree.value + fisrtDegree.value) * (pi / 180)))
+        .round();
+    final onList =
+        selectedByDegree.indexWhere((element) => element == 'Punto ($x,$y)');
+    if (onList == -1) {
+      selectedByDegree.add('Punto ($x,$y)');
+    } else {
+      selectedByDegree.removeAt(onList);
+    }
   }
 
   void updatePoint(args) {

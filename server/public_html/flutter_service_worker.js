@@ -3,14 +3,17 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "aab4500acdac50943c26b903beae77a5",
+  "assets/AssetManifest.json": "865a63b239378f4f0e48af64ae92415e",
 "assets/FontManifest.json": "5a32d4310a6f5d9a6b651e75ba0d7372",
 "assets/fonts/MaterialIcons-Regular.otf": "7e7a6cccddf6d7b20012a548461d5d81",
 "assets/images/abbMove.gif": "5b5df85aaa045eeaaa56df202b6b1ae5",
+"assets/images/abb_logo.png": "8814541a9b60e7e83cc5700bddbc3535",
 "assets/images/baxter.png": "d2abf07637719e932cdbb0bcc21639ac",
+"assets/images/baxterLogo.png": "b0aa8bc1796a1aaca1019b6a66b4525c",
 "assets/images/clock.gif": "6686b3b6abca9c68bdb0f22afea45f98",
 "assets/images/daniel.jpg": "5e83984a0ccb88b68862afa7a8e90926",
 "assets/images/HorzBlue.png": "1299016d917f48a9635ba78421842cfc",
+"assets/images/loog-eia.png": "b1b4c4149b5a2be281999e08e23965c7",
 "assets/images/puerta.jpg": "acd80fd1504a76c7bb31a1f7daa584a2",
 "assets/images/rocket.gif": "cff778cd6d828c549358ee21c5648ba0",
 "assets/images/santiago.jpg": "72c9cf52141d38b00d3be549f02e860b",
@@ -29,10 +32,10 @@ const RESOURCES = {
 "icons/android-chrome-192x192.png": "d20f84cc6bd9fe307697f4ce4b3c71c9",
 "icons/android-chrome-512x512.png": "e5921a5d95899a3cc9b514b2d1253ea2",
 "icons/apple-touch-icon.png": "b225f1b180da0d392e08f790f6bd6bb1",
-"index.html": "90657b26986f594bc5bcee151e9b350f",
-"/": "90657b26986f594bc5bcee151e9b350f",
+"index.html": "aad193cf898cc2eeec8b9582bc201724",
+"/": "aad193cf898cc2eeec8b9582bc201724",
 "logo.png": "d20f84cc6bd9fe307697f4ce4b3c71c9",
-"main.dart.js": "ac420e5a010f920f931ba2a7f52e11f8",
+"main.dart.js": "6af713181c015404672d1cf805d862fd",
 "manifest.json": "c01280760a57b82465a4fa803725c1cc",
 "version.json": "f5af27600276f39cd89f2a01cccdba8e"
 };

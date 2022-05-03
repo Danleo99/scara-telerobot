@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:telerobot/screens/public/widgets/video_widget.dart';
-
 import '../widgets/degree_control.dart';
 import '../widgets/video_feedback.dart';
 
@@ -23,7 +22,10 @@ class Supervisor extends StatelessWidget {
             child: GetPlatform.isMobile ? Container() : const VideoFeedback(),
           ),
         ),
-        Expanded(flex: 1, child: DegreeControl())
+        Expanded(
+          flex: 1,
+          child: DegreeControl(),
+        )
       ],
     );
   }

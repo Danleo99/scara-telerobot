@@ -6,7 +6,6 @@ import 'package:telerobot/controllers/responsive.dart';
 import 'package:telerobot/screens/login.dart';
 import 'package:telerobot/screens/onboarding.dart';
 import 'package:telerobot/screens/public/contact.dart';
-import 'package:telerobot/screens/public/dashboard.dart';
 import 'screens/public/home.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
