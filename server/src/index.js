@@ -46,13 +46,18 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('candidate', data)
   })
 
+  socket.on('gcode', (data)=>{
+    socket.broadcast.emit('gcode', data)
+  })
+
   socket.on('runRutine', (data)=>{
-    routine = JSON.parse(data)
+    routine = data['routine']
     routine.forEach((element,index) => {
       routine[index] = 'scara.mover_xy'+element
     });
     routine.push('scara.mover_xy(0,450)')
-    socket.broadcast.emit('routine', JSON.stringify(routine))
+    data['routine'] = routine
+    socket.broadcast.emit('routine', data)
   })
 });
 

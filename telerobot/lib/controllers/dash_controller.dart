@@ -7,6 +7,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:sdp_transform/sdp_transform.dart';
 import 'package:socket_io_client/socket_io_client.dart' as socket;
 import 'package:telerobot/constants/data_store.dart';
+import 'package:file_picker/file_picker.dart';
 
 class ChartData {
   ChartData(this.x, this.y, this.selected);
@@ -36,6 +37,8 @@ class DashboardContoller extends GetxController {
   // Sliders
   RxDouble fisrtDegree = 0.0.obs;
   RxDouble secondDegree = 0.0.obs;
+  List<String> speeds = ['100', '250', '500', '750', '1000'];
+  int speedSelected = 100;
 
   RTCPeerConnection? peerConnection;
   bool _offer = false;
@@ -88,7 +91,8 @@ class DashboardContoller extends GetxController {
   void degreeChange() {
     Map degrees = {
       "first": fisrtDegree.value.round(),
-      "second": secondDegree.value.round()
+      "second": secondDegree.value.round(),
+      "speed": speedSelected
     };
     client.emit('degreeChange', degrees);
   }
@@ -153,7 +157,11 @@ class DashboardContoller extends GetxController {
   }
 
   void sendRoutine() {
-    client.emit('runRutine', json.encode(pointsToSend));
+    Map message = {
+      "speed": speedSelected,
+      "routine": pointsToSend,
+    };
+    client.emit('runRutine', message);
   }
 
   void logout() {
@@ -172,23 +180,14 @@ class DashboardContoller extends GetxController {
     name.value = _user.name + ' ' + _user.lastname;
   }
 
-  void TCD_scara() {
-    // ignore: non_constant_identifier_names
-    int L1 = 200;
-    // ignore: non_constant_identifier_names
-    int L2 = 250;
-    final x = (L1 * cos((fisrtDegree.value * (pi / 180))) +
-            L2 * cos((secondDegree.value + fisrtDegree.value) * (pi / 180)))
-        .round();
-    final y = (L1 * sin(fisrtDegree.value * (pi / 180)) +
-            L2 * sin((secondDegree.value + fisrtDegree.value) * (pi / 180)))
-        .round();
-    final onList =
-        selectedByDegree.indexWhere((element) => element == 'Punto ($x,$y)');
-    if (onList == -1) {
-      selectedByDegree.add('Punto ($x,$y)');
-    } else {
-      selectedByDegree.removeAt(onList);
+  void uploadFile() async {
+    final path = await FilePicker.platform.pickFiles(
+      allowedExtensions: ['txt'],
+      type: FileType.custom,
+    );
+    if (path?.files.first.bytes != null) {
+      final data = String.fromCharCodes(path?.files.first.bytes ?? []);
+      client.emit('gcode', data);
     }
   }
 

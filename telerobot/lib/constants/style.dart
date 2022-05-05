@@ -9,7 +9,7 @@ ThemeData lightTheme = ThemeData(
 );
 
 ThemeData darkTheme = ThemeData(
-  colorScheme: const ColorScheme.dark(),
+  colorScheme: const ColorScheme.dark(primary: Colors.amber),
   primaryColor: const Color(0xFF001b2e),
   scaffoldBackgroundColor: Colors.grey[900],
   textTheme: GoogleFonts.overpassTextTheme(),

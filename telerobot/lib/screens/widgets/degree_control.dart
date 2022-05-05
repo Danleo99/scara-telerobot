@@ -19,7 +19,7 @@ class DegreeControl extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Text(
-              '''Control grados de libertad''',
+              '''Control Supervisado''',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
@@ -28,31 +28,6 @@ class DegreeControl extends StatelessWidget {
               ),
             ),
           ),
-          // SizedBox(
-          //   height: 300,
-          //   child: Container(
-          //     margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          //     decoration: BoxDecoration(
-          //       border: Border.all(width: 1, color: Colors.white),
-          //       borderRadius: BorderRadius.circular(10),
-          //     ),
-          //     child: Obx(
-          //       () => ListView.builder(
-          //         itemCount: ctrl.selectedByDegree.length,
-          //         itemBuilder: (context, index) {
-          //           return ListTile(
-          //             title: Text(
-          //               ctrl.selectedByDegree[index],
-          //               style: const TextStyle(
-          //                 color: Colors.white,
-          //               ),
-          //             ),
-          //           );
-          //         },
-          //       ),
-          //     ),
-          //   ),
-          // ),
           const Padding(
             padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
             child: Text(
@@ -137,52 +112,54 @@ class DegreeControl extends StatelessWidget {
               ],
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-          //   child: ElevatedButton.icon(
-          //     onPressed: () => ctrl.TCD_scara(),
-          //     icon: const Icon(Icons.add_circle_sharp),
-          //     label: const Text('Set point'),
-          //     style: ElevatedButton.styleFrom(
-          //         shape: const StadiumBorder(),
-          //         primary: Colors.amber,
-          //         fixedSize: Size(MediaQuery.of(context).size.width, 40)),
-          //   ),
-          // ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 5, 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () => ctrl.home(),
-                    icon: const Icon(Icons.home),
-                    label: const Text('Home'),
-                    style: ElevatedButton.styleFrom(
-                      shape: const StadiumBorder(),
-                      primary: Colors.amber,
+          if (GetPlatform.isMobile)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 20, 5, 20),
+                    child: ElevatedButton.icon(
+                      onPressed: () => ctrl.home(),
+                      icon: const Icon(Icons.home),
+                      label: const Text('Home'),
+                      style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        primary: Colors.amber,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 20, 20, 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () => ctrl.reset(),
-                    icon: const Icon(Icons.restart_alt_sharp),
-                    label: const Text('Reset'),
-                    style: ElevatedButton.styleFrom(
-                      shape: const StadiumBorder(),
-                      primary: Colors.amber,
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(5, 20, 20, 20),
+                    child: ElevatedButton.icon(
+                      onPressed: () => ctrl.reset(),
+                      icon: const Icon(Icons.restart_alt_sharp),
+                      label: const Text('Reset'),
+                      style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        primary: Colors.amber,
+                      ),
                     ),
                   ),
                 ),
+              ],
+            ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 5, 20),
+            child: ElevatedButton.icon(
+              onPressed: () => ctrl.uploadFile(),
+              icon: const Icon(Icons.upload_file_rounded),
+              label: const Text('Cargar Rutina'),
+              style: ElevatedButton.styleFrom(
+                fixedSize: const Size(double.infinity, 40),
+                shape: const StadiumBorder(),
+                primary: Colors.amber,
               ),
-            ],
+            ),
           ),
         ],
       ),

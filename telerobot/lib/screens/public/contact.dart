@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:telerobot/controllers/responsive.dart';
 import 'package:telerobot/screens/public/widgets/navbar.dart';
 import 'package:telerobot/screens/public/widgets/photo_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactUs extends StatelessWidget {
   const ContactUs({Key? key}) : super(key: key);
@@ -66,11 +68,29 @@ class ContactUs extends StatelessWidget {
                 height: screenSize.height / 3,
                 width: double.infinity,
                 child: Row(
-                  children: const [
-                    Text('Contactanos'),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      child: const FaIcon(
+                        FontAwesomeIcons.github,
+                        size: 100,
+                      ),
+                      onTap: () =>
+                          launch('https://github.com/Danleo99/scara-telerobot'),
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    const Text(
+                      'Para mas informacion nos pueden contactar por GitHub donde se encuentra todo el codigo del programa.',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    )
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

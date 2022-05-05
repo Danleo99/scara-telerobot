@@ -49,6 +49,7 @@ dependencies:
   flutter_webrtc: ^0.8.5
   sdp_transform: ^0.3.2
   ext_video_player: ^0.1.2
+  file_picker: ^4.5.1
 
 dev_dependencies:
   flutter_test:

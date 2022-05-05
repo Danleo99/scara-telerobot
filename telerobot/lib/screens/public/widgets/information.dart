@@ -9,7 +9,7 @@ class SoftwareInformation extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.fromLTRB(20, 20, 20, 5),
           child: Text(
             'Bienvenido a Telerobot',
             style: TextStyle(
@@ -21,12 +21,12 @@ class SoftwareInformation extends StatelessWidget {
         ),
         Expanded(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Row(
                 children: const [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(50, 20, 30, 20),
+                    padding: EdgeInsets.fromLTRB(50, 10, 30, 20),
                     child: Icon(
                       Icons.assignment_rounded,
                       size: 50,
@@ -86,7 +86,32 @@ class SoftwareInformation extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.only(right: 40),
                       child: Text(
-                        'Si se desea hacer un control supervisado se ingresa a la seccion de supervisar donde se tiene una retroalimentacion del robot por video y se pueden controlar los grados de libertad individualmente',
+                        'Si se desea hacer un control supervisado se ingresa a la seccion de supervisar donde se tiene una retroalimentacion del robot por video.',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        overflow: TextOverflow.clip,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(50, 20, 30, 20),
+                    child: Icon(
+                      Icons.help,
+                      size: 50,
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 40),
+                      child: Text(
+                        'Para definir la velocidad de movimiento del robot, la puedes seleccionar en la barra de navegacion.',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,

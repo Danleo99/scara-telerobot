@@ -7,6 +7,7 @@ import json
 import scara
 import camara
 from aiortc import MediaStreamTrack, RTCPeerConnection, RTCSessionDescription
+from gcodeparser import GcodeParser
 
 activateVideo = False
 frameSend = None
@@ -70,6 +71,19 @@ def moveAbs(data):
     scara.codo_abs(data['second'])
 
 @sio.event
+def gcode(data):
+    parsedGcode = GcodeParser(data)
+
+    for line in parsedGcode.lines:
+        match line.command_str:
+            case 'G0': 
+                print(line.get_param('X'),line.get_param('Y'))
+                # scara.mover_xy(line.get_param('X'),line.get_param('Y'))
+            case 'G1': 
+                print(line.get_param('Y'))
+    
+
+@sio.event
 def processOfferWebRTC(data):
     params = json.loads(data)
     # remoteOffer = RTCSessionDescription(sdp = params['sdp'], type = params['type'])
@@ -80,12 +94,12 @@ def processOfferWebRTC(data):
 
 @sio.event
 def routine(data):
-    routine = json.loads(data)
+    routine = data['routine']
     scara.home()
     time.sleep(15)
-    scara.vel_max_codo(1000)
+    scara.vel_max_codo(data['speed'])
     time.sleep(0.015)
-    scara.vel_max_hombro(1000)
+    scara.vel_max_hombro(data['speed'])
     time.sleep(0.015)
     for point in routine:
         eval(point)
