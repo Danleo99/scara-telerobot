@@ -137,3 +137,6 @@ def threadBoth(source=0):
         frame = putIterationsPerSec(frame, cps.countsPerSec())
         video_shower.frame = frame
         cps.increment()
+
+if __name__ == "__main__":
+    threadBoth()

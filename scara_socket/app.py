@@ -17,7 +17,7 @@ sio = socketio.Client(ssl_verify = False)
 
 @sio.event
 def connect():
-    print(f'New connection to server')
+    print('New connection to server')
 
 @sio.event
 def connect_error(e):
@@ -54,7 +54,7 @@ def test(data):
 
 @sio.event
 def disconnect():
-    print(f'Finish connection')
+    print('Finish connection')
 
 @sio.event
 def startVideo(sid, data):
@@ -67,20 +67,32 @@ def startVideo(sid, data):
 
 @sio.event
 def moveAbs(data):
+    scara.vel_max_codo(data['speed'])
+    time.sleep(0.015)
+    scara.vel_max_hombro(data['speed'])
+    time.sleep(0.015)
     scara.hombro_abs(data['first'])
     scara.codo_abs(data['second'])
 
 @sio.event
 def gcode(data):
     parsedGcode = GcodeParser(data)
-
     for line in parsedGcode.lines:
         match line.command_str:
             case 'G0': 
-                print(line.get_param('X'),line.get_param('Y'))
-                # scara.mover_xy(line.get_param('X'),line.get_param('Y'))
+                scara.vel_max_codo(1000)
+                time.sleep(0.015)
+                scara.vel_max_hombro(1000)
+                time.sleep(0.015)
+                scara.mover_xy(line.get_param('X'),line.get_param('Y'));
+                time.sleep(5)
             case 'G1': 
-                print(line.get_param('Y'))
+                scara.vel_max_codo(line.get_param('F'))
+                time.sleep(0.015)
+                scara.vel_max_hombro(line.get_param('F'))
+                time.sleep(0.015)
+                scara.mover_xy(line.get_param('X'),line.get_param('Y'));
+                time.sleep(5)
     
 
 @sio.event
@@ -107,7 +119,7 @@ def routine(data):
 
 if __name__ == "__main__":
     try:
-        # scara.abrir_puerto('COM5')
+        scara.abrir_puerto('COM5')
         hiloLeer = threading.Thread(target = scara.leer, daemon = True).start()
         sio.connect('http://localhost:80')
         #camara.threadBoth()

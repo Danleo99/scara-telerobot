@@ -43,10 +43,9 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
             name: '/',
-            page: () => GetPlatform.isMobile
-                ? Onboarding() //: DashBoard(),
-                : ResponsiveWidget(
-                    desktopScreen: const Home(), mobileScreen: LogIn()),
+            page: () => GetPlatform.isMobile ? Onboarding() : DashBoard(),
+            //: ResponsiveWidget(
+            //  desktopScreen: const Home(), mobileScreen: LogIn()),
             transition: Transition.leftToRight),
         GetPage(
           name: '/login',
