@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:telerobot/controllers/responsive.dart';
 import '../../controllers/dash_controller.dart';
 
 class DegreeControl extends StatelessWidget {
@@ -16,14 +17,27 @@ class DegreeControl extends StatelessWidget {
       ),
       child: Column(
         children: [
+          if (!ResponsiveWidget.isMobile(context))
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Text(
+                '''Control Supervisado''',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text(
-              '''Control Supervisado''',
+              'Cinematica Directa',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 40,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -103,6 +117,102 @@ class DegreeControl extends StatelessWidget {
                   width: 50,
                   child: Text(
                     '${ctrl.secondDegree.value.round()}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+            child: Text(
+              'Cinematica Inversa',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
+            child: Text(
+              'Movimiento lineal en X',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+          ),
+          Obx(
+            () => Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: Slider(
+                    min: -90.0,
+                    max: 90.0,
+                    value: ctrl.xMove.value,
+                    onChanged: (value) {
+                      ctrl.xMove.value = value;
+                    },
+                    label: ctrl.xMove.value.round().toString(),
+                    onChangeEnd: (value) {
+                      ctrl.changeTCI();
+                    },
+                  ),
+                ),
+                SizedBox(
+                  width: 50,
+                  child: Text(
+                    '${ctrl.xMove.value.round()}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
+            child: Text(
+              'Movimiento lineal en Y',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+          ),
+          Obx(
+            () => Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: Slider(
+                    min: -115.0,
+                    max: 115.0,
+                    value: ctrl.yMove.value,
+                    onChanged: (value) {
+                      ctrl.yMove.value = value;
+                    },
+                    label: ctrl.yMove.value.round().toString(),
+                    onChangeEnd: (value) {
+                      ctrl.changeTCI();
+                    },
+                  ),
+                ),
+                SizedBox(
+                  width: 50,
+                  child: Text(
+                    '${ctrl.yMove.value.round()}',
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 15,

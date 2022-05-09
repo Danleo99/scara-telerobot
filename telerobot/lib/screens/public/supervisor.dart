@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:telerobot/screens/public/widgets/video_widget.dart';
+//import 'package:telerobot/screens/public/widgets/video_widget.dart';
 import '../widgets/degree_control.dart';
 import '../widgets/video_feedback.dart';
 

@@ -35,7 +35,12 @@ io.on('connection', (socket) => {
 
   socket.on('degreeChange',(change)=>{
     socket.broadcast.emit('moveAbs', change)
-    socket.broadcast.emit('sliderChange', change)
+    socket.broadcast.emit('sliderChange1', change)
+  })
+
+  socket.on('changeTCI',(change)=>{
+    socket.broadcast.emit('moveXY', change)
+    socket.broadcast.emit('sliderChange2', change)
   })
 
   socket.on('startVideo', (session)=>{

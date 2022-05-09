@@ -18,8 +18,8 @@ class OnboardingController extends GetxController {
 }
 
 Future<void> loadUser() async {
-  // final box = GetStorage();
-  // final userData = box.read('user');
+  //final box = GetStorage();
+  //final userData = box.read('user');
   const userData = null;
   if (userData != null) {
     final _user = User.fromJson(userData);

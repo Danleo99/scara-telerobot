@@ -4,15 +4,16 @@ import 'package:get_storage/get_storage.dart';
 import 'package:telerobot/constants/style.dart';
 import 'package:telerobot/controllers/responsive.dart';
 import 'package:telerobot/screens/login.dart';
+//import 'package:telerobot/screens/mobile/mobile.dart';
 import 'package:telerobot/screens/onboarding.dart';
 import 'package:telerobot/screens/public/contact.dart';
-import 'package:telerobot/screens/public/dashboard.dart';
+//import 'package:telerobot/screens/public/dashboard.dart';
 import 'screens/public/home.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 import 'dart:ui' as ui;
 
-void main() {
+void main() async {
   ui.platformViewRegistry.registerViewFactory('iframe', (int viewId) {
     final frame = html.IFrameElement();
     frame.src =
@@ -23,6 +24,7 @@ void main() {
     frame.width = '500';
     return frame;
   });
+  await GetStorage.init();
   runApp(MyApp());
 }
 
@@ -43,9 +45,10 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
             name: '/',
-            page: () => GetPlatform.isMobile ? Onboarding() : DashBoard(),
-            //: ResponsiveWidget(
-            //  desktopScreen: const Home(), mobileScreen: LogIn()),
+            page: () => GetPlatform.isMobile
+                ? Onboarding() //: DashBoard(),
+                : ResponsiveWidget(
+                    desktopScreen: const Home(), mobileScreen: LogIn()),
             transition: Transition.leftToRight),
         GetPage(
           name: '/login',

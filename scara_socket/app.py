@@ -1,7 +1,6 @@
 import socketio
 import cv2 as cv
 import threading, time
-import asyncio
 import json
 ## My Files
 import scara
@@ -75,6 +74,14 @@ def moveAbs(data):
     scara.codo_abs(data['second'])
 
 @sio.event
+def moveXY(data):
+    scara.vel_max_codo(data['speed'])
+    time.sleep(0.015)
+    scara.vel_max_hombro(data['speed'])
+    time.sleep(0.015)
+    scara.mover_xy(data['xMove'],data['yMove'])
+
+@sio.event
 def gcode(data):
     parsedGcode = GcodeParser(data)
     for line in parsedGcode.lines:
@@ -119,7 +126,7 @@ def routine(data):
 
 if __name__ == "__main__":
     try:
-        scara.abrir_puerto('COM5')
+        # scara.abrir_puerto('COM5')
         hiloLeer = threading.Thread(target = scara.leer, daemon = True).start()
         sio.connect('http://localhost:80')
         #camara.threadBoth()

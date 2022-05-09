@@ -133,7 +133,7 @@ def home():#listo
     leido = ''
 
 # Function to detect if the robot needs position up or down the specifyc point
-def mover_xy(x,y):#listo
+def mover_xy(x:int,y:int):#listo
     if(x == 0):
         mover_xy_codo_abajo(x,y)
     else:

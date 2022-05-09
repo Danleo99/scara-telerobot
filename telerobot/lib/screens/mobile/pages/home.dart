@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:telerobot/screens/widgets/notifications.dart';
 import '../../../controllers/dash_controller.dart';
 import '../../../controllers/theme_controller.dart';
 import '../../widgets/robot_card.dart';
@@ -54,26 +54,12 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   'Robots',
                   style: TextStyle(
-                    fontSize: 60,
+                    fontSize: 50,
                     color: Colors.white,
                   ),
                 ),
               ),
-              Expanded(
-                flex: 1,
-                child: IconButton(
-                  icon: const Icon(CupertinoIcons.heart),
-                  onPressed: () {
-                    if (Get.isDarkMode) {
-                      themeController.changeThemeMode(ThemeMode.light);
-                      themeController.saveTheme(false);
-                    } else {
-                      themeController.changeThemeMode(ThemeMode.dark);
-                      themeController.saveTheme(true);
-                    }
-                  },
-                ),
-              ),
+              const Expanded(flex: 1, child: NotificationIcon()),
             ],
           ),
           Padding(

@@ -37,6 +37,8 @@ class DashboardContoller extends GetxController {
   // Sliders
   RxDouble fisrtDegree = 0.0.obs;
   RxDouble secondDegree = 0.0.obs;
+  RxDouble xMove = 0.0.obs;
+  RxDouble yMove = 0.0.obs;
   List<String> speeds = ['100', '250', '500', '750', '1000'];
   int speedSelected = 100;
 
@@ -51,7 +53,7 @@ class DashboardContoller extends GetxController {
   ];
 
   socket.Socket client = socket.io(
-    'http://localhost:80',
+    'http://18.230.53.24:80',
     <String, dynamic>{
       'transports': ['websocket']
     },
@@ -82,9 +84,14 @@ class DashboardContoller extends GetxController {
       setCandidate(can);
     });
 
-    client.on('sliderChange', (positions) async {
+    client.on('sliderChange1', (positions) {
       fisrtDegree.value = positions['first'];
       secondDegree.value = positions['second'];
+    });
+
+    client.on('sliderChange2', (positions) {
+      xMove.value = positions['xMove'];
+      yMove.value = positions['yMove'];
     });
   }
 
@@ -95,6 +102,23 @@ class DashboardContoller extends GetxController {
       "speed": speedSelected
     };
     client.emit('degreeChange', degrees);
+  }
+
+  void changeTCI() {
+    Map degrees = {
+      "xMove": xMove.value.round(),
+      "yMove": yMove.value.round(),
+      "speed": speedSelected
+    };
+    client.emit('changeTCI', degrees);
+  }
+
+  void sendRoutine() {
+    Map message = {
+      "speed": speedSelected,
+      "routine": pointsToSend,
+    };
+    client.emit('runRutine', message);
   }
 
   void home() {
@@ -154,14 +178,6 @@ class DashboardContoller extends GetxController {
         session['candidate'], session['sdpMid'], session['sdpMLineIndex']);
 
     await peerConnection!.addCandidate(candidate);
-  }
-
-  void sendRoutine() {
-    Map message = {
-      "speed": speedSelected,
-      "routine": pointsToSend,
-    };
-    client.emit('runRutine', message);
   }
 
   void logout() {

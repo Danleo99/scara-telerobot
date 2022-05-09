@@ -7,7 +7,7 @@ import 'package:telerobot/screens/mobile/pages/settings.dart';
 import 'package:get/get.dart';
 import '../../controllers/dash_controller.dart';
 
-List pages = [HistoryPage(), HomePage(), const SettingsPage()];
+List pages = [HistoryPage(), HomePage(), SettingsPage()];
 
 class MobileScreen extends StatelessWidget {
   final controller = Get.put(DashboardContoller());
@@ -22,7 +22,7 @@ class MobileScreen extends StatelessWidget {
         color: darkTheme.primaryColor,
         backgroundColor: Colors.transparent,
         items: const [
-          Icon(Icons.history),
+          Icon(Icons.camera_indoor),
           Icon(Icons.home),
           Icon(Icons.account_circle)
         ],
