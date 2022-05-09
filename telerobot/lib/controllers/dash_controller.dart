@@ -35,10 +35,10 @@ class DashboardContoller extends GetxController {
             (r * sin(th * (pi / 180))).round(), false)
   ];
   // Sliders
-  RxDouble fisrtDegree = 0.0.obs;
-  RxDouble secondDegree = 0.0.obs;
-  RxDouble xMove = 0.0.obs;
-  RxDouble yMove = 0.0.obs;
+  RxDouble fisrtDegree = 0.0.obs,
+      secondDegree = 0.0.obs,
+      xMove = 0.0.obs,
+      yMove = 0.0.obs;
   List<String> speeds = ['100', '250', '500', '750', '1000'];
   int speedSelected = 100;
 
