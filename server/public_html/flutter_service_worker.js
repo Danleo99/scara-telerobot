@@ -32,10 +32,10 @@ const RESOURCES = {
 "icons/android-chrome-192x192.png": "d20f84cc6bd9fe307697f4ce4b3c71c9",
 "icons/android-chrome-512x512.png": "e5921a5d95899a3cc9b514b2d1253ea2",
 "icons/apple-touch-icon.png": "b225f1b180da0d392e08f790f6bd6bb1",
-"index.html": "956f0d500c00664e545fab335a74f1a8",
-"/": "956f0d500c00664e545fab335a74f1a8",
+"index.html": "1ebf5e61482a8da300d31d854b78e1c2",
+"/": "1ebf5e61482a8da300d31d854b78e1c2",
 "logo.png": "d20f84cc6bd9fe307697f4ce4b3c71c9",
-"main.dart.js": "d94945088136b2e6bade9e2d9c024576",
+"main.dart.js": "8a8e10a0313da9a977bd4d11c1e23155",
 "manifest.json": "c01280760a57b82465a4fa803725c1cc",
 "version.json": "f5af27600276f39cd89f2a01cccdba8e"
 };

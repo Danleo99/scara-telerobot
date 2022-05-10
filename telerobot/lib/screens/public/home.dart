@@ -69,7 +69,7 @@ class Home extends StatelessWidget {
                             color: const Color.fromARGB(255, 119, 140, 160),
                           ),
                           const Text(
-                            'Comunicacion de tiempo real',
+                            'Comunicacion de baja latencia',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -87,7 +87,7 @@ class Home extends StatelessWidget {
                             color: const Color.fromARGB(255, 119, 140, 160),
                           ),
                           const Text(
-                            'Control robotico',
+                            'Control robotico supervisado ',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -105,7 +105,7 @@ class Home extends StatelessWidget {
                             color: const Color.fromARGB(255, 119, 140, 160),
                           ),
                           const Text(
-                            'Manejo a distancia',
+                            'Programacion a distancia',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,

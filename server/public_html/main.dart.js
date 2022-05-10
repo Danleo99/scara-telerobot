@@ -88625,16 +88625,16 @@ P(a,b){var s,r,q,p,o,n=null,m=t.w,l=b.U(m).f,k=A.aw(b),j=A.oD(!0,n,!0,n,n,!1)
 l=l.a.b
 s=l/2
 r=t.p
-q=A.b([A.ct(A.b([A.hj("images/telerobotColorDark.png",n,n,s),B.RO],r),B.t,B.bv,B.r)],r)
+q=A.b([A.ct(A.b([A.hj("images/telerobotColorDark.png",n,n,s),B.RQ],r),B.t,B.bv,B.r)],r)
 if(b.U(m).f.a.a>=1366)q.push(A.hj("images/abbMove.gif",n,n,l/1.5))
 s=A.b_(n,A.c3(q,B.t,B.bv,B.r),B.k,k.cx,n,n,n,s,n,n,n,n,n,1/0)
 q=A.aw(b)
-p=A.ct(A.b([A.hj("images/clock.gif",B.eP,n,b.U(m).f.a.a>=1366?150:100),B.Re],r),B.t,B.B,B.r)
-o=A.ct(A.b([A.hj("images/rocket.gif",B.eP,n,b.U(m).f.a.a>=1366?150:100),B.RP],r),B.t,B.B,B.r)
-return A.aym(!1,A.ud(B.x7,A.ct(A.b([s,A.b_(n,A.ct(A.b([B.Mz,B.Ru,B.h5,A.c3(A.b([p,o,A.ct(A.b([A.hj("images/world.gif",B.eP,n,b.U(m).f.a.a>=1366?150:100),B.RQ],r),B.t,B.B,B.r)],r),B.t,B.aN,B.r)],r),B.t,B.B,B.r),B.k,q.fy,n,n,n,l/2.5,n,n,n,n,n,1/0)],r),B.t,B.B,B.r),n),j)}}
+p=A.ct(A.b([A.hj("images/clock.gif",B.eP,n,b.U(m).f.a.a>=1366?150:100),B.RD],r),B.t,B.B,B.r)
+o=A.ct(A.b([A.hj("images/rocket.gif",B.eP,n,b.U(m).f.a.a>=1366?150:100),B.Rf],r),B.t,B.B,B.r)
+return A.aym(!1,A.ud(B.x7,A.ct(A.b([s,A.b_(n,A.ct(A.b([B.Mz,B.Ru,B.h5,A.c3(A.b([p,o,A.ct(A.b([A.hj("images/world.gif",B.eP,n,b.U(m).f.a.a>=1366?150:100),B.Rw],r),B.t,B.B,B.r)],r),B.t,B.aN,B.r)],r),B.t,B.B,B.r),B.k,q.fy,n,n,n,l/2.5,n,n,n,n,n,1/0)],r),B.t,B.B,B.r),n),j)}}
 A.M_.prototype={
 P(a,b){var s=null,r=b.U(t.w).f.a,q=A.kU(B.j,1),p=A.fh(10),o=r.a,n=t.p
-return A.c3(A.b([B.D6,A.c9(A.b_(s,A.ct(A.b([B.Rn,A.c9(A.b_(s,new A.hr(new A.a9l(this),s),B.k,s,s,new A.c8(s,s,A.kU(B.j,1),A.fh(10),s,s,B.a_),s,s,s,B.dO,s,s,s,s),1),new A.aS(B.bt,A.ju(B.Eo,B.RJ,new A.a9m(),A.fT(s,s,s,s,s,s,new A.y(o,40),s,s,s,s,s,B.bO,s,B.aP,s,s,s,s)),s),new A.aS(B.bt,A.ju(B.Eh,B.Rh,new A.a9n(this),A.fT(s,s,s,s,s,s,new A.y(o,40),s,s,s,s,s,B.bO,s,B.aP,s,s,s,s)),s)],n),B.t,B.cv,B.r),B.k,s,s,new A.c8(s,s,q,p,s,s,B.a_),s,r.b,s,B.CO,B.bt,s,s,s),1)],n),B.cW,B.B,B.r)}}
+return A.c3(A.b([B.D6,A.c9(A.b_(s,A.ct(A.b([B.Rn,A.c9(A.b_(s,new A.hr(new A.a9l(this),s),B.k,s,s,new A.c8(s,s,A.kU(B.j,1),A.fh(10),s,s,B.a_),s,s,s,B.dO,s,s,s,s),1),new A.aS(B.bt,A.ju(B.Eo,B.RL,new A.a9m(),A.fT(s,s,s,s,s,s,new A.y(o,40),s,s,s,s,s,B.bO,s,B.aP,s,s,s,s)),s),new A.aS(B.bt,A.ju(B.Eh,B.Rh,new A.a9n(this),A.fT(s,s,s,s,s,s,new A.y(o,40),s,s,s,s,s,B.bO,s,B.aP,s,s,s,s)),s)],n),B.t,B.cv,B.r),B.k,s,s,new A.c8(s,s,q,p,s,s,B.a_),s,r.b,s,B.CO,B.bt,s,s,s),1)],n),B.cW,B.B,B.r)}}
 A.a9l.prototype={
 $0(){var s=null,r=this.a,q=r.c.fr
 q=J.t(q.gl(q))
@@ -88669,7 +88669,7 @@ P(a,b){var s=t.p
 return A.ct(A.b([B.Kc,A.c9(A.ct(A.b([A.c3(B.H3,B.t,B.B,B.r),A.c3(B.G_,B.t,B.B,B.r),A.c3(B.H6,B.t,B.B,B.r),A.c3(B.FH,B.t,B.B,B.r)],s),B.t,B.iX,B.r),1)],s),B.cW,B.B,B.r)}}
 A.OB.prototype={
 P(a,b){var s=null,r=b.U(t.w).f.a.a/25,q=t.p
-return A.b_(s,A.c3(A.b([A.dI(s,s,r),A.mS(!1,s,!0,A.hj("images/HorzBlue.png",B.j,s,s),s,!0,s,s,s,s,s,s,s,s,s,new A.afZ(),s,s,s),A.c9(A.c3(A.b([A.mS(!1,s,!0,B.RK,s,!0,s,s,s,s,s,s,s,s,s,new A.ag_(),s,s,s),B.Mw,A.awI(!1,B.Rr,B.k,s,s,s,s,s,new A.ag0(),A.fT(s,s,s,s,s,s,B.Mt,s,s,s,s,s,B.uY.h(0,50),B.by,new A.dm(A.fh(12),B.z),s,s,s,s)),A.dI(s,s,r)],q),B.t,B.cv,B.r),1)],q),B.t,B.bv,B.r),B.k,B.AJ,s,s,s,s,s,s,B.bt,s,s,s)},
+return A.b_(s,A.c3(A.b([A.dI(s,s,r),A.mS(!1,s,!0,A.hj("images/HorzBlue.png",B.j,s,s),s,!0,s,s,s,s,s,s,s,s,s,new A.afZ(),s,s,s),A.c9(A.c3(A.b([A.mS(!1,s,!0,B.RM,s,!0,s,s,s,s,s,s,s,s,s,new A.ag_(),s,s,s),B.Mw,A.awI(!1,B.Rr,B.k,s,s,s,s,s,new A.ag0(),A.fT(s,s,s,s,s,s,B.Mt,s,s,s,s,s,B.uY.h(0,50),B.by,new A.dm(A.fh(12),B.z),s,s,s,s)),A.dI(s,s,r)],q),B.t,B.cv,B.r),1)],q),B.t,B.bv,B.r),B.k,B.AJ,s,s,s,s,s,s,B.bt,s,s,s)},
 gxP(){return B.wY}}
 A.afZ.prototype={
 $0(){return A.asn($.aU(),"/",t.z)},
@@ -88698,7 +88698,7 @@ l=J.f(l.gl(l),2)?B.bO:B.cw
 m=m.k4
 r=A.aa(m).i("al<1,jO<k>>")
 q=t.p
-return A.ct(A.b([new A.aS(B.d0,o,p),new A.aS(B.c_,k,p),new A.aS(B.c_,s,p),new A.aS(B.c_,A.ju(B.Eq,B.Rk,new A.acE(n),A.fT(p,p,p,p,p,p,new A.y(j,40),p,p,p,p,p,l,p,B.aP,p,p,p,p)),p),A.c9(A.ct(A.b([B.Rl,new A.aS(B.d0,A.aGT(B.EA,B.Ry,10,!0,A.au(new A.al(m,new A.acF(),r),!0,r.i("aO.E")),new A.acG(n),t.N),p),new A.aS(B.c_,A.az7(A.ju(B.ig,B.RD,new A.acH(n),A.fT(p,p,p,p,p,p,new A.y(j,40),p,p,p,p,p,B.cw,p,B.aP,p,p,p,p)),"Siempre a velocidad 100",B.QY),p),new A.aS(B.c_,A.ju(B.oA,B.RN,new A.acI(n),A.fT(p,p,p,p,p,p,new A.y(j,40),p,p,p,p,p,B.cw,p,B.aP,p,p,p,p)),p),B.h5,new A.aS(B.c_,A.ju(B.oB,B.xq,new A.acJ(n),A.fT(p,p,p,p,p,p,new A.y(j,40),p,p,p,p,p,B.cw,p,B.aP,p,p,p,p)),p),B.h5],q),B.t,B.cv,B.r),1)],q),B.t,B.B,B.r)},
+return A.ct(A.b([new A.aS(B.d0,o,p),new A.aS(B.c_,k,p),new A.aS(B.c_,s,p),new A.aS(B.c_,A.ju(B.Eq,B.Rk,new A.acE(n),A.fT(p,p,p,p,p,p,new A.y(j,40),p,p,p,p,p,l,p,B.aP,p,p,p,p)),p),A.c9(A.ct(A.b([B.Rl,new A.aS(B.d0,A.aGT(B.EA,B.Rz,10,!0,A.au(new A.al(m,new A.acF(),r),!0,r.i("aO.E")),new A.acG(n),t.N),p),new A.aS(B.c_,A.az7(A.ju(B.ig,B.RF,new A.acH(n),A.fT(p,p,p,p,p,p,new A.y(j,40),p,p,p,p,p,B.cw,p,B.aP,p,p,p,p)),"Siempre a velocidad 100",B.QY),p),new A.aS(B.c_,A.ju(B.oA,B.RP,new A.acI(n),A.fT(p,p,p,p,p,p,new A.y(j,40),p,p,p,p,p,B.cw,p,B.aP,p,p,p,p)),p),B.h5,new A.aS(B.c_,A.ju(B.oB,B.xq,new A.acJ(n),A.fT(p,p,p,p,p,p,new A.y(j,40),p,p,p,p,p,B.cw,p,B.aP,p,p,p,p)),p),B.h5],q),B.t,B.cv,B.r),1)],q),B.t,B.B,B.r)},
 $S:479}
 A.acC.prototype={
 $0(){this.a.c.db.sl(0,0)
@@ -88742,8 +88742,8 @@ n.push(B.K8)
 n.push(new A.hr(new A.a0d(s),r))
 n.push(B.K9)
 n.push(new A.hr(new A.a0e(s),r))
-if(A.yA()||B.b.p($.qR().appVersion,"Android "))n.push(A.c3(A.b([A.c9(new A.aS(B.oh,A.ju(B.ig,B.Rf,new A.a0f(s),A.fT(r,r,r,r,r,r,r,r,r,r,r,r,B.bO,r,B.aP,r,r,r,r)),r),1),A.c9(new A.aS(B.CY,A.ju(B.oA,B.Rv,new A.a0g(s),A.fT(r,r,r,r,r,r,r,r,r,r,r,r,B.bO,r,B.aP,r,r,r,r)),r),1)],o),B.t,B.aN,B.r))
-n.push(new A.aS(B.oh,A.ju(B.Ea,B.RM,new A.a0h(s),A.fT(r,r,r,r,r,r,B.Mu,r,r,r,r,r,B.bO,r,B.aP,r,r,r,r)),r))
+if(A.yA()||B.b.p($.qR().appVersion,"Android "))n.push(A.c3(A.b([A.c9(new A.aS(B.oh,A.ju(B.ig,B.Re,new A.a0f(s),A.fT(r,r,r,r,r,r,r,r,r,r,r,r,B.bO,r,B.aP,r,r,r,r)),r),1),A.c9(new A.aS(B.CY,A.ju(B.oA,B.Rv,new A.a0g(s),A.fT(r,r,r,r,r,r,r,r,r,r,r,r,B.bO,r,B.aP,r,r,r,r)),r),1)],o),B.t,B.aN,B.r))
+n.push(new A.aS(B.oh,A.ju(B.Ea,B.RO,new A.a0h(s),A.fT(r,r,r,r,r,r,B.Mu,r,r,r,r,r,B.bO,r,B.aP,r,r,r,r)),r))
 return A.b_(r,A.ct(n,B.t,B.B,B.r),B.k,r,r,new A.c8(r,r,q,p,r,r,B.a_),r,r,r,B.dO,r,r,r,r)}}
 A.a0b.prototype={
 $0(){var s=null,r=this.a,q=r.c.id,p=q.gl(q)
@@ -88800,7 +88800,7 @@ aH(){return new A.SI(B.l)}}
 A.SI.prototype={
 P(a,b){return new A.tX(new A.am0(),B.Eg,null,t.q3)}}
 A.am0.prototype={
-$1(a){return A.b([new A.nf(new A.am_(a),B.RA,null,t.VA)],t.nm)},
+$1(a){return A.b([new A.nf(new A.am_(a),B.RB,null,t.VA)],t.nm)},
 $S:482}
 A.am_.prototype={
 $0(){A.mN(B.y,new A.alZ(this.a),t.z)},
@@ -88812,7 +88812,7 @@ s=A.ast(r,q)
 return A.k4(r,!0).n3(0,A.aGM(B.G,!0,null,new A.alY(r),r,null,s,!0,t.z))},
 $S:91}
 A.alY.prototype={
-$1(a){return new A.qW(B.RI,B.RT,B.d0,A.b([A.aK9(B.RR,new A.alX(this.a),null)],t.p),null)},
+$1(a){return new A.qW(B.RK,B.RT,B.d0,A.b([A.aK9(B.RR,new A.alX(this.a),null)],t.p),null)},
 $S:483}
 A.alX.prototype={
 $0(){return A.k4(this.a,!1).fe(0)},
@@ -92535,17 +92535,17 @@ B.D2=new A.rD(1,"enabled")
 B.i5=new A.rD(2,"disabled")
 B.bd=new A.yn(0,"tight")
 B.mO=new A.u(!0,B.j,null,null,null,null,50,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.RB=new A.bd("Control",null,B.mO,null,null,null,null,null,null,null,null)
-B.D4=new A.hf(2,B.bd,B.RB,null)
+B.RC=new A.bd("Control",null,B.mO,null,null,null,null,null,null,null,null)
+B.D4=new A.hf(2,B.bd,B.RC,null)
 B.KB=new A.Az(null)
 B.Aj=new A.r6(B.J,null,null,B.KB,null)
 B.D6=new A.hf(2,B.bd,B.Aj,null)
 B.ve=new A.zV(null)
 B.i6=new A.hf(1,B.bd,B.ve,null)
-B.Rz=new A.bd("Cuenta",null,B.mO,null,null,null,null,null,null,null,null)
-B.D8=new A.hf(2,B.bd,B.Rz,null)
-B.Rw=new A.bd("Robots",null,B.mO,null,null,null,null,null,null,null,null)
-B.D9=new A.hf(2,B.bd,B.Rw,null)
+B.RA=new A.bd("Cuenta",null,B.mO,null,null,null,null,null,null,null,null)
+B.D8=new A.hf(2,B.bd,B.RA,null)
+B.Rx=new A.bd("Robots",null,B.mO,null,null,null,null,null,null,null,null)
+B.D9=new A.hf(2,B.bd,B.Rx,null)
 B.DK=new A.JI(61595,"FontAwesomeBrands","font_awesome_flutter",!1)
 B.Dc=new A.rL(B.DK,100,null,null)
 B.DJ=new A.JI(61580,"FontAwesomeBrands","font_awesome_flutter",!1)
@@ -92817,8 +92817,8 @@ B.fz=A.b(s([0,0,65490,45055,65535,34815,65534,18431]),t.t)
 B.FY=A.b(s(["pointerdown","pointermove","pointerup","pointercancel","touchstart","touchend","touchmove","touchcancel","mousedown","mousemove","mouseup","keyup","keydown"]),t.s)
 B.Et=new A.cA(B.ox,50,null,null)
 B.Ke=new A.aS(B.i4,B.Et,null)
-B.Rx=new A.bd("Para generar una rutina puedes ir a la pagina de programador y escoger los puntos por donde se desea que pase el robot, para luego ser guardada en una base de datos o ser enviada a ejecucion",null,B.h7,null,null,null,B.b4,null,null,null,null)
-B.K7=new A.aS(B.eZ,B.Rx,null)
+B.Ry=new A.bd("Para generar una rutina puedes ir a la pagina de programador y escoger los puntos por donde se desea que pase el robot, para luego ser guardada en una base de datos o ser enviada a ejecucion",null,B.h7,null,null,null,B.b4,null,null,null,null)
+B.K7=new A.aS(B.eZ,B.Ry,null)
 B.Da=new A.hf(1,B.bd,B.K7,null)
 B.G_=A.b(s([B.Ke,B.Da]),t.p)
 B.n0=new A.de(0,"DoubleQuote")
@@ -92887,8 +92887,8 @@ B.Gt=A.b(s([B.Q,B.x]),A.a8("q<lR>"))
 B.DT=new A.cJ(58199,"MaterialIcons",null,!0)
 B.Ei=new A.cA(B.DT,null,null,null)
 B.dn=new A.u(!0,B.j,null,null,null,null,15,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.RG=new A.bd("Mas informacion",null,B.dn,null,null,null,null,null,null,null,null)
-B.K6=new A.aS(B.bt,B.RG,null)
+B.RI=new A.bd("Mas informacion",null,B.dn,null,null,null,null,null,null,null,null)
+B.K6=new A.aS(B.bt,B.RI,null)
 B.DS=new A.cJ(58173,"MaterialIcons",null,!1)
 B.En=new A.cA(B.DS,null,null,null)
 B.Gv=A.b(s([B.Ei,B.K6,B.En]),t.p)
@@ -93999,13 +93999,13 @@ B.K4=new A.A3(1,"end")
 B.Vp=new A.L7(1,"clip")
 B.f_=new A.an(10,20,10,10)
 B.dp=new A.u(!0,B.j,null,null,null,null,20,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.RE=new A.bd("Movimiento lineal en X",null,B.dp,B.bm,null,null,null,null,null,null,null)
-B.K8=new A.aS(B.f_,B.RE,null)
-B.RF=new A.bd("Movimiento lineal en Y",null,B.dp,B.bm,null,null,null,null,null,null,null)
-B.K9=new A.aS(B.f_,B.RF,null)
+B.RG=new A.bd("Movimiento lineal en X",null,B.dp,B.bm,null,null,null,null,null,null,null)
+B.K8=new A.aS(B.f_,B.RG,null)
+B.RH=new A.bd("Movimiento lineal en Y",null,B.dp,B.bm,null,null,null,null,null,null,null)
+B.K9=new A.aS(B.f_,B.RH,null)
 B.xn=new A.u(!0,B.j,null,null,null,null,40,B.a6,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.RC=new A.bd("Control Supervisado",null,B.xn,B.bm,null,null,null,null,null,null,null)
-B.Kb=new A.aS(B.d0,B.RC,null)
+B.RE=new A.bd("Control Supervisado",null,B.xn,B.bm,null,null,null,null,null,null,null)
+B.Kb=new A.aS(B.d0,B.RE,null)
 B.CT=new A.an(20,20,20,5)
 B.Rd=new A.bd("Bienvenido a Telerobot",null,B.xn,null,null,null,null,null,null,null,null)
 B.Kc=new A.aS(B.CT,B.Rd,null)
@@ -94015,11 +94015,11 @@ B.Kd=new A.aS(B.f0,B.Rm,null)
 B.Rj=new A.bd("Segundo grado de libertad",null,B.dp,B.bm,null,null,null,null,null,null,null)
 B.Kg=new A.aS(B.f_,B.Rj,null)
 B.CS=new A.an(20,20,20,0)
-B.RL=new A.bd("Cinematica Inversa",null,B.mP,B.bm,null,null,null,null,null,null,null)
-B.Ki=new A.aS(B.CS,B.RL,null)
+B.RN=new A.bd("Cinematica Inversa",null,B.mP,B.bm,null,null,null,null,null,null,null)
+B.Ki=new A.aS(B.CS,B.RN,null)
 B.CR=new A.an(20,10,20,10)
-B.RH=new A.bd("Cinematica Directa",null,B.mP,B.bm,null,null,null,null,null,null,null)
-B.Kk=new A.aS(B.CR,B.RH,null)
+B.RJ=new A.bd("Cinematica Directa",null,B.mP,B.bm,null,null,null,null,null,null,null)
+B.Kk=new A.aS(B.CR,B.RJ,null)
 B.Rq=new A.bd("Primer grado de libertad",null,B.dp,B.bm,null,null,null,null,null,null,null)
 B.Kl=new A.aS(B.f_,B.Rq,null)
 B.Kp=new A.A8(null)
@@ -94586,9 +94586,9 @@ B.Qi=new A.u(!0,B.j,null,".SF UI Text",null,null,null,null,null,null,null,null,n
 B.OJ=new A.u(!0,B.j,null,".SF UI Text",null,null,null,null,null,null,null,null,null,null,null,null,null,B.h,null,null,null,"whiteCupertino labelSmall",null,null,null)
 B.Rc=new A.eM(B.O9,B.PR,B.Q3,B.QL,B.Pp,B.Ow,B.PY,B.Ps,B.PA,B.Qs,B.OG,B.QQ,B.Pk,B.Qi,B.OJ)
 B.xp=new A.Cn(1,"longestLine")
+B.Re=new A.bd("Home",null,null,null,null,null,null,null,null,null,null)
 B.mM=new A.u(!0,B.A,null,null,null,null,20,B.a6,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Re=new A.bd("Comunicacion de tiempo real",null,B.mM,null,null,null,null,null,null,null,null)
-B.Rf=new A.bd("Home",null,null,null,null,null,null,null,null,null,null)
+B.Rf=new A.bd("Control robotico supervisado ",null,B.mM,null,null,null,null,null,null,null,null)
 B.Rh=new A.bd("Ejecutar",null,null,null,null,null,null,null,null,null,null)
 B.dq=new A.u(!0,null,null,null,null,null,20,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Rk=new A.bd("Supervisar",null,B.dq,null,null,null,null,null,null,null,null)
@@ -94604,19 +94604,19 @@ B.Rt=new A.bd("LOGIN",null,null,null,null,null,null,null,null,null,null)
 B.PE=new A.u(!0,B.A,null,null,null,null,30,B.a6,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Ru=new A.bd("Descubre lo que puedes hacer con Telerobot !",null,B.PE,null,null,null,null,null,null,null,null)
 B.Rv=new A.bd("Reset",null,null,null,null,null,null,null,null,null,null)
-B.Ry=new A.bd("100 (Default)",null,null,null,null,null,null,null,null,null,null)
-B.RA=new A.bd("Notificacion para ver que tan grande puede ser el texto dentro del boton",null,null,null,null,null,null,null,null,null,null)
-B.RD=new A.bd("Home",null,B.dq,null,null,null,null,null,null,null,null)
+B.Rw=new A.bd("Programacion a distancia",null,B.mM,null,null,null,null,null,null,null,null)
+B.Rz=new A.bd("100 (Default)",null,null,null,null,null,null,null,null,null,null)
+B.RB=new A.bd("Notificacion para ver que tan grande puede ser el texto dentro del boton",null,null,null,null,null,null,null,null,null,null)
+B.RD=new A.bd("Comunicacion de baja latencia",null,B.mM,null,null,null,null,null,null,null,null)
+B.RF=new A.bd("Home",null,B.dq,null,null,null,null,null,null,null,null)
 B.xq=new A.bd("Logout",null,B.dq,null,null,null,null,null,null,null,null)
-B.RI=new A.bd("Error",null,null,null,null,null,null,null,null,null,null)
-B.RJ=new A.bd("Guardar Puntos",null,null,null,null,null,null,null,null,null,null)
-B.RK=new A.bd("Contacto",null,B.dp,null,null,null,null,null,null,null,null)
-B.RM=new A.bd("Cargar Rutina",null,null,null,null,null,null,null,null,null,null)
-B.RN=new A.bd("Reset",null,B.dq,null,null,null,null,null,null,null,null)
+B.RK=new A.bd("Error",null,null,null,null,null,null,null,null,null,null)
+B.RL=new A.bd("Guardar Puntos",null,null,null,null,null,null,null,null,null,null)
+B.RM=new A.bd("Contacto",null,B.dp,null,null,null,null,null,null,null,null)
+B.RO=new A.bd("Cargar Rutina",null,null,null,null,null,null,null,null,null,null)
+B.RP=new A.bd("Reset",null,B.dq,null,null,null,null,null,null,null,null)
 B.QC=new A.u(!0,B.A,null,null,null,null,25,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.RO=new A.bd("Sistema de teleoperacion para robots de la Universidad EIA",null,B.QC,null,null,null,null,null,null,null,null)
-B.RP=new A.bd("Control robotico",null,B.mM,null,null,null,null,null,null,null,null)
-B.RQ=new A.bd("Manejo a distancia",null,B.mM,null,null,null,null,null,null,null,null)
+B.RQ=new A.bd("Sistema de teleoperacion para robots de la Universidad EIA",null,B.QC,null,null,null,null,null,null,null,null)
 B.RR=new A.bd("Close",null,null,null,null,null,null,null,null,null,null)
 B.RT=new A.bd("Prueba de la notificacion",null,null,null,null,null,null,null,null,null,null)
 B.RU=new A.Cr(0,"system")
